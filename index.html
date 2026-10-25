@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#143e35">
+  <title>Snooker Safety Coach · The Art of Safety</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="Snooker Safety Coach"><span class="brand-icon">S<span>·</span></span><span>SAFETY COACH<small>SNOOKER SAFETY TRAINING</small></span></a>
+  <nav class="mode-switch" aria-label="Training mode"><button id="puzzle-mode" class="active">Safety Puzzles <span>01</span></button><button id="sandbox-mode">Free Table <span>02</span></button></nav>
+  <div class="top-actions"><span class="offline"><i></i> Works offline</span><button class="icon-button" id="help" title="Quick guide" aria-label="Quick guide">?</button></div>
+</header>
+<main>
+  <section class="page-heading"><div><div class="eyebrow">THE ART OF PLAYING SAFE</div><h1 id="page-title">Learn to leave a better safety.</h1><p id="page-subtitle">Draw a route. Test your judgement. Build your safety game.</p></div><div class="progress-summary"><strong id="progress-count">0<span> / 12</span></strong><span>Puzzles attempted</span><div class="progress-track"><i id="progress-fill"></i></div></div></section>
+  <div class="workspace">
+    <aside class="lesson-panel" id="lesson-panel"><div class="panel-heading"><h2>Your practice path</h2><span id="lesson-count">12 puzzles</span></div><div class="lesson-tabs"><span class="active">All puzzles</span><span>Start simple ↗</span></div><div id="lesson-list"></div><div class="sidebar-note"><span>Start with the leave</span><p>Contact is only the beginning.<br>Think about the shot you leave behind.</p></div></aside>
+    <section class="play-area">
+      <div class="table-topline"><div><span class="live-dot"></span><strong id="table-title">Free Table</strong><span id="difficulty" class="tag">Practice</span></div><button id="reset-table" class="text-button">↺ Reset table</button></div>
+      <div class="canvas-wrap"><canvas id="table" aria-label="Snooker table: draw a cue-ball route or drag balls into position" tabindex="0"></canvas><div class="table-status" id="table-status">Click to aim, then take your shot</div></div>
+      <div class="table-legend"><div><span><i class="legend-dot white"></i>Cue ball</span><span><i class="legend-dot red"></i>Object ball</span><span id="student-legend"><i class="legend-line"></i>Your route</span><span id="reference-legend" hidden><i class="legend-line gold"></i>Reference route</span></div><span>12 FT · 3569 × 1778 mm</span></div>
+      <div id="puzzle-toolbar" class="action-bar" hidden><div class="draw-tools"><button id="redraw">↶ Redraw</button><button id="hint">◉ Hint</button><button id="edit-route">◇ Edit points</button></div><button id="submit" class="primary">Analyse shot <span>↗</span></button></div>
+      <div id="sandbox-toolbar" class="action-bar"><div class="draw-tools"><button id="place-mode">○ Place balls</button><button id="replay">↺ Replay</button><button id="undo-shot">Undo shot</button></div><button id="shoot" class="primary">Take shot <span>↗</span></button></div>
+      <div class="instruction-strip" id="instruction"><span class="step-number">01</span><div><strong>Read the table. Plan your shot.</strong><p>Click to aim, set your speed, then select Take shot.</p></div><span class="strip-icon">↗</span></div>
+      <section class="analysis-panel" id="analysis-panel" hidden></section>
+    </section>
+    <aside class="coach-panel"><div id="puzzle-details" hidden></div><div id="sandbox-controls"><div class="panel-heading"><h2>Shot controls</h2><span>SHOT CONTROL</span></div><label class="control">Cue speed <output id="speed-value">1.20 m/s</output><input id="speed" type="range" min="0" max="6" step="0.01" value="1.2"></label><label class="control">Shot angle <output id="angle-value">0.0°</output><input id="angle" type="range" min="-180" max="180" step="0.1" value="0"></label><button id="reset-shot" class="wide subtle">Reset shot</button><div id="spin-section" hidden><div class="section-label">Tip position <span>Max. 0.5R</span></div><div class="spin-wrap"><span class="spin-top">Topspin</span><span class="spin-left">Left spin</span><canvas id="spin" width="180" height="180" aria-label="Tip position: horizontal side spin and vertical top or backspin" tabindex="0"></canvas><span class="spin-right">Right spin</span><span class="spin-bottom">Backspin</span></div><div class="spin-values" id="spin-values">Side spin 0.00R · Top / back 0.00R</div><button id="reset-spin" class="text-button centered">Centre tip</button></div><div id="advanced-controls"></div></div><div class="model-note">Research-informed safety training<br>with a 2D physics model<br><button id="model-info">Model and calibration ↗</button></div></aside>
+  </div>
+</main>
+<footer><span>SAFETY COACH <b> / </b> THINK BEYOND THE SHOT</span><span>Saved locally · No account · No connection needed</span><button id="editor-entry" title="Puzzle editor (Alt+E)" aria-label="Open puzzle editor">◇</button></footer>
+<dialog id="info-dialog"><button class="dialog-close" aria-label="Close">×</button><div id="dialog-content"></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="src/physics.js"></script><script src="src/geometry.js"></script><script src="src/scoring.js"></script><script src="data/puzzles.js"></script><script src="src/renderer.js"></script><script src="src/app.js"></script><script src="src/training.js"></script><script src="src/assessment.js"></script><script src="src/editor.js"></script>
+</body></html>

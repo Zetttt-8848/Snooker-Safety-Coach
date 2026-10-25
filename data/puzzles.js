@@ -1,0 +1,1192 @@
+globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
+  {
+    "id": "rail-touch",
+    "title": "A gentle cushion leave",
+    "category": "0 cushions · Control",
+    "difficulty": "Beginner",
+    "paperClass": "near-cushion",
+    "targetId": "red1",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 2,
+        "y": 0.06
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 2.35,
+        "y": 0.06
+      }
+    ],
+    "referenceShot": {
+      "angle": 0,
+      "cueSpeed": 0.45,
+      "top": 0,
+      "side": 0
+    },
+    "objective": {
+      "type": "rail",
+      "cueZone": {
+        "x": 2.35,
+        "y": 0.06,
+        "radius": 0.18
+      },
+      "targetZone": {
+        "x": 2.65,
+        "y": 0.08,
+        "radius": 0.2
+      }
+    },
+    "acceptance": {
+      "cueCushions": 0,
+      "maxCueRailDistance": 0.04,
+      "minTargetPocketDistance": 0.4
+    },
+    "task": "Touch the red gently and leave the cue ball near the top cushion, behind the red.",
+    "goal": "Hit the red first, use no cushions, finish within 4 cm of the long cushion and leave the red in the right-hand safe area.",
+    "explanation": "Control the speed left in the cue ball. A cushion leave restricts the next stroke, but is not automatically safe. Check that the red stays away from a pocket. This shot needs only a gentle push.",
+    "source": "Paper pp. 14–16, Eqs. (34)–(37), near-cushion benchmark; Dr. Dave, Safeties You Must Master (2020), long-cushion safety.",
+    "hint": "Start along the cue-to-red line and plan a finish in the narrow strip by the long cushion.",
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [],
+      "allCueCushions": [],
+      "pockets": [],
+      "initialBlockedFraction": 0,
+      "initialScreened": false,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.659888905137517,
+      "cueRailDistance": 0.03375,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 0.31176283775941327,
+      "targetTravel": 0.3227981273421725,
+      "targetPocketDistance": 0.8903221681164692,
+      "pocketDistanceGain": 0.32164805229968607,
+      "cueInBaulk": false,
+      "redTotalTravel": 0.3227981273421725
+    }
+  },
+  {
+    "id": "thin-separation",
+    "title": "Thin contact, more distance",
+    "category": "Thin safety · Separation",
+    "difficulty": "Beginner",
+    "paperClass": "open",
+    "targetId": "red1",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 1.1,
+        "y": 0.9
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 1.55,
+        "y": 0.9
+      }
+    ],
+    "referenceShot": {
+      "angle": 6,
+      "cueSpeed": 0.6,
+      "top": 0,
+      "side": 0
+    },
+    "objective": {
+      "type": "distance",
+      "cueZone": {
+        "x": 2.45,
+        "y": 1.35,
+        "radius": 0.24
+      },
+      "targetZone": {
+        "x": 1.65,
+        "y": 0.8,
+        "radius": 0.18
+      }
+    },
+    "acceptance": {
+      "minSeparation": 0.9,
+      "maxTargetTravel": 0.18
+    },
+    "task": "Clip the lower edge of the red and send the cue ball towards the bottom right, moving the red as little as possible.",
+    "goal": "Hit the red first; separate the balls by at least 90 cm while moving the red no more than 18 cm.",
+    "explanation": "A thin contact transfers less normal momentum to the red and leaves more travel in the cue ball. Follow the post-contact direction rather than drawing one straight line. Check that the red also finishes safely.",
+    "source": "Paper p. 4, p. 15 Eq. (35), pp. 20–22; Cuestars Safety: Clipping the Reds; Dr. Dave (2020), Thin-Hit Hide.",
+    "hint": "Aim near the lower edge of the red, leaving room for the cue ball to run towards the bottom right.",
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [],
+      "allCueCushions": [],
+      "pockets": [],
+      "initialBlockedFraction": 0,
+      "initialScreened": false,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.2558899001739239,
+      "cueRailDistance": 0.39081384299802724,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 1.0222560033435106,
+      "targetTravel": 0.12363463913583629,
+      "targetPocketDistance": 0.813184089014079,
+      "pocketDistanceGain": -0.09559214857138942,
+      "cueInBaulk": false,
+      "redTotalTravel": 0.12363463913583629
+    }
+  },
+  {
+    "id": "one-rail-blue",
+    "title": "Around the blue",
+    "category": "1 cushion · Escape",
+    "difficulty": "Foundation",
+    "paperClass": "screened",
+    "targetId": "red1",
+    "objective": {
+      "type": "escape",
+      "cueZone": {
+        "x": 2.7,
+        "y": 0.35,
+        "radius": 0.7
+      }
+    },
+    "acceptance": {
+      "preContactCushions": 1,
+      "initialBlockedFraction": 0.99
+    },
+    "task": "The blue blocks the direct path. Use the top cushion to reach the red, then control the cue-ball finish.",
+    "goal": "Take exactly one cushion before first contact with the red. Avoid the blue and the pockets.",
+    "explanation": "Mirror the target beyond the cushion to find an initial direction, then account for friction and rebound losses. The paper compares first-contact distances: reaching the red is useful only if the blue is not hit first.",
+    "source": "Paper pp. 14–16, Eqs. (34)–(37), screened benchmark; Dr. Dave: Mirror Kick and Bank Shot Aiming System.",
+    "hint": "Look for a return path off the top cushion. Choose the first contact point before planning the leave.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 1,
+        "y": 0.7
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 2.657412215457603,
+        "y": 0.2042911728423104
+      },
+      {
+        "id": "blue",
+        "color": "blue",
+        "x": 1.7458354969559213,
+        "y": 0.4769310277790396
+      }
+    ],
+    "referenceShot": {
+      "angle": -35,
+      "cueSpeed": 1.3,
+      "top": 0,
+      "side": 0
+    },
+    "construction": {
+      "method": "forward-path-then-recheck-all-balls",
+      "seed": {
+        "x": 1,
+        "y": 0.7,
+        "angle": -35,
+        "speed": 1.3
+      },
+      "fraction": 0.35,
+      "blockerFraction": 0.45
+    },
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [
+        "top"
+      ],
+      "allCueCushions": [
+        "top"
+      ],
+      "pockets": [],
+      "initialBlockedFraction": 1,
+      "initialScreened": true,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.356600326097138,
+      "cueRailDistance": 0.2047370668437308,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 0.7733547443186598,
+      "targetTravel": 0.9032138458810217,
+      "targetPocketDistance": 0.39223847385284755,
+      "pocketDistanceGain": -0.5042606166075878,
+      "cueInBaulk": false,
+      "redTotalTravel": 0.9032138458810217
+    }
+  },
+  {
+    "id": "one-rail-short",
+    "title": "Take the short cushion",
+    "category": "1 cushion · Change of angle",
+    "difficulty": "Foundation",
+    "paperClass": "screened",
+    "targetId": "red1",
+    "objective": {
+      "type": "escape",
+      "cueZone": {
+        "x": 2.2,
+        "y": 0.07,
+        "radius": 0.22
+      }
+    },
+    "acceptance": {
+      "preContactCushions": 1,
+      "initialBlockedFraction": 0.99,
+      "minSeparation": 0.8,
+      "maxCueRailDistance": 0.04,
+      "minTargetPocketDistance": 0.45
+    },
+    "task": "The pink blocks the direct route. Rebound from the right cushion, hit the red and leave the cue ball near the top cushion.",
+    "goal": "Use one cushion before the red, finish within 4 cm of the long cushion and separate the balls by at least 80 cm.",
+    "explanation": "Changing to a short cushion changes both the approach angle and the speed lost. Contact is only the first step: keep the cue ball near the long cushion while separating the balls. The mirror line is a starting guide.",
+    "source": "Paper pp. 14–16, Eqs. (34)–(37), screened and near-cushion benchmarks; Dr. Dave: mirror aiming and speed corrections.",
+    "hint": "Use the right cushion for a return path instead of trying to pass through the pink.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 2.7,
+        "y": 1.2
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 2.9929753789077402,
+        "y": 0.36823652324564865
+      },
+      {
+        "id": "pink",
+        "color": "pink",
+        "x": 2.831838920508483,
+        "y": 0.8257064354605419
+      }
+    ],
+    "referenceShot": {
+      "angle": -21,
+      "cueSpeed": 1.95,
+      "top": 0,
+      "side": 0
+    },
+    "construction": {
+      "method": "forward-path-then-recheck-all-balls",
+      "seed": {
+        "x": 2.7,
+        "y": 1.2,
+        "angle": -20,
+        "speed": 1.5
+      },
+      "fraction": 0.35,
+      "blockerFraction": 0.45,
+      "refinement": "bounded angle/speed/top search improved separation and rail position; selected shot independently verified"
+    },
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [
+        "right"
+      ],
+      "allCueCushions": [
+        "right"
+      ],
+      "pockets": [],
+      "initialBlockedFraction": 1,
+      "initialScreened": true,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.3125080453483112,
+      "cueRailDistance": 0.0068575763709778186,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 0.8723437987668635,
+      "targetTravel": 0.31280960622285275,
+      "targetPocketDistance": 0.5207004535236628,
+      "pocketDistanceGain": -0.16296796110182254,
+      "cueInBaulk": false,
+      "redTotalTravel": 0.31280960622285275
+    }
+  },
+  {
+    "id": "hide-brown",
+    "title": "Behind the brown",
+    "category": "Snooker · Brown",
+    "difficulty": "Intermediate",
+    "paperClass": "open → screened",
+    "targetId": "red1",
+    "objective": {
+      "type": "snooker",
+      "cueZone": {
+        "x": 0.6,
+        "y": 0.82,
+        "radius": 0.12
+      }
+    },
+    "acceptance": {
+      "minBlockedFraction": 0.95
+    },
+    "task": "Clip the red, then leave the cue ball in the hiding area to the left of the brown on its official spot.",
+    "goal": "Hit the red first, return towards baulk and let the brown block at least 95% of the red’s contact directions.",
+    "explanation": "Watch the landing window behind the brown. A small speed change can expose the edge of the red again. The continuous occlusion angle is a teaching extension, not a probability from the paper.",
+    "source": "Paper pp. 14–16, Eq. (37), exposure proxy; approved occlusion-angle extension; Dr. Dave: entering a safety zone along the blocking line.",
+    "hint": "After contact with the red, aim to finish to the left of the brown. Do not hit the brown directly.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 0.8354251319576461,
+        "y": 0.12302824140494262
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 0.8354251319576461,
+        "y": 0.5730282414049426
+      },
+      {
+        "id": "brown",
+        "color": "brown",
+        "x": 0.737,
+        "y": 0.889
+      }
+    ],
+    "referenceShot": {
+      "angle": 93,
+      "cueSpeed": 0.6,
+      "top": 0,
+      "side": 0
+    },
+    "construction": {
+      "method": "verified-track-clear-colour-on-official-spot",
+      "baseShot": {
+        "angle": 3,
+        "cueSpeed": 0.6,
+        "top": 0,
+        "side": 0
+      },
+      "rotation": 90
+    },
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [],
+      "allCueCushions": [],
+      "pockets": [],
+      "initialBlockedFraction": 0,
+      "initialScreened": false,
+      "finalDeltaDegrees": 12.346518429744384,
+      "finalBlockedFraction": 1,
+      "finalExposure": 0,
+      "cueRailDistance": 0.5764525562203515,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 0.4882115098266411,
+      "targetTravel": 0.5094186901965764,
+      "targetPocketDistance": 1.0486799555322657,
+      "pocketDistanceGain": 0.03561701743113699,
+      "cueInBaulk": true,
+      "redTotalTravel": 0.5094186901965764
+    }
+  },
+  {
+    "id": "hide-yellow",
+    "title": "The yellow-ball window",
+    "category": "Snooker · Yellow",
+    "difficulty": "Intermediate",
+    "paperClass": "open → screened",
+    "targetId": "red1",
+    "objective": {
+      "type": "snooker",
+      "cueZone": {
+        "x": 0.59,
+        "y": 1.2,
+        "radius": 0.12
+      }
+    },
+    "acceptance": {
+      "minBlockedFraction": 0.95
+    },
+    "task": "Use a thin contact to bring the cue ball to the left of the yellow, which sits on its official D-area spot.",
+    "goal": "Hit the red first and finish behind the yellow with at least 95% of contact directions blocked.",
+    "explanation": "Contact thickness and the last few centimetres matter more than a long route here. Do not draw the cue ball onto the yellow: the centres must remain at least one ball diameter apart.",
+    "source": "Paper pp. 14–16, inflated 2R collision geometry; approved occlusion-angle extension; Dr. Dave: thin-hit hiding shots.",
+    "hint": "Clip the red first, then bring the last segment into the window to the left of the yellow.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 0.9301793861912933,
+        "y": 0.34560451071861653
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 0.9301793861912933,
+        "y": 0.7956045107186165
+      },
+      {
+        "id": "yellow",
+        "color": "yellow",
+        "x": 0.737,
+        "y": 1.181
+      }
+    ],
+    "referenceShot": {
+      "angle": 94,
+      "cueSpeed": 0.6,
+      "top": 0,
+      "side": 0
+    },
+    "construction": {
+      "method": "verified-track-clear-colour-on-official-spot",
+      "baseShot": {
+        "angle": 4,
+        "cueSpeed": 0.6,
+        "top": 0,
+        "side": 0
+      },
+      "rotation": 90
+    },
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [],
+      "allCueCushions": [],
+      "pockets": [],
+      "initialBlockedFraction": 0,
+      "initialScreened": false,
+      "finalDeltaDegrees": 10.6440538254858,
+      "finalBlockedFraction": 1,
+      "finalExposure": 0,
+      "cueRailDistance": 0.5556611597538528,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 0.56601711417453,
+      "targetTravel": 0.4083447918354096,
+      "targetPocketDistance": 0.8997594322550662,
+      "pocketDistanceGain": -0.26765234113695113,
+      "cueInBaulk": true,
+      "redTotalTravel": 0.4083447918354096
+    }
+  },
+  {
+    "id": "hide-blue",
+    "title": "Hide behind the blue",
+    "category": "Snooker · Blue",
+    "difficulty": "Intermediate",
+    "paperClass": "open → screened",
+    "targetId": "red1",
+    "objective": {
+      "type": "snooker",
+      "cueZone": {
+        "x": 1.72,
+        "y": 1.03,
+        "radius": 0.12
+      }
+    },
+    "acceptance": {
+      "minBlockedFraction": 0.95
+    },
+    "task": "Clip the red and stop below the blue on its official spot.",
+    "goal": "Hit the red first. Leave the blue between the cue ball and red, blocking at least 95% of contact directions.",
+    "explanation": "Depth matters. A blue beyond the red does not block the route, even when the directions look similar. A different route deserves credit when it creates equivalent obstruction.",
+    "source": "Paper pp. 14–16, Eq. (34), nearest contact; Eq. (37), exposure; approved occlusion-angle extension.",
+    "hint": "Focus on the area below the blue. Imagine the line from the resting cue ball towards the red.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 0.7185374505235957,
+        "y": 0.5757911836631889
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 1.1685374505235957,
+        "y": 0.5757911836631889
+      },
+      {
+        "id": "blue",
+        "color": "blue",
+        "x": 1.7845,
+        "y": 0.889
+      }
+    ],
+    "referenceShot": {
+      "angle": 3,
+      "cueSpeed": 0.8,
+      "top": 0,
+      "side": 0
+    },
+    "construction": {
+      "method": "verified-track-clear-colour-on-official-spot",
+      "baseShot": {
+        "angle": 3,
+        "cueSpeed": 0.8,
+        "top": 0,
+        "side": 0
+      },
+      "rotation": 0
+    },
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [],
+      "allCueCushions": [],
+      "pockets": [],
+      "initialBlockedFraction": 0,
+      "initialScreened": false,
+      "finalDeltaDegrees": 6.346972292475026,
+      "finalBlockedFraction": 1,
+      "finalExposure": 0,
+      "cueRailDistance": 0.7261079735306049,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 0.9483472889248793,
+      "targetTravel": 1.031999693919688,
+      "targetPocketDistance": 0.3669133955713146,
+      "pocketDistanceGain": -0.47626235689179314,
+      "cueInBaulk": false,
+      "redTotalTravel": 1.031999693919688
+    }
+  },
+  {
+    "id": "two-rail-corridor",
+    "title": "Through the two-cushion corridor",
+    "category": "2 cushions · Escape",
+    "difficulty": "Advanced",
+    "paperClass": "congested",
+    "targetId": "red1",
+    "objective": {
+      "type": "escape",
+      "cueZone": {
+        "x": 3.05,
+        "y": 1.05,
+        "radius": 0.7
+      }
+    },
+    "acceptance": {
+      "preContactCushions": 2,
+      "initialBlockedFraction": 0.99
+    },
+    "task": "The green blocks direct access. Use the top cushion and then the right cushion to reach the red.",
+    "goal": "Take two cushions before first contact with the red. Avoid the green and leave the cue ball in the right-hand recovery area.",
+    "explanation": "Each cushion changes speed and spin, so the second rebound is not simply a copy of the first. Establish the first contact point, then refine the approach to the red after the second cushion.",
+    "source": "Paper pp. 2–4 and 14–16, executable shots and first contact; two cushions are a teaching extension; Dr. Dave: Plus System.",
+    "hint": "Start towards the top long cushion and use the right short cushion to approach the red.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 1.1,
+        "y": 0.9
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 3.157473548578941,
+        "y": 0.9907657081178359
+      },
+      {
+        "id": "green",
+        "color": "green",
+        "x": 2.0258630968605233,
+        "y": 0.9408445686530262
+      }
+    ],
+    "referenceShot": {
+      "angle": -30,
+      "cueSpeed": 2,
+      "top": 0,
+      "side": 0
+    },
+    "construction": {
+      "method": "forward-path-then-recheck-all-balls",
+      "seed": {
+        "x": 1.1,
+        "y": 0.9,
+        "angle": -30,
+        "speed": 2
+      },
+      "fraction": 0.35,
+      "blockerFraction": 0.45
+    },
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [
+        "top",
+        "right"
+      ],
+      "allCueCushions": [
+        "top",
+        "right"
+      ],
+      "pockets": [],
+      "initialBlockedFraction": 1,
+      "initialScreened": true,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.49899234991918556,
+      "cueRailDistance": 0.4098125468019047,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 0.5213733856285591,
+      "targetTravel": 0.5837760978301937,
+      "targetPocketDistance": 0.6882572927993321,
+      "pocketDistanceGain": -0.20005112804019898,
+      "cueInBaulk": false,
+      "redTotalTravel": 0.5837760978301937
+    }
+  },
+  {
+    "id": "two-rail-return",
+    "title": "Two cushions back to safety",
+    "category": "2 cushions · Escape and recover",
+    "difficulty": "Advanced",
+    "paperClass": "congested",
+    "targetId": "red1",
+    "objective": {
+      "type": "escape",
+      "cueZone": {
+        "x": 0.55,
+        "y": 0.75,
+        "radius": 0.7
+      }
+    },
+    "acceptance": {
+      "preContactCushions": 2,
+      "initialBlockedFraction": 0.99
+    },
+    "task": "Go around the brown using the bottom and left cushions, hit the red and keep the cue ball on the left.",
+    "goal": "Take two cushions before the red, then finish in the left-hand area without potting a ball.",
+    "explanation": "Escaping is only the start. The paper separates reliable contact from a safe return. Continue your drawing beyond contact to the actual resting position and check the leave of both balls.",
+    "source": "Paper pp. 5–6 and 20–22; multiple cushions are a teaching extension; Cuestars: checking both cue-ball and red-ball finishes.",
+    "hint": "Use the bottom long cushion first, then rebound from the left short cushion.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 2.4,
+        "y": 0.8
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 0.37753985417315156,
+        "y": 0.7489740180572184
+      },
+      {
+        "id": "brown",
+        "color": "brown",
+        "x": 1.489892934377918,
+        "y": 0.7770383081257484
+      }
+    ],
+    "referenceShot": {
+      "angle": 145,
+      "cueSpeed": 2,
+      "top": 0,
+      "side": 0
+    },
+    "construction": {
+      "method": "forward-path-then-recheck-all-balls",
+      "seed": {
+        "x": 2.4,
+        "y": 0.8,
+        "angle": 145,
+        "speed": 2
+      },
+      "fraction": 0.35,
+      "blockerFraction": 0.45
+    },
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [
+        "bottom",
+        "left"
+      ],
+      "allCueCushions": [
+        "bottom",
+        "left"
+      ],
+      "pockets": [],
+      "initialBlockedFraction": 1,
+      "initialScreened": true,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.5211983601380195,
+      "cueRailDistance": 0.37193891603646545,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 0.48871843504229256,
+      "targetTravel": 0.5431186832384756,
+      "targetPocketDistance": 0.6336112188914481,
+      "pocketDistanceGain": -0.20513690850667554,
+      "cueInBaulk": true,
+      "redTotalTravel": 0.5431186832384756
+    }
+  },
+  {
+    "id": "three-rail-escape",
+    "title": "The three-cushion escape",
+    "category": "3 cushions · Escape",
+    "difficulty": "Challenge",
+    "paperClass": "congested",
+    "targetId": "red1",
+    "objective": {
+      "type": "escape",
+      "cueZone": {
+        "x": 1.3,
+        "y": 0.2,
+        "radius": 0.3
+      }
+    },
+    "acceptance": {
+      "preContactCushions": 3,
+      "initialBlockedFraction": 0.99,
+      "minSeparation": 1.5,
+      "maxCueRailDistance": 0.2,
+      "minTargetPocketDistance": 0.6
+    },
+    "task": "Use the top, right and bottom cushions to get around the pink. Clip the red after the third cushion and bring the cue ball back towards the top.",
+    "goal": "Take exactly three cushions before the red, separate the balls by at least 1.5 m and finish in the top recovery area.",
+    "explanation": "A small error at the first cushion grows over a long route. Adjust one rebound at a time, then refine contact thickness to keep enough separation. This route needs more cue speed than a routine gentle safety. The reference is generated by the engine.",
+    "source": "Paper pp. 2–4 and 20–22; three cushions extend the paper’s planar 0/1-cushion benchmark; Dr. Dave: Corner-5.",
+    "hint": "Start towards the top cushion, then plan consecutive rebounds from the right and bottom cushions.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 1,
+        "y": 0.8
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 2.4805805353850525,
+        "y": 1.466730374228537
+      },
+      {
+        "id": "pink",
+        "color": "pink",
+        "x": 1.6662612409232738,
+        "y": 1.1000286684028415
+      }
+    ],
+    "referenceShot": {
+      "angle": -24.4,
+      "cueSpeed": 4,
+      "top": 0.05,
+      "side": 0
+    },
+    "construction": {
+      "method": "forward-path-then-recheck-all-balls",
+      "seed": {
+        "x": 1,
+        "y": 0.8,
+        "angle": -25,
+        "speed": 3
+      },
+      "fraction": 0.35,
+      "blockerFraction": 0.45,
+      "refinement": "bounded angle/speed/top search improved separation and rail position; selected shot independently verified"
+    },
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [
+        "top",
+        "right",
+        "bottom"
+      ],
+      "allCueCushions": [
+        "top",
+        "right",
+        "bottom"
+      ],
+      "pockets": [],
+      "initialBlockedFraction": 1,
+      "initialScreened": true,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.08819561088443291,
+      "cueRailDistance": 0.1325218628385387,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 1.8211485603170008,
+      "targetTravel": 0.0718332146917591,
+      "targetPocketDistance": 0.6940563251294661,
+      "pocketDistanceGain": -0.06845065298276598,
+      "cueInBaulk": false,
+      "redTotalTravel": 0.0718332146917591
+    }
+  },
+  {
+    "id": "break-off",
+    "title": "A controlled break-off",
+    "category": "Break-off · Return to baulk",
+    "difficulty": "Challenge",
+    "paperClass": "congested",
+    "targetId": "red15",
+    "objective": {
+      "type": "rail",
+      "cueZone": {
+        "x": 0.12,
+        "y": 1.02,
+        "radius": 0.18
+      }
+    },
+    "acceptance": {
+      "cueBaulk": true,
+      "maxRedTotalTravel": 0.5,
+      "fullRack": true,
+      "maxCueRailDistance": 0.04
+    },
+    "task": "From the D, clip the outer red and return to baulk off the cushions. All 15 reds and six colours are on the table.",
+    "goal": "Hit a red first, pot nothing, return the cue ball to baulk near the end cushion and keep the reds compact.",
+    "explanation": "Aim for a repeatable return before chasing a tiny landing window. Watch both the compact red pack and the cue-ball return. Packed collisions are simplified; this reference is not a uniquely optimal real-table break-off.",
+    "source": "Paper pp. 20–22 and numerical model limits; Cuestars Safety: Break Off; The Snooker Gym: Break Off Shot.",
+    "hint": "Clip the outside red and leave a route back to baulk on the left.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 0.6900000000000001,
+        "y": 1.13
+      },
+      {
+        "id": "yellow",
+        "color": "yellow",
+        "x": 0.737,
+        "y": 1.181
+      },
+      {
+        "id": "green",
+        "color": "green",
+        "x": 0.737,
+        "y": 0.597
+      },
+      {
+        "id": "brown",
+        "color": "brown",
+        "x": 0.737,
+        "y": 0.889
+      },
+      {
+        "id": "blue",
+        "color": "blue",
+        "x": 1.7845,
+        "y": 0.889
+      },
+      {
+        "id": "pink",
+        "color": "pink",
+        "x": 2.67675,
+        "y": 0.889
+      },
+      {
+        "id": "black",
+        "color": "black",
+        "x": 3.245,
+        "y": 0.889
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 2.733,
+        "y": 0.889
+      },
+      {
+        "id": "red2",
+        "color": "red",
+        "x": 2.7789,
+        "y": 0.8625
+      },
+      {
+        "id": "red3",
+        "color": "red",
+        "x": 2.7789,
+        "y": 0.9155
+      },
+      {
+        "id": "red4",
+        "color": "red",
+        "x": 2.8248,
+        "y": 0.836
+      },
+      {
+        "id": "red5",
+        "color": "red",
+        "x": 2.8248,
+        "y": 0.889
+      },
+      {
+        "id": "red6",
+        "color": "red",
+        "x": 2.8248,
+        "y": 0.9420000000000001
+      },
+      {
+        "id": "red7",
+        "color": "red",
+        "x": 2.8707000000000003,
+        "y": 0.8095
+      },
+      {
+        "id": "red8",
+        "color": "red",
+        "x": 2.8707000000000003,
+        "y": 0.8625
+      },
+      {
+        "id": "red9",
+        "color": "red",
+        "x": 2.8707000000000003,
+        "y": 0.9155
+      },
+      {
+        "id": "red10",
+        "color": "red",
+        "x": 2.8707000000000003,
+        "y": 0.9685
+      },
+      {
+        "id": "red11",
+        "color": "red",
+        "x": 2.9166000000000003,
+        "y": 0.783
+      },
+      {
+        "id": "red12",
+        "color": "red",
+        "x": 2.9166000000000003,
+        "y": 0.836
+      },
+      {
+        "id": "red13",
+        "color": "red",
+        "x": 2.9166000000000003,
+        "y": 0.889
+      },
+      {
+        "id": "red14",
+        "color": "red",
+        "x": 2.9166000000000003,
+        "y": 0.9420000000000001
+      },
+      {
+        "id": "red15",
+        "color": "red",
+        "x": 2.9166000000000003,
+        "y": 0.995
+      }
+    ],
+    "referenceShot": {
+      "angle": -2.129648535284854,
+      "cueSpeed": 3.2335000000000007,
+      "top": 0.08039999999999997,
+      "side": -0.04959999999999999
+    },
+    "legalTargetIds": [
+      "red1",
+      "red2",
+      "red3",
+      "red4",
+      "red5",
+      "red6",
+      "red7",
+      "red8",
+      "red9",
+      "red10",
+      "red11",
+      "red12",
+      "red13",
+      "red14",
+      "red15"
+    ],
+    "construction": {
+      "method": "bounded full-rack search followed by independent forward verification",
+      "globalOptimality": false
+    },
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red15",
+      "legalFirstContact": true,
+      "preContactCushions": [],
+      "allCueCushions": [
+        "right",
+        "left"
+      ],
+      "pockets": [],
+      "initialBlockedFraction": 0,
+      "initialScreened": false,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.023990793845598005,
+      "cueRailDistance": 0.0018736523316700143,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 2.890716009509899,
+      "targetTravel": 0.0026328888931221013,
+      "targetPocketDistance": 1.0189199654825583,
+      "pocketDistanceGain": -0.00025360167859966865,
+      "cueInBaulk": true,
+      "redTotalTravel": 0.24687344500899566
+    }
+  },
+  {
+    "id": "send-red-safe",
+    "title": "Move the danger away",
+    "category": "Object ball · Safe zone",
+    "difficulty": "Challenge",
+    "paperClass": "near-cushion",
+    "targetId": "red1",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 3.34,
+        "y": 0.08
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 3.26,
+        "y": 0.28
+      }
+    ],
+    "referenceShot": {
+      "angle": 111.80140948635182,
+      "cueSpeed": 0.9,
+      "top": 0,
+      "side": 0
+    },
+    "objective": {
+      "type": "target",
+      "cueZone": {
+        "x": 3.18,
+        "y": 0.48,
+        "radius": 0.16
+      },
+      "targetZone": {
+        "x": 2.63,
+        "y": 1.71,
+        "radius": 0.16
+      }
+    },
+    "acceptance": {
+      "minTargetPocketDistance": 0.65,
+      "minPocketDistanceGain": 0.3,
+      "minSeparation": 1
+    },
+    "task": "Send the red near the top-right corner towards a safe area by the bottom cushion, keeping the cue ball in the upper-right half.",
+    "goal": "Leave the red at least 65 cm from every pocket, inside the lower safe zone, and more than 1 m from the cue ball.",
+    "explanation": "Hiding the cue ball is not enough if the red stays near a pocket. Check the red’s safe zone first, then the cue ball. A cushion is not universally safe; the zone depends on this layout and its pockets.",
+    "source": "Paper pp. 5–6 and 20–22, residual opportunity; Cuestars Safety: Cross Double and Re-Spotted Black safe-zone practice.",
+    "hint": "Move the red away from the top-right corner towards the middle of the bottom cushion. The cue ball need not follow far.",
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [],
+      "allCueCushions": [],
+      "pockets": [],
+      "initialBlockedFraction": 0,
+      "initialScreened": false,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.16367843491966325,
+      "cueRailDistance": 0.360582429459964,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 1.3573886539909124,
+      "targetTravel": 1.5668080595706009,
+      "targetPocketDistance": 0.845084324648075,
+      "pocketDistanceGain": 0.42809391708454353,
+      "cueInBaulk": false,
+      "redTotalTravel": 1.5668080595706009
+    }
+  }
+];

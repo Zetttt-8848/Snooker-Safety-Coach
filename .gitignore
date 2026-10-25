@@ -1,0 +1,7 @@
+# Local research scratch files and preserved earlier deliveries are not releases.
+tmp/
+archive/
+node_modules/
+.DS_Store
+Thumbs.db
+*.log

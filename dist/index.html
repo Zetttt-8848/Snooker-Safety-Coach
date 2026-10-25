@@ -1,0 +1,2358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#143e35">
+  <title>Snooker Safety Coach · The Art of Safety</title>
+  <style>:root{--ink:#213d35;--muted:#829087;--green:#194d3e;--accent:#d2aa64;--paper:#f5f5ee;--line:#e2e5dc;--white:#fff;--mint:#edf2e9;--blue:#8ed9e9;font-family:Inter,"Segoe UI","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--paper);font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:wait}button,a,input,select,textarea{outline-offset:4px}button:focus-visible,a:focus-visible{outline:2px solid var(--accent)}button{border:1px solid var(--line);color:var(--ink);background:white;border-radius:7px;padding:10px 14px;font-size:12px;transition:background .15s,transform .15s}button:hover{background:#edf2e9}button:active{transform:translateY(1px)}[hidden]{display:none!important}.topbar{height:92px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 4%;background:#fafaf6}.brand{display:flex;gap:13px;align-items:center;text-decoration:none;color:var(--ink);font-size:15px;letter-spacing:1.3px;font-weight:700}.brand-icon{height:43px;width:43px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-family:Georgia,serif;font-size:29px;position:relative;font-style:italic}.brand-icon span{position:absolute;color:var(--accent);right:6px;bottom:1px}.brand small{display:block;font-size:10px;letter-spacing:2px;font-weight:400;margin-top:7px;color:#7b8b81}.mode-switch{background:#edf0e8;padding:4px;border:1px solid #e3e8dd;border-radius:10px;display:flex;gap:5px}.mode-switch button{background:none;border:0;min-width:139px;font-size:13px;padding:12px 17px}.mode-switch button.active{background:#fff;box-shadow:0 2px 6px #20382c10;font-weight:600}.mode-switch span{color:#9aa69b;font-size:10px;margin-left:12px}.top-actions{display:flex;align-items:center;gap:20px}.offline{font-size:11px;color:#738676;display:flex;align-items:center;gap:7px}.offline i,.live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#6d9b70}.icon-button{border-radius:50%;width:30px;height:30px;padding:0;font-family:Georgia,serif;font-style:italic}.page-heading{display:flex;justify-content:space-between;align-items:center;padding:38px 0 32px}.eyebrow{font-size:9px;font-weight:700;letter-spacing:2.4px;color:#86967e;margin-bottom:12px}h1{font-size:27px;letter-spacing:1px;font-weight:600;margin:0 0 12px}p{line-height:1.8}.page-heading p{font-size:12px;color:#829084;margin:0}.progress-summary{width:150px;display:flex;flex-direction:column;gap:5px;color:#879382;font-size:10px;letter-spacing:1px}.progress-summary strong{font-size:27px;color:var(--green);font-weight:500;letter-spacing:-1px}.progress-summary strong span{font-size:16px;color:#9baa98}.progress-track{height:3px;background:#e1e7da;width:130px;margin-top:7px}.progress-track i{height:100%;display:block;background:#718d62;width:0;transition:width .4s}main{max-width:1660px;margin:auto;padding:0 4%}.workspace{display:grid;grid-template-columns:216px minmax(450px,1fr) 256px;gap:22px;align-items:start}.lesson-panel,.coach-panel{background:#fbfbf7;border:1px solid var(--line);border-radius:11px;overflow:hidden}.panel-heading{display:flex;align-items:center;justify-content:space-between;padding:20px 17px 15px}.panel-heading h2{font-size:14px;margin:0;font-weight:600}.panel-heading>span{font-size:9px;color:#899585;letter-spacing:.5px}.lesson-tabs{font-size:10px;display:flex;gap:18px;margin:0 17px 13px;color:#9aa293;border-bottom:1px solid var(--line)}.lesson-tabs span{padding:0 0 10px}.lesson-tabs .active{border-bottom:2px solid var(--green);color:var(--green)}#lesson-list{max-height:488px;overflow:auto;padding:0 9px}.lesson{display:flex;gap:11px;align-items:center;width:100%;text-align:left;border:1px solid transparent;background:transparent;margin:3px 0;padding:12px 9px;position:relative}.lesson.active{background:#edf1e7;border-color:#e0e6d6}.lesson-index{font:12px Georgia,serif;color:#a3ac9c;min-width:19px}.lesson.active .lesson-index{color:var(--green)}.lesson strong{display:block;font-size:11px;font-weight:500;margin-bottom:6px}.lesson small{display:block;font-size:9px;color:#96a08f}.lesson .lesson-state{margin-left:auto;font-size:10px;color:#7d966a}.sidebar-note{padding:23px 18px;margin-top:10px;border-top:1px solid var(--line)}.sidebar-note>span{font-size:11px;color:#7f936f}.sidebar-note p{font-size:10px;color:#97a08f;margin-bottom:0}.play-area{min-width:0}.table-topline{display:flex;justify-content:space-between;align-items:center;height:45px;padding:0 3px 12px}.table-topline>div{display:flex;align-items:center;gap:10px}.table-topline strong{font-size:12px;font-weight:600}.tag{font-size:9px;background:#ebeede;color:#87936e;border-radius:4px;padding:4px 7px}.text-button{background:none;border:0;padding:5px;color:#87957f;font-size:10px}.canvas-wrap{position:relative;width:100%;border-radius:12px;overflow:hidden;background:#173d34;box-shadow:0 12px 30px #1d3b2415}#table{display:block;width:100%;aspect-ratio:1.83;touch-action:none;cursor:crosshair}.table-status{position:absolute;left:50%;bottom:3.3%;transform:translateX(-50%);font-size:9px;color:#a4bcab;white-space:nowrap;pointer-events:none;letter-spacing:.5px}.table-legend{display:flex;justify-content:space-between;font-size:9px;color:#8d9c8d;padding:17px 2px}.table-legend>div{display:flex;gap:15px}.table-legend span{display:inline-flex;align-items:center;gap:6px}.legend-dot{width:6px;height:6px;border-radius:50%;display:inline-block}.legend-dot.white{background:white;box-shadow:0 0 0 1px #ccd4c7}.legend-dot.red{background:#b9534f}.legend-line{width:15px;height:2px;background:#73b9c9;display:inline-block}.legend-line.gold{background:var(--accent)}.action-bar{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding:16px 0 23px;gap:10px}.draw-tools{display:flex;gap:6px}.draw-tools button{background:transparent;font-size:10px;border-color:#dde3d7;padding:10px 11px}.draw-tools button.active{background:#e4ebde;border-color:#afc1a6}.primary{background:var(--green);color:white;border:1px solid var(--green);padding:13px 20px;font-size:12px;min-width:145px}.primary:hover{background:#24634b}.primary span{margin-left:18px}.instruction-strip{display:flex;align-items:center;gap:16px;border-radius:9px;padding:18px;background:#eef1e6;border:1px solid #e5e9db}.step-number{font:italic 23px Georgia,serif;color:#9aa78d;min-width:25px}.instruction-strip strong{font-size:12px;font-weight:500}.instruction-strip p{font-size:10px;color:#8d9982;margin:7px 0 0}.strip-icon{font-size:25px;margin-left:auto;color:#aab59c}.coach-panel{padding-bottom:16px}.control{display:block;margin:11px 18px 21px;font-size:11px;color:#64795e}.control output{float:right;font-size:10px;color:#899880;font-variant-numeric:tabular-nums}.control input[type=range]{display:block;width:100%;margin-top:12px;accent-color:var(--green);height:4px;cursor:pointer}.wide{display:block;width:calc(100% - 36px);margin:0 18px 16px}.subtle{background:transparent;font-size:10px;color:#7a8d70}.section-label{font-size:11px;margin:23px 18px 10px}.section-label span{float:right;color:#9ba58f;font-size:9px}.spin-wrap{height:170px;position:relative;display:grid;place-items:center}.spin-wrap canvas{width:135px;height:135px;touch-action:none}.spin-wrap span{position:absolute;font-size:9px;color:#a3ab97}.spin-top{top:0}.spin-bottom{bottom:0}.spin-left{left:18px}.spin-right{right:18px}.spin-values{font-size:9px;text-align:center;color:#8a9980;margin:12px 0 5px}.centered{display:block;margin:auto}.model-note{border-top:1px solid var(--line);margin:22px 17px 0;padding-top:17px;font-size:9px;color:#99a18f;line-height:1.9}.model-note button{background:none;border:0;color:#718869;padding:5px 0;font-size:10px}.checks{padding:13px 18px;border-top:1px solid var(--line);margin-top:20px}.checks label{display:flex;align-items:center;gap:7px;font-size:10px;margin:10px 0;color:#718267;cursor:pointer}.checks input{accent-color:var(--green)}details{border-top:1px solid var(--line);margin-top:10px;padding-top:16px}summary{padding:0 18px;font-size:11px;cursor:pointer;display:flex;justify-content:space-between}summary::after{content:'＋';color:#94a388}details[open] summary::after{content:'－'}.preset-note{font-size:9px;color:#9ba591;margin:12px 18px;line-height:1.7}.ball-tools{padding:16px 18px;border-top:1px solid var(--line);margin-top:17px}.ball-palette{display:flex;gap:8px;flex-wrap:wrap;margin:11px 0}.ball-palette button{height:21px;width:21px;border-radius:50%;padding:0;background:var(--ball);border:2px solid white;box-shadow:0 0 0 1px #d4dacd}.ball-palette button.active{box-shadow:0 0 0 2px #3b6d50}.ball-tools .small-row{display:flex;gap:6px}.small-row button{font-size:9px;padding:8px}.puzzle-intro{padding:19px 18px 4px}.puzzle-intro .eyebrow{font-size:8px;margin:0 0 15px}.puzzle-intro h2{font-size:18px;font-weight:500;line-height:1.6;margin:0 0 13px}.puzzle-intro p{font-size:11px;color:#86957c}.objective{margin:16px 18px 0;padding:15px;background:#eef2e7;border-radius:7px}.objective span{font-size:9px;color:#8b9d79}.objective p{font-size:11px;margin:9px 0 0;line-height:1.9}.coach-tip{margin:21px 18px}.coach-tip h3{font-size:11px;font-weight:500}.coach-tip p{font-size:10px;color:#8d9881;line-height:2}.coach-tip .citation{font-size:9px;color:#acb29f}.tip-icon{color:#a5a67d;margin-right:5px}.level-meta{display:flex;margin:0 18px;gap:18px;border-top:1px solid var(--line);padding-top:16px}.level-meta div{font-size:9px;color:#a3ab97}.level-meta b{display:block;font-size:12px;font-weight:400;color:#6a815d;margin-top:6px}footer{max-width:1660px;padding:33px 4% 22px;margin:auto;font-size:8px;letter-spacing:1px;color:#9da692;display:flex;justify-content:space-between;gap:15px}footer b{font-weight:400;margin:0 13px;color:#c1c7b8}footer button{font-size:12px;padding:0 8px;background:transparent;border:0;color:#aeb79f}dialog{border:1px solid var(--line);border-radius:16px;padding:30px;max-width:680px;width:calc(100% - 32px);max-height:85vh;color:var(--ink);background:#fbfcf7}dialog::backdrop{background:#17392e66;backdrop-filter:blur(4px)}.dialog-close{position:absolute;right:14px;top:12px;border:0;background:none;font-size:20px}dialog h2{font-size:23px;font-weight:500;margin-top:5px}dialog h3{font-size:14px;margin-top:23px}dialog p,dialog li{font-size:12px;line-height:1.9;color:#71836a}dialog a{color:var(--green)}dialog label{display:block;font-size:12px;margin:16px 0}dialog input,dialog textarea,dialog select{display:block;width:100%;padding:10px;margin-top:6px;border:1px solid #dbe2d4;border-radius:5px;background:white;color:var(--ink)}dialog textarea{min-height:80px}#toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#244f3e;color:#fff;font-size:12px;padding:13px 22px;border-radius:8px;box-shadow:0 8px 25px #16392822;transition:.2s;z-index:30;max-width:90vw}#toast.show{opacity:1;transform:translate(-50%,0)}.analysis-panel{margin-top:20px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:23px}.score-heading{display:flex;align-items:center;gap:14px}.score-heading strong{font:42px Georgia,serif;color:var(--green)}.grade{font-size:12px;padding:6px 12px;background:#eaf1e1;border-radius:20px;color:#5c7851}.score-heading small{font-size:10px;color:#98a18f;margin-left:auto}.score-bars{display:grid;grid-template-columns:1fr 1fr;gap:15px 25px;margin:23px 0}.score-bar>div{display:flex;justify-content:space-between;font-size:10px;color:#839376}.score-bar .bar{margin-top:8px;height:5px;background:#edf0e7;border-radius:5px;overflow:hidden}.score-bar i{height:100%;display:block;background:#9bb286}.feedback p{font-size:11px;line-height:1.9;color:#778b69}.feedback .next-step{font-size:12px;color:var(--green);font-weight:500}.feasibility{padding:12px 15px;background:#f6f3e9;border-radius:6px;color:#9a8a63;font-size:10px;line-height:1.9}.metric-row{display:flex;gap:20px;flex-wrap:wrap;font-size:9px;color:#99a38f;margin:16px 0}.analysis-actions{display:flex;justify-content:space-between;gap:10px;margin-top:20px}.analysis-actions button{font-size:10px}.sandbox .workspace{grid-template-columns:minmax(450px,1fr) 288px}.sandbox .lesson-panel{display:none}.sandbox .canvas-wrap{max-width:1100px}.loading{animation:pulse 1s infinite}@keyframes pulse{50%{opacity:.45}}@media(min-width:1500px){.workspace{grid-template-columns:230px minmax(500px,1fr) 270px;gap:28px}h1{font-size:31px}#lesson-list{max-height:570px}}@media(max-width:1180px){main{padding:0 2.5%}.topbar{padding:0 2.5%}.workspace{grid-template-columns:176px minmax(380px,1fr) 225px;gap:14px}.lesson strong{font-size:10px}.lesson{gap:7px}.brand{font-size:12px}.brand small{font-size:8px}.table-legend>span{display:none}.draw-tools button{padding:9px;font-size:9px}.primary{min-width:130px;padding:12px}.coach-panel .panel-heading{padding-left:14px;padding-right:14px}}@media(max-width:960px){.workspace{grid-template-columns:170px minmax(350px,1fr)}.coach-panel{grid-column:2}.sandbox .workspace{grid-template-columns:minmax(350px,1fr) 250px}.sandbox .coach-panel{grid-column:auto}.mode-switch button{min-width:110px}.top-actions .offline{display:none}.page-heading{padding-top:28px}h1{font-size:23px}.progress-summary{width:115px}.progress-track{width:100%}}@media(max-width:680px){.topbar{height:75px;flex-wrap:wrap;padding:10px 4%;gap:10px}.brand-icon{width:32px;height:32px;font-size:22px}.brand{font-size:10px;gap:8px}.brand small{font-size:7px;letter-spacing:1px}.mode-switch{padding:2px}.mode-switch button{min-width:80px;padding:9px;font-size:10px}.mode-switch span{display:none}.top-actions{display:none}main{padding:0 4%}.page-heading{padding:24px 0}.eyebrow{font-size:7px}h1{font-size:20px;letter-spacing:0}.page-heading p{font-size:10px;max-width:250px}.progress-summary{width:72px;font-size:8px}.progress-summary strong{font-size:23px}.progress-summary strong span{font-size:11px}.workspace,.sandbox .workspace{display:flex;flex-direction:column;gap:18px}.lesson-panel{width:100%}.lesson-panel .panel-heading,.lesson-tabs,.sidebar-note{display:none}#lesson-list{display:flex;max-height:none;padding:7px;overflow-x:auto}.lesson{min-width:150px;width:auto;padding:9px}.lesson small{font-size:8px}.play-area,.coach-panel{width:100%}.table-topline strong{font-size:11px}.table-legend{font-size:8px}.table-legend>div{gap:10px}.canvas-wrap{border-radius:8px}.table-status{font-size:7px}.action-bar{padding-bottom:15px}.primary{font-size:11px;min-width:125px}.draw-tools{gap:4px}.draw-tools button{font-size:9px;padding:9px 7px}.instruction-strip{padding:14px;gap:12px}.instruction-strip p{font-size:9px}.table-topline{height:36px}.coach-panel{display:block}.spin-wrap{max-width:220px;margin:auto}.score-bars{gap:14px}.analysis-panel{padding:17px}footer{font-size:6px;letter-spacing:.3px;padding:24px 4%;flex-wrap:wrap}footer span:nth-child(2){display:none}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="Snooker Safety Coach"><span class="brand-icon">S<span>·</span></span><span>SAFETY COACH<small>SNOOKER SAFETY TRAINING</small></span></a>
+  <nav class="mode-switch" aria-label="Training mode"><button id="puzzle-mode" class="active">Safety Puzzles <span>01</span></button><button id="sandbox-mode">Free Table <span>02</span></button></nav>
+  <div class="top-actions"><span class="offline"><i></i> Works offline</span><button class="icon-button" id="help" title="Quick guide" aria-label="Quick guide">?</button></div>
+</header>
+<main>
+  <section class="page-heading"><div><div class="eyebrow">THE ART OF PLAYING SAFE</div><h1 id="page-title">Learn to leave a better safety.</h1><p id="page-subtitle">Draw a route. Test your judgement. Build your safety game.</p></div><div class="progress-summary"><strong id="progress-count">0<span> / 12</span></strong><span>Puzzles attempted</span><div class="progress-track"><i id="progress-fill"></i></div></div></section>
+  <div class="workspace">
+    <aside class="lesson-panel" id="lesson-panel"><div class="panel-heading"><h2>Your practice path</h2><span id="lesson-count">12 puzzles</span></div><div class="lesson-tabs"><span class="active">All puzzles</span><span>Start simple ↗</span></div><div id="lesson-list"></div><div class="sidebar-note"><span>Start with the leave</span><p>Contact is only the beginning.<br>Think about the shot you leave behind.</p></div></aside>
+    <section class="play-area">
+      <div class="table-topline"><div><span class="live-dot"></span><strong id="table-title">Free Table</strong><span id="difficulty" class="tag">Practice</span></div><button id="reset-table" class="text-button">↺ Reset table</button></div>
+      <div class="canvas-wrap"><canvas id="table" aria-label="Snooker table: draw a cue-ball route or drag balls into position" tabindex="0"></canvas><div class="table-status" id="table-status">Click to aim, then take your shot</div></div>
+      <div class="table-legend"><div><span><i class="legend-dot white"></i>Cue ball</span><span><i class="legend-dot red"></i>Object ball</span><span id="student-legend"><i class="legend-line"></i>Your route</span><span id="reference-legend" hidden><i class="legend-line gold"></i>Reference route</span></div><span>12 FT · 3569 × 1778 mm</span></div>
+      <div id="puzzle-toolbar" class="action-bar" hidden><div class="draw-tools"><button id="redraw">↶ Redraw</button><button id="hint">◉ Hint</button><button id="edit-route">◇ Edit points</button></div><button id="submit" class="primary">Analyse shot <span>↗</span></button></div>
+      <div id="sandbox-toolbar" class="action-bar"><div class="draw-tools"><button id="place-mode">○ Place balls</button><button id="replay">↺ Replay</button><button id="undo-shot">Undo shot</button></div><button id="shoot" class="primary">Take shot <span>↗</span></button></div>
+      <div class="instruction-strip" id="instruction"><span class="step-number">01</span><div><strong>Read the table. Plan your shot.</strong><p>Click to aim, set your speed, then select Take shot.</p></div><span class="strip-icon">↗</span></div>
+      <section class="analysis-panel" id="analysis-panel" hidden></section>
+    </section>
+    <aside class="coach-panel"><div id="puzzle-details" hidden></div><div id="sandbox-controls"><div class="panel-heading"><h2>Shot controls</h2><span>SHOT CONTROL</span></div><label class="control">Cue speed <output id="speed-value">1.20 m/s</output><input id="speed" type="range" min="0" max="6" step="0.01" value="1.2"></label><label class="control">Shot angle <output id="angle-value">0.0°</output><input id="angle" type="range" min="-180" max="180" step="0.1" value="0"></label><button id="reset-shot" class="wide subtle">Reset shot</button><div id="spin-section" hidden><div class="section-label">Tip position <span>Max. 0.5R</span></div><div class="spin-wrap"><span class="spin-top">Topspin</span><span class="spin-left">Left spin</span><canvas id="spin" width="180" height="180" aria-label="Tip position: horizontal side spin and vertical top or backspin" tabindex="0"></canvas><span class="spin-right">Right spin</span><span class="spin-bottom">Backspin</span></div><div class="spin-values" id="spin-values">Side spin 0.00R · Top / back 0.00R</div><button id="reset-spin" class="text-button centered">Centre tip</button></div><div id="advanced-controls"></div></div><div class="model-note">Research-informed safety training<br>with a 2D physics model<br><button id="model-info">Model and calibration ↗</button></div></aside>
+  </div>
+</main>
+<footer><span>SAFETY COACH <b> / </b> THINK BEYOND THE SHOT</span><span>Saved locally · No account · No connection needed</span><button id="editor-entry" title="Puzzle editor (Alt+E)" aria-label="Open puzzle editor">◇</button></footer>
+<dialog id="info-dialog"><button class="dialog-close" aria-label="Close">×</button><div id="dialog-content"></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+(function (root) {
+  'use strict';
+  const Coach = root.Coach = root.Coach || {};
+  const R = 0.02625;
+  const TABLE = Object.freeze({
+    width: 3.569, height: 1.778, radius: R, mass: 0.142,
+    baulk: 0.737, dRadius: 0.292, blackOffset: 0.324,
+    // Simplified circular capture regions, not WPBSA pocket templates.
+    pockets: Object.freeze([
+      { id: 'TL', x: 0, y: 0, radius: 0.0445 },
+      { id: 'TM', x: 1.7845, y: 0, radius: 0.051 },
+      { id: 'TR', x: 3.569, y: 0, radius: 0.0445 },
+      { id: 'BL', x: 0, y: 1.778, radius: 0.0445 },
+      { id: 'BM', x: 1.7845, y: 1.778, radius: 0.051 },
+      { id: 'BR', x: 3.569, y: 1.778, radius: 0.0445 }
+    ])
+  });
+  const DEFAULTS = Object.freeze({
+    muSlide: 0.20, muRoll: 0.011, cushionRestitution: 0.70,
+    cushionTangent: 0.60, spinCushion: 1, ballRestitution: 0.94,
+    spinDecay: 8, gravity: 9.81
+  });
+  const DT = 0.001;
+  const EPS = 1e-10;
+  const STOP = 1e-5;
+  const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
+  const copyBall = b => ({ ...b });
+  function createBall(b) {
+    return {
+      id: b.id || 'cue', color: b.color || 'white', x: b.x, y: b.y,
+      vx: b.vx || 0, vy: b.vy || 0, wx: b.wx || 0, wy: b.wy || 0,
+      wz: b.wz || 0, potted: !!b.potted
+    };
+  }
+  function createWorld(balls, params = DEFAULTS) {
+    return { balls: balls.map(createBall), params: { ...DEFAULTS, ...params }, time: 0, events: [], shot: null, _sanitized: false };
+  }
+  // x right, y down. The algebraic angular-velocity coordinates obey
+  // u=(vx-R*wy, vy+R*wx); pure rolling has (wx,wy)=(-vy/R,vx/R).
+  function slip(b) { return { x: b.vx - R * b.wy, y: b.vy + R * b.wx }; }
+  function energy(b) {
+    const I = 0.4 * TABLE.mass * R * R;
+    return 0.5 * TABLE.mass * (b.vx * b.vx + b.vy * b.vy) +
+      0.5 * I * (b.wx * b.wx + b.wy * b.wy + b.wz * b.wz);
+  }
+  function strike(world, shot) {
+    const cue = world.balls.find(b => b.id === 'cue') || world.balls.find(b => b.color === 'white');
+    if (!cue || cue.potted) throw new Error('Put the cue ball back on the table first.');
+    if (isMoving(world)) throw new Error('Wait for all balls to stop.');
+    let top = Number(shot.top) || 0, side = Number(shot.side) || 0;
+    const offset = Math.hypot(top, side);
+    if (offset > 0.5 + 1e-9) throw new RangeError('Combined tip offset must not exceed 0.5R.');
+    const cueSpeed = Number(shot.cueSpeed);
+    if (!Number.isFinite(cueSpeed) || cueSpeed < 0 || cueSpeed > 6) throw new RangeError('Cue speed must be between 0 and 6 m/s.');
+    const angle = Number(shot.angle) || 0, a = angle * Math.PI / 180;
+    // Ideal horizontal impulse from a 0.50 kg cue, tip restitution 0.75.
+    // The off-centre term is the sphere's rotational effective mass.
+    // v_ball = (1+e_tip)*v_cue / (1+m_ball/m_cue+2.5*(b/R)^2).
+    const speed = 1.75 * cueSpeed / (1 + TABLE.mass / 0.5 + 2.5 * (top * top + side * side));
+    cue.vx = speed * Math.cos(a); cue.vy = speed * Math.sin(a);
+    cue.wx = -2.5 * top * cue.vy / R;
+    cue.wy = 2.5 * top * cue.vx / R;
+    cue.wz = -2.5 * side * speed / R;
+    world.shot = { angle, cueSpeed, top, side, initialBallSpeed: speed };
+    return world.shot;
+  }
+  function stopHorizontal(b) { b.vx = b.vy = b.wx = b.wy = 0; }
+  function advanceFree(b, duration, p) {
+    if (b.potted) return;
+    if (b.vx === 0 && b.vy === 0 && b.wx === 0 && b.wy === 0 && b.wz === 0) return;
+    let remaining = duration;
+    const u = slip(b), magnitude = Math.hypot(u.x, u.y);
+    const slideAcceleration = Math.max(0, p.muSlide) * p.gravity;
+    if (magnitude > EPS && slideAcceleration > 0) {
+      const transition = magnitude / (3.5 * slideAcceleration);
+      const h = Math.min(remaining, transition);
+      const ax = -slideAcceleration * u.x / magnitude;
+      const ay = -slideAcceleration * u.y / magnitude;
+      b.x += b.vx * h + 0.5 * ax * h * h;
+      b.y += b.vy * h + 0.5 * ay * h * h;
+      b.vx += ax * h; b.vy += ay * h;
+      b.wx += 2.5 * ay * h / R;
+      b.wy -= 2.5 * ax * h / R;
+      remaining -= h;
+      if (h >= transition - 1e-14) { b.wx = -b.vy / R; b.wy = b.vx / R; }
+    } else if (magnitude > EPS) {
+      // Zero-friction diagnostic case: never force a rolling transition.
+      b.x += b.vx * remaining; b.y += b.vy * remaining; remaining = 0;
+    }
+    if (remaining > 0) {
+      const speed = Math.hypot(b.vx, b.vy), deceleration = Math.max(0, p.muRoll) * p.gravity;
+      if (speed > EPS) {
+        const h = deceleration > 0 ? Math.min(remaining, speed / deceleration) : remaining;
+        const travel = speed * h - 0.5 * deceleration * h * h;
+        b.x += travel * b.vx / speed; b.y += travel * b.vy / speed;
+        const nextSpeed = Math.max(0, speed - deceleration * h);
+        b.vx *= nextSpeed / speed; b.vy *= nextSpeed / speed;
+        b.wx = -b.vy / R; b.wy = b.vx / R;
+      } else { stopHorizontal(b); }
+    }
+    if (Math.hypot(b.vx, b.vy) < STOP && Math.hypot(slip(b).x, slip(b).y) < STOP) stopHorizontal(b);
+    const spinChange = Math.max(0, p.spinDecay) * duration;
+    b.wz = Math.sign(b.wz) * Math.max(0, Math.abs(b.wz) - spinChange);
+  }
+  function cushionImpulse(b, nx, ny, p) {
+    const vn = b.vx * nx + b.vy * ny;
+    if (vn >= 0) return false;
+    const tx = -ny, ty = nx;
+    const vt = b.vx * tx + b.vy * ty;
+    const trueSlip = vt - R * b.wz;
+    let change = -(1 - clamp(p.cushionTangent, 0, 1)) * (vt - Math.max(0, p.spinCushion) * R * b.wz);
+    // A passive tangential impulse cannot add kinetic energy. For a solid
+    // sphere ΔE/m = change*trueSlip + (7/4)*change². The bound also prevents
+    // an extreme user coefficient from making the rail an energy source.
+    if (change * trueSlip > 0) change = 0;
+    change = Math.sign(change) * Math.min(Math.abs(change), 2 * Math.abs(trueSlip) / 3.5);
+    const newNormal = -clamp(p.cushionRestitution, 0, 1) * vn;
+    b.vx = newNormal * nx + (vt + change) * tx;
+    b.vy = newNormal * ny + (vt + change) * ty;
+    b.wz -= 2.5 * change / R;
+    return true;
+  }
+  function pocketAndRails(world, b, time) {
+    if (b.potted) return;
+    for (const pocket of TABLE.pockets) {
+      if (Math.hypot(b.x - pocket.x, b.y - pocket.y) <= pocket.radius) {
+        b.potted = true; stopHorizontal(b); b.wz = 0;
+        world.events.push({ type: 'pocket', id: b.id, pocket: pocket.id, x: b.x, y: b.y, t: time });
+        return;
+      }
+    }
+    function hit(wall, nx, ny) {
+      if (cushionImpulse(b, nx, ny, world.params))
+        world.events.push({ type: 'cushion', id: b.id, wall, x: b.x, y: b.y, t: time });
+    }
+    if (b.x < R) { b.x = R; hit('left', 1, 0); }
+    if (b.x > TABLE.width - R) { b.x = TABLE.width - R; hit('right', -1, 0); }
+    if (b.y < R) { b.y = R; hit('top', 0, 1); }
+    if (b.y > TABLE.height - R) { b.y = TABLE.height - R; hit('bottom', 0, -1); }
+  }
+  function collidePair(a, b, restitution) {
+    let dx = b.x - a.x, dy = b.y - a.y;
+    const square = dx * dx + dy * dy;
+    if (square >= 4 * R * R - 1e-14) return null;
+    const distance = Math.sqrt(square);
+    const nx = distance > EPS ? dx / distance : 1, ny = distance > EPS ? dy / distance : 0;
+    const penetration = 2 * R - distance;
+    // Symmetric positional correction; no spurious change of momentum.
+    const correction = (penetration + 1e-10) * 0.5;
+    a.x -= nx * correction; a.y -= ny * correction;
+    b.x += nx * correction; b.y += ny * correction;
+    const closing = (a.vx - b.vx) * nx + (a.vy - b.vy) * ny;
+    if (closing <= EPS) return null;
+    const impulsePerMass = 0.5 * (1 + clamp(restitution, 0, 1)) * closing;
+    a.vx -= impulsePerMass * nx; a.vy -= impulsePerMass * ny;
+    b.vx += impulsePerMass * nx; b.vy += impulsePerMass * ny;
+    return { nx, ny, impulse: TABLE.mass * impulsePerMass };
+  }
+  function recordContact(world, a, b, contact, time) {
+    if (!contact) return;
+    world.events.push({ type: 'ball', ids: [a.id, b.id], id: a.id, otherId: b.id,
+      x: a.x, y: a.y, positions: { [a.id]: { x: a.x, y: a.y }, [b.id]: { x: b.x, y: b.y } },
+      t: time, ...contact });
+  }
+  function correctOverlaps(world, time, passes = 4) {
+    // Invalid user layouts are separated without inventing an impact when
+    // the relative normal velocity is zero or already separating.
+    for (let pass = 0; pass < passes; pass++) {
+      let corrected = false;
+      for (let i = 0; i < world.balls.length; i++) {
+        const a = world.balls[i]; if (a.potted) continue;
+        for (let j = i + 1; j < world.balls.length; j++) {
+          const b = world.balls[j]; if (b.potted) continue;
+          if ((b.x - a.x) ** 2 + (b.y - a.y) ** 2 < 4 * R * R - 1e-14) {
+            corrected = true;
+            recordContact(world, a, b, collidePair(a, b, world.params.ballRestitution), time);
+          }
+        }
+      }
+      if (!corrected) break;
+    }
+  }
+  function entryFraction(rx, ry, dx, dy, radius) {
+    const a = dx * dx + dy * dy, b = rx * dx + ry * dy;
+    const c = rx * rx + ry * ry - radius * radius;
+    if (c < -1e-13) return 0;
+    if (a < 1e-24 || b >= 0) return null;
+    if (c <= 1e-14) return 0;
+    const discriminant = b * b - a * c;
+    // An exactly tangent path has no normal impulse and is not an impact.
+    if (discriminant <= 0) return null;
+    const fraction = c / (-b + Math.sqrt(discriminant));
+    return fraction >= 0 && fraction <= 1 ? fraction : null;
+  }
+  function firstSweptEvent(world, projected) {
+    let first = null;
+    function offer(fraction, event) {
+      if (fraction !== null && fraction >= 0 && fraction <= 1 && (!first || fraction < first.fraction - 1e-12))
+        first = { fraction, ...event };
+    }
+    for (let i = 0; i < world.balls.length; i++) {
+      const b = world.balls[i], q = projected[i]; if (b.potted) continue;
+      const dx = q.x - b.x, dy = q.y - b.y;
+      if (dx !== 0 || dy !== 0) {
+        for (const pocket of TABLE.pockets) {
+          offer(entryFraction(b.x - pocket.x, b.y - pocket.y, dx, dy, pocket.radius), { type: 'pocket', i, pocket });
+        }
+        if (dx < -EPS && q.x < R) offer(Math.max(0, (R - b.x) / dx), { type: 'cushion', i, wall: 'left', nx: 1, ny: 0 });
+        if (dx > EPS && q.x > TABLE.width - R) offer(Math.max(0, (TABLE.width - R - b.x) / dx), { type: 'cushion', i, wall: 'right', nx: -1, ny: 0 });
+        if (dy < -EPS && q.y < R) offer(Math.max(0, (R - b.y) / dy), { type: 'cushion', i, wall: 'top', nx: 0, ny: 1 });
+        if (dy > EPS && q.y > TABLE.height - R) offer(Math.max(0, (TABLE.height - R - b.y) / dy), { type: 'cushion', i, wall: 'bottom', nx: 0, ny: -1 });
+      }
+      for (let j = i + 1; j < world.balls.length; j++) {
+        const other = world.balls[j], next = projected[j]; if (other.potted) continue;
+        if (q === b && next === other) continue;
+        const rx = other.x - b.x, ry = other.y - b.y;
+        const rdx = next.x - other.x - dx, rdy = next.y - other.y - dy;
+        const fraction = entryFraction(rx, ry, rdx, rdy, 2 * R);
+        if (fraction !== null) {
+          const nx = rx + rdx * fraction, ny = ry + rdy * fraction;
+          if ((b.vx - other.vx) * nx + (b.vy - other.vy) * ny > EPS)
+            offer(fraction, { type: 'ball', i, j });
+        }
+      }
+    }
+    return first;
+  }
+  function applySweptEvent(world, event, time) {
+    const b = world.balls[event.i];
+    if (event.type === 'pocket') {
+      b.potted = true; stopHorizontal(b); b.wz = 0;
+      world.events.push({ type: 'pocket', id: b.id, pocket: event.pocket.id, x: b.x, y: b.y, t: time });
+    } else if (event.type === 'cushion') {
+      if (event.wall === 'left') b.x = R;
+      if (event.wall === 'right') b.x = TABLE.width - R;
+      if (event.wall === 'top') b.y = R;
+      if (event.wall === 'bottom') b.y = TABLE.height - R;
+      if (cushionImpulse(b, event.nx, event.ny, world.params))
+        world.events.push({ type: 'cushion', id: b.id, wall: event.wall, x: b.x, y: b.y, t: time });
+    } else {
+      const other = world.balls[event.j], dx = other.x - b.x, dy = other.y - b.y;
+      const distance = Math.hypot(dx, dy);
+      if (distance > EPS) {
+        // Sweep uses the free-motion chord. Correct its sub-micrometre
+        // acceleration error to the contact manifold before the impulse.
+        const adjustment = (distance - 2 * R + 1e-10) / 2;
+        b.x += adjustment * dx / distance; b.y += adjustment * dy / distance;
+        other.x -= adjustment * dx / distance; other.y -= adjustment * dy / distance;
+      }
+      recordContact(world, b, other, collidePair(b, other, world.params.ballRestitution), time);
+    }
+  }
+  function step(world, dt = DT) {
+    if (!Number.isFinite(dt) || dt <= 0 || dt > 0.1) throw new RangeError('Physics step must be in (0, 0.1] seconds.');
+    // Even callers advancing a larger chunk use the same <=1 ms integration.
+    const count = Math.ceil(dt / DT - 1e-12), h = dt / count;
+    for (let tick = 0; tick < count; tick++) {
+      const end = world.time + h;
+      if (!world._sanitized) {
+        correctOverlaps(world, world.time, 24);
+        for (const b of world.balls) pocketAndRails(world, b, world.time);
+        world._sanitized = true;
+      }
+      let remaining = h, subdivisions = 0, hadEvent = false;
+      while (remaining > 1e-12 && subdivisions++ < 64) {
+        const projected = world.balls.map(b => {
+          if (b.potted || (b.vx === 0 && b.vy === 0 && b.wx === 0 && b.wy === 0 && b.wz === 0)) return b;
+          const next = copyBall(b); advanceFree(next, remaining, world.params); return next;
+        });
+        const event = firstSweptEvent(world, projected);
+        if (!event) {
+          world.balls.forEach((b, i) => { if (b !== projected[i]) Object.assign(b, projected[i]); });
+          world.time += remaining; remaining = 0;
+        } else {
+          hadEvent = true;
+          const elapsed = remaining * event.fraction;
+          for (const b of world.balls) advanceFree(b, elapsed, world.params);
+          world.time += elapsed;
+          applySweptEvent(world, event, world.time);
+          remaining -= elapsed;
+        }
+      }
+      // Dense multi-contact packs remain a sequential approximation. The
+      // bounded fallback prevents a zero-time contact cluster from stalling.
+      if (remaining > 0) for (const b of world.balls) advanceFree(b, remaining, world.params);
+      if (hadEvent || remaining > 0) {
+        correctOverlaps(world, end);
+        for (const b of world.balls) pocketAndRails(world, b, end);
+      }
+      world.time = end;
+    }
+    return world;
+  }
+  function isMoving(world) {
+    return world.balls.some(b => !b.potted && (Math.hypot(b.vx, b.vy) > STOP ||
+      Math.hypot(b.wx, b.wy) * R > STOP));
+  }
+  // Pure vertical spin does not move any centre. We end centre-trajectory
+  // replay when translation/horizontal rotation stop, retaining residual wz.
+  function snapshot(world) { return { t: world.time, balls: world.balls.map(copyBall) }; }
+  function simulate(balls, shot, params = DEFAULTS, options = {}) {
+    const world = createWorld(balls, params);
+    strike(world, shot);
+    const cueId = (world.balls.find(b => b.id === 'cue') || world.balls.find(b => b.color === 'white')).id;
+    const tracks = {};
+    for (const b of world.balls) tracks[b.id] = [{ x: b.x, y: b.y, t: 0 }];
+    const frames = options.recordFrames === false ? [] : [snapshot(world)];
+    const maxTime = options.maxTime === undefined ? 60 : Math.min(60, Math.max(0, options.maxTime));
+    const maxSteps = Math.ceil(maxTime / DT);
+    let lastFrame = 0, lastSample = 0, lastEvent = 0;
+    function record(b, x = b.x, y = b.y, t = world.time) {
+      const list = tracks[b.id], prior = list[list.length - 1];
+      if (Math.hypot(x - prior.x, y - prior.y) > 1e-10 || Math.abs(t - prior.t) > 0.1) list.push({ x, y, t });
+    }
+    let iteration = 0;
+    while (isMoving(world) && iteration < maxSteps) {
+      step(world);
+      for (; lastEvent < world.events.length; lastEvent++) {
+        const e = world.events[lastEvent];
+        if (e.type === 'ball') {
+          for (const id of e.ids) { const b = world.balls.find(item => item.id === id); record(b, e.positions[id].x, e.positions[id].y, e.t); }
+        } else { const b = world.balls.find(item => item.id === e.id); record(b, e.x, e.y, e.t); }
+      }
+      for (const b of world.balls) {
+        const previous = tracks[b.id][tracks[b.id].length - 1];
+        if (Math.hypot(b.x - previous.x, b.y - previous.y) >= 0.01 ||
+          (world.time - lastSample >= 0.02 - EPS && Math.hypot(b.vx, b.vy) > STOP)) record(b);
+      }
+      if (world.time - lastSample >= 0.02 - EPS) lastSample = world.time;
+      if (options.recordFrames !== false && world.time - lastFrame >= 1 / 60 - EPS) {
+        frames.push(snapshot(world)); lastFrame = world.time;
+      }
+      iteration++;
+    }
+    for (const b of world.balls) record(b);
+    if (options.recordFrames !== false && (!frames.length || frames[frames.length - 1].t !== world.time)) frames.push(snapshot(world));
+    return { balls: world.balls.map(copyBall), path: tracks[cueId], tracks, frames,
+      events: world.events, duration: world.time, shot: world.shot, params: { ...world.params },
+      completed: !isMoving(world) };
+  }
+  const api = { TABLE, DEFAULTS, DT, createBall, createWorld, strike, step, isMoving, simulate,
+    slip, energy, advanceFree, cushionImpulse, collidePair, snapshot };
+  Coach.physics = api;
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+})(typeof globalThis !== 'undefined' ? globalThis : window);
+
+</script><script>
+(function (root) {
+  'use strict';
+  const Coach = root.Coach = root.Coach || {};
+  const TABLE = Coach.physics?.TABLE || { width: 3.569, height: 1.778, radius: .02625 };
+  const EPS = 1e-10;
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+  const distance = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+  const copy = p => Number.isFinite(p.t) ? { x: p.x, y: p.y, t: p.t } : { x: p.x, y: p.y };
+
+  function cleanPath(points) {
+    if (!Array.isArray(points)) throw new TypeError('The route must be an array of coordinate points.');
+    const out = [];
+    for (const p of points) {
+      if (!p || !Number.isFinite(p.x) || !Number.isFinite(p.y)) throw new TypeError('The route contains non-finite coordinates.');
+      if (!out.length || distance(p, out[out.length - 1]) > EPS) out.push(copy(p));
+      else if (Number.isFinite(p.t)) out[out.length - 1].t = p.t;
+    }
+    return out;
+  }
+
+  function pointSegmentDistance(p, a, b) {
+    const dx = b.x - a.x, dy = b.y - a.y, squared = dx * dx + dy * dy;
+    if (squared <= EPS * EPS) return distance(p, a);
+    const t = clamp(((p.x - a.x) * dx + (p.y - a.y) * dy) / squared, 0, 1);
+    return Math.hypot(p.x - (a.x + t * dx), p.y - (a.y + t * dy));
+  }
+
+  function pathLength(points) {
+    let length = 0;
+    for (let i = 1; i < points.length; i++) length += distance(points[i - 1], points[i]);
+    return length;
+  }
+
+  function wallDistance(p, wall) {
+    const R = TABLE.radius;
+    return ({ top: p.y - R, right: TABLE.width - R - p.x,
+      bottom: TABLE.height - R - p.y, left: p.x - R })[wall];
+  }
+
+  function wallPoint(p, wall) {
+    const R = TABLE.radius;
+    if (wall === 'top' || wall === 'bottom') {
+      const x = clamp(p.x, R, TABLE.width - R);
+      return { x, y: wall === 'top' ? R : TABLE.height - R, s: x - R };
+    }
+    const y = clamp(p.y, R, TABLE.height - R);
+    return { x: wall === 'left' ? R : TABLE.width - R, y, s: y - R };
+  }
+
+  function supportIndex(points, index, direction, span = .035) {
+    let accumulated = 0, j = index;
+    while (j + direction >= 0 && j + direction < points.length && accumulated < span) {
+      accumulated += distance(points[j], points[j + direction]);
+      j += direction;
+    }
+    return j;
+  }
+
+  function turningAngle(a, b, c) {
+    const ux = b.x - a.x, uy = b.y - a.y, vx = c.x - b.x, vy = c.y - b.y;
+    const n = Math.hypot(ux, uy) * Math.hypot(vx, vy);
+    return n > EPS ? Math.acos(clamp((ux * vx + uy * vy) / n, -1, 1)) : 0;
+  }
+
+  // A contact is a near-rail local extremum followed by a return into the table.
+  // Finishing at a rail, or travelling parallel to it, is not a cushion rebound.
+  function inferredContacts(points, tolerance = .035) {
+    const contacts = [];
+    for (let i = 1; i < points.length - 1; i++) {
+      const p = points[i], a = points[supportIndex(points, i, -1)], b = points[supportIndex(points, i, 1)];
+      for (const wall of ['top', 'right', 'bottom', 'left']) {
+        const d = wallDistance(p, wall), da = wallDistance(a, wall), db = wallDistance(b, wall);
+        if (Math.abs(d) > tolerance || da <= d + .001 || db <= d + .001) continue;
+        if (wallDistance(points[i - 1], wall) < d - EPS || wallDistance(points[i + 1], wall) < d - EPS) continue;
+        if (turningAngle(a, p, b) < .08) continue;
+        const projected = wallPoint(p, wall);
+        const last = contacts[contacts.length - 1];
+        // Nearby hand jitter around one contact is one event, not several banks.
+        if (last && last.wall === wall && i - last.index <= 4 && distance(last, projected) < .06) {
+          if (Math.abs(d) < last.error) contacts[contacts.length - 1] = { wall, ...projected, index: i, error: Math.abs(d) };
+        } else contacts.push({ wall, ...projected, index: i, error: Math.abs(d) });
+      }
+    }
+    return contacts;
+  }
+
+  function smoothPath(points, options = {}) {
+    const input = cleanPath(points);
+    if (input.length < 3) return input;
+    const protectedIndices = new Set([0, input.length - 1]);
+    for (const contact of inferredContacts(input, options.railTolerance ?? .035)) protectedIndices.add(contact.index);
+    // Compare longer chords so sampling jitter does not make every point a cusp.
+    for (let i = 1; i < input.length - 1; i++) {
+      const a = input[supportIndex(input, i, -1)], b = input[supportIndex(input, i, 1)];
+      if (turningAngle(a, input[i], b) > (options.cornerThreshold ?? .65)) protectedIndices.add(i);
+    }
+    return input.map((p, i) => {
+      if (protectedIndices.has(i)) return copy(p);
+      const a = input[i - 1], b = input[i + 1];
+      return { ...copy(p), x: (a.x + 2 * p.x + b.x) / 4, y: (a.y + 2 * p.y + b.y) / 4 };
+    });
+  }
+
+  function simplifyPath(points, tolerance = .008) {
+    const input = cleanPath(points);
+    if (input.length < 3 || tolerance <= 0) return input;
+    const keep = new Set([0, input.length - 1]);
+    // Splitting Douglas-Peucker at rail contacts preserves shallow bank vertices.
+    inferredContacts(input).forEach(c => keep.add(c.index));
+    const anchors = [...keep].sort((a, b) => a - b), stack = [];
+    for (let i = 1; i < anchors.length; i++) stack.push([anchors[i - 1], anchors[i]]);
+    while (stack.length) {
+      const [first, last] = stack.pop();
+      let furthest = -1, largest = tolerance;
+      for (let i = first + 1; i < last; i++) {
+        const d = pointSegmentDistance(input[i], input[first], input[last]);
+        if (d > largest) { largest = d; furthest = i; }
+      }
+      if (furthest >= 0) { keep.add(furthest); stack.push([first, furthest], [furthest, last]); }
+    }
+    return [...keep].sort((a, b) => a - b).map(i => copy(input[i]));
+  }
+
+  function resamplePath(points, step = .01) {
+    if (!(step > 0) || !Number.isFinite(step)) throw new RangeError('Resampling distance must be greater than zero.');
+    const input = cleanPath(points);
+    if (input.length < 2) return input;
+    const total = pathLength(input);
+    if (total / step > 20000) throw new RangeError('The route is too long. Remove some turns and try again.');
+    const out = [copy(input[0])];
+    let travelled = 0, next = step;
+    for (let i = 1; i < input.length; i++) {
+      const a = input[i - 1], b = input[i], length = distance(a, b);
+      while (next < travelled + length - EPS) {
+        const t = (next - travelled) / length;
+        const p = { x: a.x + t * (b.x - a.x), y: a.y + t * (b.y - a.y) };
+        if (Number.isFinite(a.t) && Number.isFinite(b.t)) p.t = a.t + t * (b.t - a.t);
+        out.push(p); next += step;
+      }
+      if (Math.abs(next - (travelled + length)) <= EPS && next < total - EPS) { out.push(copy(b)); next += step; }
+      travelled += length;
+    }
+    if (distance(out[out.length - 1], input[input.length - 1]) > EPS) out.push(copy(input[input.length - 1]));
+    return out;
+  }
+
+  function cushionSignature(points, events, options = {}) {
+    const input = cleanPath(points);
+    if (Array.isArray(events)) {
+      return events.filter(e => e.type === 'cushion' && (!e.id || e.id === (options.ballId || 'cue')))
+        .filter(e => ['top', 'right', 'bottom', 'left'].includes(e.wall))
+        .map(e => {
+          let index = 0, closest = Infinity;
+          input.forEach((p, i) => { const d = Number.isFinite(e.t) && Number.isFinite(p.t) ? Math.abs(e.t - p.t) : distance(p, e); if (d < closest) { closest = d; index = i; } });
+          return { wall: e.wall, ...wallPoint(e, e.wall), index, ...(Number.isFinite(e.t) ? { t: e.t } : {}) };
+        });
+    }
+    return inferredContacts(input, options.tolerance ?? .035).map(({ error, ...c }) => c);
+  }
+
+  function normalizePath(points, options = {}) {
+    let canonical = cleanPath(points);
+    if (options.start) {
+      if (!Number.isFinite(options.start.x) || !Number.isFinite(options.start.y)) throw new TypeError('Invalid cue-ball starting position.');
+      if (!canonical.length) canonical = [copy(options.start)];
+      else canonical[0] = { ...canonical[0], x: options.start.x, y: options.start.y };
+    }
+    if (options.smooth === true) canonical = smoothPath(canonical, options);
+    canonical = simplifyPath(canonical, options.simplifyTolerance ?? .004);
+    if (!Array.isArray(options.events) && options.snapCushions !== false) {
+      for (const c of cushionSignature(canonical)) canonical[c.index] = { ...canonical[c.index], x: c.x, y: c.y };
+    }
+    const cushions = cushionSignature(canonical, options.events);
+    const samples = resamplePath(canonical, options.sampleStep ?? .01);
+    return { points: canonical, samples, length: pathLength(canonical),
+      start: canonical[0] ? copy(canonical[0]) : null, end: canonical.length ? copy(canonical[canonical.length - 1]) : null,
+      cushions, sampleStep: options.sampleStep ?? .01 };
+  }
+
+  function rayCircleDistance(origin, angle, centre, radius = 2 * TABLE.radius) {
+    const dx = centre.x - origin.x, dy = centre.y - origin.y;
+    const along = dx * Math.cos(angle) + dy * Math.sin(angle);
+    const discriminant = radius * radius - (dx * dx + dy * dy - along * along);
+    if (discriminant < -1e-12) return Infinity;
+    const halfChord = Math.sqrt(Math.max(0, discriminant));
+    const enter = along - halfChord, leave = along + halfChord;
+    return leave < -EPS ? Infinity : Math.max(0, enter);
+  }
+
+  // Teaching extension approved by the author. This delta is an angular
+  // measure, NOT the paper's model-error delta or a calibrated probability.
+  // All disks are expanded by the moving cue's radius (Minkowski sum).
+  function occlusion(cue, target, blockers = []) {
+    const rho = 2 * TABLE.radius, d = distance(cue, target);
+    const invalid = reason => ({ valid: false, reason, deltaRadians: 0, deltaDegrees: 0,
+      angularWidth: 0, blockedFraction: 0, exposure: 1, intervals: [], distance: d });
+    if (!Number.isFinite(d) || d < rho - 1e-9) return invalid('The cue and target overlap; the collision cone is undefined.');
+    const active = blockers.filter(b => !b.potted && b !== cue && b !== target &&
+      !(b.id !== undefined && (b.id === cue.id || b.id === target.id)));
+    if (active.some(b => distance(cue, b) < rho - 1e-9)) return invalid('The cue ball overlaps a blocker.');
+    const theta = Math.atan2(target.y - cue.y, target.x - cue.x);
+    const alpha = Math.asin(clamp(rho / d, 0, 1)), cuts = [-alpha, alpha];
+    const wrap = a => Math.atan2(Math.sin(a), Math.cos(a));
+    const addAngle = a => {
+      const relative = wrap(a - theta);
+      if (relative > -alpha + 1e-12 && relative < alpha - 1e-12) cuts.push(relative);
+    };
+    for (const b of active) {
+      const db = distance(cue, b), beta = Math.atan2(b.y - cue.y, b.x - cue.x);
+      const half = Math.asin(clamp(rho / Math.max(db, rho), 0, 1));
+      addAngle(beta - half); addAngle(beta + half);
+      // Entry-depth ordering changes only where the two exclusion-circle
+      // boundaries intersect. Tangent endpoints alone are not sufficient.
+      const between = distance(target, b);
+      if (between > EPS && between <= 2 * rho + EPS) {
+        const mx = (target.x + b.x) / 2, my = (target.y + b.y) / 2;
+        const height = Math.sqrt(Math.max(0, rho * rho - between * between / 4));
+        const px = -(b.y - target.y) / between, py = (b.x - target.x) / between;
+        addAngle(Math.atan2(my + height * py - cue.y, mx + height * px - cue.x));
+        addAngle(Math.atan2(my - height * py - cue.y, mx - height * px - cue.x));
+      }
+    }
+    const sorted = cuts.sort((a, b) => a - b).filter((a, i, list) => !i || a - list[i - 1] > 1e-12);
+    const intervals = [];
+    for (let i = 1; i < sorted.length; i++) {
+      const lo = sorted[i - 1], hi = sorted[i], angle = theta + (lo + hi) / 2;
+      const targetEntry = rayCircleDistance(cue, angle, target, rho);
+      if (active.some(b => rayCircleDistance(cue, angle, b, rho) < targetEntry - 1e-10)) {
+        const previous = intervals[intervals.length - 1];
+        if (previous && Math.abs(previous.end - lo) < 1e-10) previous.end = hi;
+        else intervals.push({ start: lo, end: hi });
+      }
+    }
+    const delta = intervals.reduce((sum, interval) => sum + interval.end - interval.start, 0);
+    // Eq. (37) from the paper: a binary, expanded-disk centre-line test.
+    const centreLineClear = !active.some(b => pointSegmentDistance(b, cue, target) <= rho + 1e-10);
+    return { valid: true, deltaRadians: delta, deltaDegrees: delta * 180 / Math.PI,
+      angularWidth: 2 * alpha, blockedFraction: clamp(delta / (2 * alpha), 0, 1),
+      exposure: centreLineClear ? Math.exp(-d / .75) : 0, centreLineClear,
+      theta, intervals, distance: d };
+  }
+
+  const api = { TABLE, distance, pointSegmentDistance, pathLength, smoothPath, simplifyPath,
+    resamplePath, cushionSignature, normalizePath, turningAngle, wallPoint, rayCircleDistance, occlusion };
+  Coach.geometry = api;
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+})(globalThis);
+
+</script><script>
+(function (root) {
+  'use strict';
+  const Coach = root.Coach = root.Coach || {};
+  const P = Coach.physics || (typeof require !== 'undefined' ? require('./physics.js') : null);
+  const G = Coach.geometry || (typeof require !== 'undefined' ? require('./geometry.js') : null);
+  const R = P.TABLE.radius, DIAGONAL = Math.hypot(P.TABLE.width, P.TABLE.height);
+  const clamp = (v, lo = 0, hi = 1) => Math.max(lo, Math.min(hi, v));
+  const safe = v => Number.isFinite(v) ? clamp(v) : 0;
+  const WALL_NAMES = { top: 'top cushion', right: 'right cushion', bottom: 'bottom cushion', left: 'left cushion' };
+  const cueBall = balls => balls.find(b => b.id === 'cue') || balls.find(b => b.color === 'white');
+  const targetIds = puzzle => puzzle.legalTargetIds?.length ? puzzle.legalTargetIds : [puzzle.targetId];
+
+  function rank({ E, P: path, C, O, objectivelyBetter = false, structureDifferent = false, valid = true }) {
+    if (!valid) return 'Developing';
+    if (E >= .90 && path >= .85 && C >= .80 && O >= .90) return 'Excellent';
+    if (((path < .85 || C < .80 || structureDifferent) && (E >= .90 || O >= .90)) || (objectivelyBetter && O >= .95)) return 'Promising';
+    return 'Developing';
+  }
+
+  function discreteFrechet(a, b) {
+    if (!a.length || !b.length) return Infinity;
+    let previous = new Float64Array(b.length); previous.fill(Infinity);
+    for (let i = 0; i < a.length; i++) {
+      const row = new Float64Array(b.length);
+      for (let j = 0; j < b.length; j++) {
+        const d = G.distance(a[i], b[j]);
+        if (!i && !j) row[j] = d;
+        else row[j] = Math.max(d, Math.min(i ? previous[j] : Infinity,
+          j ? row[j - 1] : Infinity, i && j ? previous[j - 1] : Infinity));
+      }
+      previous = row;
+    }
+    return previous[b.length - 1];
+  }
+
+  function dtwMean(a, b) {
+    if (!a.length || !b.length) return Infinity;
+    let previous = new Float64Array(b.length + 1); previous.fill(Infinity); previous[0] = 0;
+    let counts = new Uint32Array(b.length + 1);
+    for (let i = 1; i <= a.length; i++) {
+      const row = new Float64Array(b.length + 1); row.fill(Infinity);
+      const rowCounts = new Uint32Array(b.length + 1);
+      for (let j = 1; j <= b.length; j++) {
+        let cost = previous[j - 1], count = counts[j - 1];
+        if (previous[j] < cost) { cost = previous[j]; count = counts[j]; }
+        if (row[j - 1] < cost) { cost = row[j - 1]; count = rowCounts[j - 1]; }
+        row[j] = cost + G.distance(a[i - 1], b[j - 1]); rowCounts[j] = count + 1;
+      }
+      previous = row; counts = rowCounts;
+    }
+    return previous[b.length] / counts[b.length];
+  }
+
+  function sequenceDistance(a, b) {
+    let previous = Array.from({ length: b.length + 1 }, (_, i) => i);
+    for (let i = 1; i <= a.length; i++) {
+      const row = [i];
+      for (let j = 1; j <= b.length; j++) row[j] = Math.min(previous[j] + 1, row[j - 1] + 1,
+        previous[j - 1] + (a[i - 1].wall === b[j - 1].wall ? 0 : 1));
+      previous = row;
+    }
+    return previous[b.length];
+  }
+
+  function cushionScore(a, b) {
+    if (!a.length && !b.length) return 1;
+    if (!a.length || !b.length) return 0;
+    const count = Math.exp(-Math.abs(a.length - b.length));
+    const sequence = clamp(1 - sequenceDistance(a, b) / Math.max(a.length, b.length));
+    let coordinates = 0;
+    for (let i = 0; i < Math.min(a.length, b.length); i++) {
+      if (a[i].wall === b[i].wall) coordinates += Math.exp(-(((a[i].s - b[i].s) / .10) ** 2));
+    }
+    coordinates /= Math.max(a.length, b.length);
+    return .25 * count + .35 * sequence + .40 * coordinates;
+  }
+
+  function endpointValidity(cue, balls) {
+    if (!cue || cue.potted) return { valid: false, reason: 'First, adjust the shot to keep the cue ball out of the pocket.' };
+    if (!Number.isFinite(cue.x) || !Number.isFinite(cue.y) || cue.x < R - 1e-5 ||
+      cue.x > P.TABLE.width - R + 1e-5 || cue.y < R - 1e-5 || cue.y > P.TABLE.height - R + 1e-5)
+      return { valid: false, reason: 'First, move the predicted finish inside the playable ball-centre boundary.' };
+    if (balls.some(b => b.id !== cue.id && !b.potted && G.distance(cue, b) < 2 * R - 1e-5))
+      return { valid: false, reason: 'First, separate overlapping balls by at least one ball diameter.' };
+    return { valid: true, reason: '' };
+  }
+
+  function firstContact(result) {
+    const event = result.events?.find(e => e.type === 'ball' && (e.ids?.includes('cue') || e.id === 'cue' || e.otherId === 'cue'));
+    return event ? (event.ids?.find(id => id !== 'cue') || (event.id === 'cue' ? event.otherId : event.id)) : null;
+  }
+
+  function checkResult(puzzle, result) {
+    if (!result?.completed) return { valid: false, reason: 'First, allow the balls to stop before assessing the leave.', firstContactId: null };
+    const cue = cueBall(result.balls), endpoint = endpointValidity(cue, result.balls);
+    if (!endpoint.valid) return { ...endpoint, firstContactId: firstContact(result) };
+    const first = firstContact(result), legal = targetIds(puzzle);
+    if (!first) return { valid: false, reason: 'First, adjust the opening direction to hit a legal target.', firstContactId: null };
+    if (!legal.includes(first)) return { valid: false, reason: 'First, avoid the blocker so that the red is your first contact.', firstContactId: first };
+    if (result.balls.some(b => b.potted && !puzzle.balls.find(old => old.id === b.id)?.potted))
+      return { valid: false, reason: 'First, keep every ball out of the pockets. This puzzle requires a legal, non-potting safety.', firstContactId: first };
+    return { valid: true, reason: '', firstContactId: first };
+  }
+
+  function firstPathContact(points, balls) {
+    let travelled = 0, best = null;
+    for (let i = 1; i < points.length; i++) {
+      const a = points[i - 1], b = points[i], length = G.distance(a, b);
+      if (length < 1e-9) continue;
+      const angle = Math.atan2(b.y - a.y, b.x - a.x);
+      for (const ball of balls) {
+        if (ball.id === 'cue' || ball.color === 'white' || ball.potted) continue;
+        const entry = G.rayCircleDistance(a, angle, ball, 2 * R + .004);
+        if (entry <= length + 1e-9 && (!best || travelled + entry < best.distance)) best = { id: ball.id, distance: travelled + entry };
+      }
+      travelled += length;
+    }
+    return best?.id || null;
+  }
+
+  function zoneQuality(point, zone) {
+    if (!zone) return 0;
+    const radius = Math.max(zone.radius || .15, .025);
+    return Math.exp(-((Math.max(0, G.distance(point, zone) - radius) / radius) ** 2));
+  }
+
+  function outcomeMetrics(puzzle, balls, options = {}) {
+    const cue = cueBall(balls), legalIds = targetIds(puzzle), legality = endpointValidity(cue, balls);
+    const targets = balls.filter(b => legalIds.includes(b.id) && !b.potted);
+    if (!legality.valid || !targets.length) return { valid: false, reason: legality.reason || 'No target ball remains on the table.',
+      deltaDegrees: 0, deltaRadians: 0, blockedFraction: 0, exposure: 1, cueRail: 0, cueRailDistance: Infinity,
+      separation: 0, cueZone: 0, targetSafety: 0, targetPocketDistance: 0, views: [], verified: !!options.verified };
+    const blockers = balls.filter(b => b.id !== cue.id && !legalIds.includes(b.id) && !b.potted);
+    const views = targets.map(target => ({ targetId: target.id, ...G.occlusion(cue, target, blockers) }));
+    const railDistance = Math.max(0, Math.min(cue.x - R, P.TABLE.width - R - cue.x, cue.y - R, P.TABLE.height - R - cue.y));
+    const target = targets.find(b => b.id === puzzle.targetId) || targets[0];
+    const pocketDistance = Math.min(...P.TABLE.pockets.map(p => G.distance(target, p)));
+    // Near-cushion object balls are NOT universally safer (the big-ball effect).
+    // Only an author-declared target zone adds that tactical preference.
+    const targetSafety = puzzle.objective?.targetZone ? zoneQuality(target, puzzle.objective.targetZone) : clamp(pocketDistance / .65);
+    const exposure = Math.max(...views.map(v => v.exposure));
+    return { valid: views.every(v => v.valid), reason: views.find(v => !v.valid)?.reason || '',
+      deltaDegrees: Math.min(...views.map(v => v.deltaDegrees)), deltaRadians: Math.min(...views.map(v => v.deltaRadians)),
+      blockedFraction: Math.min(...views.map(v => v.blockedFraction)), exposure, separation: 1 - exposure,
+      cueRail: Math.exp(-railDistance / .12), cueRailDistance: railDistance,
+      cueZone: zoneQuality(cue, puzzle.objective?.cueZone), targetSafety, targetPocketDistance: pocketDistance,
+      views, verified: !!options.verified };
+  }
+
+  function outcomeScore(puzzle, candidate, reference) {
+    if (!candidate.valid) return { score: 0, objectivelyBetter: false, equivalent: false, components: {} };
+    const defaults = {
+      snooker: { occlusion: .50, separation: .15, cueZone: .10, cueRail: .10, targetSafety: .15 },
+      rail: { cueRail: .45, separation: .30, targetSafety: .20, occlusion: .05 },
+      escape: { separation: .40, targetSafety: .25, cueZone: .15, occlusion: .10, cueRail: .10 },
+      distance: { separation: .50, targetSafety: .25, cueZone: .10, occlusion: .05, cueRail: .10 },
+      target: { targetSafety: .60, separation: .20, cueRail: .10, occlusion: .05, cueZone: .05 }
+    };
+    const weights = { ...(puzzle.objective?.weights || defaults[puzzle.objective?.type] || defaults.escape) };
+    if (!puzzle.objective?.cueZone && weights.cueZone) { weights.separation = (weights.separation || 0) + weights.cueZone; delete weights.cueZone; }
+    if (reference.deltaRadians < 1e-9 && weights.occlusion) { weights.separation = (weights.separation || 0) + weights.occlusion; delete weights.occlusion; }
+    const components = {}; let sum = 0, totalWeight = 0;
+    for (const [key, weight] of Object.entries(weights)) {
+      if (!(weight > 0)) continue;
+      const cv = key === 'occlusion' ? candidate.deltaRadians : candidate[key];
+      const rv = key === 'occlusion' ? reference.deltaRadians : reference[key];
+      if (!Number.isFinite(cv) || !Number.isFinite(rv)) continue;
+      const value = rv <= 1e-9 ? (cv >= rv ? 1 : 0) : clamp(cv / rv);
+      components[key] = { value, weight, actual: cv, reference: rv };
+      sum += weight * value; totalWeight += weight;
+    }
+    const comparable = [
+      [candidate.deltaDegrees, reference.deltaDegrees, .02],
+      [candidate.cueRail, reference.cueRail, .005],
+      [candidate.targetSafety, reference.targetSafety, .005],
+      [candidate.separation, reference.separation, .005]
+    ];
+    const noWorse = comparable.every(([a, b, tolerance]) => a >= b - tolerance);
+    const strictlyBetter = comparable.some(([a, b, tolerance]) => a > b + tolerance);
+    return { score: totalWeight ? clamp(sum / totalWeight) : 0, objectivelyBetter: noWorse && strictlyBetter,
+      equivalent: noWorse, components };
+  }
+
+  function cushionErrors(student, reference) {
+    const out = [];
+    for (let i = 0; i < Math.max(student.length, reference.length); i++) {
+      const a = student[i], b = reference[i];
+      if (!a || !b || a.wall !== b.wall) {
+        const point = a || b;
+        out.push({ x: point.x, y: point.y, wall: point.wall, index: i, distance: null, differentWall: true,
+          text: !a ? `Contact ${i + 1}: missing ${WALL_NAMES[b.wall]}` : !b ? `Extra cushion contact ${i + 1}` : `Contact ${i + 1}: ${WALL_NAMES[a.wall]} / reference: ${WALL_NAMES[b.wall]}` });
+      } else {
+        const signed = a.s - b.s, direction = a.wall === 'top' || a.wall === 'bottom' ? (signed > 0 ? 'right' : 'left') : (signed > 0 ? 'down' : 'up');
+        out.push({ x: a.x, y: a.y, wall: a.wall, index: i, distance: Math.abs(signed), signed, direction,
+          text: `Contact ${i + 1}: ${Math.abs(signed) < .001 ? 'matched' : `${(Math.abs(signed) * 100).toFixed(1)} cm ${direction}`}` });
+      }
+    }
+    return out;
+  }
+
+  function coachFeedback(result) {
+    const { grade, diagnostics: d, outcome, student, reference } = result;
+    const messages = [], keyError = d.cushionErrors.find(e => e.differentWall || e.distance > .01);
+    const dx = d.scoredEndpoint.x - reference.end.x, dy = d.scoredEndpoint.y - reference.end.y;
+    const horizontal = Math.abs(dx) > .005 ? (dx > 0 ? 'left' : 'right') : '', vertical = Math.abs(dy) > .005 ? (dy > 0 ? 'up' : 'down') : '';
+    const direction = [horizontal,vertical].filter(Boolean).join(' and ');
+    let action;
+    if (!d.legality.valid) action = d.legality.reason;
+    else if (keyError?.differentWall) action = `First, check turn ${keyError.index + 1}: the ball must reach a cushion before rebounding.`;
+    else if (keyError) {
+      const opposite = { left: 'right', right: 'left', up: 'down', down: 'up' }[keyError.direction];
+      action = `First, move cushion contact ${keyError.index + 1} about ${(keyError.distance * 100).toFixed(1)} cm ${opposite}, then try again.`;
+    } else if (d.endpointDistance > .01) action = `First, move your predicted finish about ${(d.endpointDistance * 100).toFixed(1)} cm ${direction} and check the final segment.`;
+    else action = 'First, check where both balls finish after legal contact, then refine the red-ball safety zone.';
+    if (grade === 'Developing') messages.push(action);
+    const count = student.cushions.length, sequence = student.cushions.map(c => WALL_NAMES[c.wall]).join(' → ');
+    messages.push(`You chose ${count ? `a ${count}-cushion route (${sequence})` : 'a direct route without a cushion'}, finishing at your intended cue-ball leave.`);
+    if (keyError) messages.push(`First key difference: ${keyError.text}. ${keyError.differentWall ? 'A different cushion sequence can work; the real rebounds and final safety are what matter.' : 'This is the distance along the cushion from the reference contact, not a claim that only one route is correct.'}`);
+    else messages.push('Your cushion sequence and contact points are close. Now check separation and obstruction after contact.');
+    if ((grade === 'Promising' && result.O >= .90) || outcome.objectivelyBetter) {
+      const quality = outcome.objectivelyBetter ? 'equivalent to or better than the reference' : 'equivalent to the reference';
+      messages.push(`${outcome.actual.verified ? 'This shot is' : 'In this geometric estimate, the route is'} ${quality}. The endpoint differs by ${(d.endpointDistance * 100).toFixed(1)} cm, but ${outcome.actual.verified ? 'the safety outcome is comparable. Keep the effective leave rather than copying the line.' : 'the assumed final layout gives comparable metrics. Object-ball movement still needs physical verification.'}`);
+    } else if (d.endpointDistance <= .001) {
+      messages.push('Your endpoint matches. Keep the same speed and angle.');
+    } else {
+      const points = reference.points, a = points[Math.max(0, points.length - 2)], b = reference.end;
+      const length = G.distance(a, b), along = length ? (dx * (b.x - a.x) + dy * (b.y - a.y)) / length : 0;
+      const tenths = Math.max(.2, Math.min(4, Math.abs(Math.sqrt(Math.max(.1, 1 + along / Math.max(reference.length, .1))) - 1) * 10));
+      messages.push(`Endpoint error: ${(d.endpointDistance * 100).toFixed(1)} cm. ${Math.abs(along) > .01 ? `You ${along > 0 ? 'overshot' : 'finished short'} along the final direction. Try ${along > 0 ? 'reducing' : 'increasing'} speed by about ${(tenths*10).toFixed(0)}%, then test it. This is an estimate for the same route only.` : 'The error is mainly lateral. Adjust the last cushion angle or contact thickness before changing speed.'}`);
+    }
+    if (!outcome.actual.verified) messages.push('This is a geometric estimate only. Object-ball movement is unverified; the reference red-ball finish has not been copied into your result.');
+    messages.push(grade === 'Excellent' ? 'A controlled route and a precise leave. Keep that rhythm and try the next puzzle.' : 'Keep choosing the leave before the route. Change one contact point at a time so you can see what improves.');
+    return messages;
+  }
+
+  function evaluate({ puzzle, studentPath, reference, realized = null, feasibility = null }) {
+    const initialCue = cueBall(puzzle.balls);
+    const startDistance = studentPath.length ? G.distance(studentPath[0], initialCue) : Infinity;
+    const student = G.normalizePath(studentPath, { start: initialCue });
+    const ref = G.normalizePath(reference.path, { start: initialCue, events: reference.events });
+    if (!student.end || !ref.end) throw new Error('A route needs both a start and an endpoint.');
+    const scoredEndpoint = realized ? cueBall(realized.balls) : student.end;
+    const endpointDistance = scoredEndpoint ? G.distance(scoredEndpoint, ref.end) : Infinity;
+    const E = Math.exp(-((endpointDistance / R) ** 2));
+    const pathDistance = discreteFrechet(student.samples, ref.samples);
+    const pathScore = Math.exp(-((pathDistance / (DIAGONAL * .08)) ** 2));
+    const C = cushionScore(student.cushions, ref.cushions);
+    const referenceMetrics = outcomeMetrics(puzzle, reference.balls, { verified: true });
+    const hypothetical = puzzle.balls.map(b => b.id === initialCue.id ? { ...b, x: student.end.x, y: student.end.y } : { ...b });
+    const actual = outcomeMetrics(puzzle, realized?.balls || hypothetical, { verified: !!realized });
+    let legality;
+    if (realized) legality = checkResult(puzzle, realized);
+    else {
+      const first = firstPathContact(student.points, puzzle.balls), endpoint = endpointValidity(cueBall(hypothetical), hypothetical);
+      legality = !endpoint.valid ? endpoint : !first ? { valid: false, reason: 'First, route the cue ball to a legal target, then plan the leave.' } :
+        !targetIds(puzzle).includes(first) ? { valid: false, reason: 'First, avoid the blocker in the opening segment and make first contact with a red.' } : { valid: true, reason: '', unverified: true };
+      legality.firstContactId = first;
+    }
+    if (startDistance > R) legality = { valid: false, reason: 'First, start near the cue-ball centre and draw the complete route.', firstContactId: legality.firstContactId };
+    const outcome = { ...outcomeScore(puzzle, actual, referenceMetrics), actual, reference: referenceMetrics };
+    if (!legality.valid) { outcome.score = 0; outcome.objectivelyBetter = false; outcome.equivalent = false; }
+    const O = outcome.score, grade = rank({ E, P: pathScore, C, O, objectivelyBetter: outcome.objectivelyBetter,
+      structureDifferent: !sameSignature(student.cushions, ref.cushions), valid: legality.valid });
+    const result = { E: safe(E), P: safe(pathScore), C: safe(C), O: safe(O),
+      total: 100 * (.45 * safe(O) + .25 * safe(E) + .20 * safe(pathScore) + .10 * safe(C)), grade,
+      student, reference: ref, outcome, feasibility,
+      diagnostics: { endpointDistance, startDistance, pathDistance, normalizedPathDistance: pathDistance / DIAGONAL,
+        cushionErrors: cushionErrors(student.cushions, ref.cushions), scoredEndpoint: scoredEndpoint || student.end,
+        legality, inferredShot: realized?.shot || feasibility?.shot || null, endpointToleranceFor90: R * Math.sqrt(-Math.log(.9)) } };
+    result.feedback = coachFeedback(result);
+    return result;
+  }
+
+  function sameSignature(a, b) { return a.length === b.length && a.every((c, i) => c.wall === b[i].wall); }
+  function sparse(points, count = 65) { const length = G.pathLength(points); return G.resamplePath(points, Math.max(.01, length / (count - 1))); }
+  function projectShot(shot) {
+    let top = clamp(Number(shot.top) || 0, -.5, .5), side = clamp(Number(shot.side) || 0, -.5, .5);
+    const offset = Math.hypot(top, side); if (offset > .5) { top *= .5 / offset; side *= .5 / offset; }
+    return { angle: Math.atan2(Math.sin(shot.angle * Math.PI / 180), Math.cos(shot.angle * Math.PI / 180)) * 180 / Math.PI,
+      cueSpeed: clamp(shot.cueSpeed, .025, 6), top, side };
+  }
+
+  async function invert({ puzzle, path, reference, params = P.DEFAULTS, onProgress, maxEvaluations = 240, signal }) {
+    params = { ...P.DEFAULTS, ...params };
+    if (!path.length || G.distance(path[0], cueBall(puzzle.balls)) > R) return { status: 'invalid', evaluations: 0, message: 'The route must start near the cue-ball centre.' };
+    const normalized = G.normalizePath(path, { start: cueBall(puzzle.balls) });
+    if (normalized.points.length < 2 || normalized.length < .015) return { status: 'invalid', evaluations: 0, message: 'The route is too short. Draw from the cue ball to the intended finish.' };
+    if (normalized.points.some(p => p.x < R - .005 || p.x > P.TABLE.width - R + .005 || p.y < R - .005 || p.y > P.TABLE.height - R + .005))
+      return { status: 'invalid', evaluations: 0, message: 'The route crosses the ball-centre boundary. A ball can leave through a pocket, but cannot rebound outside the table.' };
+    const budget = Math.max(0, Math.min(600, Math.floor(maxEvaluations))), drawnSparse = sparse(normalized.points), cache = new Set(), candidates = [];
+    let evaluations = 0, best = null, success = null;
+    function measure(result, shot) {
+      const simulated = G.normalizePath(result.path, { events: result.events }), cue = cueBall(result.balls);
+      const endError = cue ? G.distance(cue, normalized.end) : 10;
+      const pathError = dtwMean(drawnSparse, sparse(simulated.points));
+      const signatureMatches = sameSignature(normalized.cushions, simulated.cushions);
+      const legal = checkResult(puzzle, result);
+      const value = pathError + .75 * endError + .12 * sequenceDistance(normalized.cushions, simulated.cushions) + (legal.valid ? 0 : .25);
+      return { value, result, shot, endError, pathError, signatureMatches, legal, simulated };
+    }
+    async function trial(rawShot) {
+      if (evaluations >= budget || signal?.aborted) return null;
+      const shot = projectShot(rawShot), key = [shot.angle, shot.cueSpeed, shot.top, shot.side].map(x => x.toFixed(5)).join('/');
+      if (cache.has(key)) return null; cache.add(key);
+      const result = P.simulate(puzzle.balls, shot, params, { recordFrames: false }); evaluations++;
+      const candidate = measure(result, shot); candidates.push(candidate);
+      candidates.sort((a, b) => a.value - b.value); candidates.length = Math.min(candidates.length, 8);
+      if (!best || candidate.value < best.value) best = candidate;
+      if (candidate.endError <= .025 && candidate.pathError <= .035 && candidate.signatureMatches && candidate.legal.valid) {
+        const strictError = dtwMean(normalized.samples, candidate.simulated.samples);
+        const maximumError = discreteFrechet(normalized.samples, candidate.simulated.samples);
+        if (strictError <= .025 && maximumError <= .08) success = { ...candidate, pathError: strictError, maximumError };
+      }
+      if (evaluations % 8 === 0) { onProgress?.({ evaluations, maxEvaluations: budget, bestError: best.pathError, phase: 'search' }); await new Promise(resolve => setTimeout(resolve, 0)); }
+      return candidate;
+    }
+    // A forward-generated reference is one warm start, never the whole search.
+    if (reference?.shot || puzzle.referenceShot) await trial(reference?.shot || puzzle.referenceShot);
+    const directionPoint = G.resamplePath(normalized.points, Math.min(.12, normalized.length))[1] || normalized.end;
+    const angle = Math.atan2(directionPoint.y - normalized.start.y, directionPoint.x - normalized.start.x) * 180 / Math.PI;
+    const estimate = Math.sqrt(2 * params.muRoll * params.gravity * normalized.length) * 1.4 / 1.36 * 1.13 ** normalized.cushions.length;
+    const speeds = [...new Set([estimate * .6, estimate * .85, estimate, estimate * 1.2, estimate * 1.6, .6, 1.2, 2.2, 3.6].map(v => clamp(v, .06, 6).toFixed(3)))].map(Number);
+    const spins = [{ top: 0, side: 0 }, { top: .3, side: 0 }, { top: -.3, side: 0 }, { top: 0, side: .3 }, { top: 0, side: -.3 }];
+    for (const spin of spins) {
+      if (success || signal?.aborted) break;
+      for (const speed of speeds) { await trial({ angle, cueSpeed: speed, ...spin }); if (success || evaluations >= budget) break; }
+    }
+    for (const offset of [-3, 3, -1, 1]) {
+      if (success || evaluations >= budget || signal?.aborted) break;
+      for (const speed of [estimate * .8, estimate, estimate * 1.3]) { await trial({ angle: angle + offset, cueSpeed: speed, top: 0, side: 0 }); if (success) break; }
+    }
+    const starts = candidates.slice().sort((a, b) => a.value - b.value).slice(0, 3);
+    for (const start of starts) {
+      if (success || evaluations >= budget || signal?.aborted) break;
+      let current = start, steps = { angle: 1.5, cueSpeed: .14, top: .12, side: .12 };
+      for (let round = 0; round < 7 && !success && evaluations < budget; round++) {
+        const before = current;
+        for (const key of ['angle', 'cueSpeed', 'top', 'side']) {
+          for (const sign of [-1, 1]) {
+            const candidate = await trial({ ...current.shot, [key]: current.shot[key] + sign * steps[key] });
+            if (candidate && candidate.value < current.value) current = candidate;
+            if (success || evaluations >= budget || signal?.aborted) break;
+          }
+          if (success || evaluations >= budget || signal?.aborted) break;
+        }
+        if (current === before || round % 2 === 1) for (const key of Object.keys(steps)) steps[key] *= .48;
+      }
+    }
+    onProgress?.({ evaluations, maxEvaluations: budget, bestError: best?.pathError ?? Infinity, phase: 'done' });
+    if (success) {
+      const result = P.simulate(puzzle.balls, success.shot, params);
+      return { status: 'feasible', evaluations, shot: success.shot, result,
+        errors: { endpoint: success.endError, path: success.pathError, maximum: success.maximumError, cushionSequenceMatches: true },
+        message: `A matching shot was found: cue speed ${success.shot.cueSpeed.toFixed(2)} m/s, angle ${success.shot.angle.toFixed(2)}°. The endpoint score uses the simulated finish.` };
+    }
+    const nearLimit = best && (Math.hypot(best.shot.top, best.shot.side) > .47 || best.shot.cueSpeed > 5.8);
+    return { status: 'unresolved', evaluations, shot: best?.shot || null,
+      errors: best ? { endpoint: best.endError, path: best.pathError, cushionSequenceMatches: best.signatureMatches } : null,
+      message: signal?.aborted ? 'Search cancelled. Physical feasibility has not been established.' :
+        `No legal shot matched both route and endpoint after ${evaluations} bounded simulations. ${nearLimit ? 'The closest candidate is near the 0.5R spin or 6 m/s speed limit. Try a gentler cushion angle. ' : 'Try moving the first cushion point or removing turns without a ball or cushion contact. '}This is not proof of impossibility; the scores below are geometric estimates only.` };
+  }
+
+  const api = { rank, evaluate, invert, discreteFrechet, dtwMean, cushionScore, outcomeMetrics, outcomeScore,
+    checkResult, firstPathContact, coachFeedback, WALL_NAMES };
+  Coach.scoring = api;
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+})(globalThis);
+
+</script><script>
+globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
+  {
+    "id": "rail-touch",
+    "title": "A gentle cushion leave",
+    "category": "0 cushions · Control",
+    "difficulty": "Beginner",
+    "paperClass": "near-cushion",
+    "targetId": "red1",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 2,
+        "y": 0.06
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 2.35,
+        "y": 0.06
+      }
+    ],
+    "referenceShot": {
+      "angle": 0,
+      "cueSpeed": 0.45,
+      "top": 0,
+      "side": 0
+    },
+    "objective": {
+      "type": "rail",
+      "cueZone": {
+        "x": 2.35,
+        "y": 0.06,
+        "radius": 0.18
+      },
+      "targetZone": {
+        "x": 2.65,
+        "y": 0.08,
+        "radius": 0.2
+      }
+    },
+    "acceptance": {
+      "cueCushions": 0,
+      "maxCueRailDistance": 0.04,
+      "minTargetPocketDistance": 0.4
+    },
+    "task": "Touch the red gently and leave the cue ball near the top cushion, behind the red.",
+    "goal": "Hit the red first, use no cushions, finish within 4 cm of the long cushion and leave the red in the right-hand safe area.",
+    "explanation": "Control the speed left in the cue ball. A cushion leave restricts the next stroke, but is not automatically safe. Check that the red stays away from a pocket. This shot needs only a gentle push.",
+    "source": "Paper pp. 14–16, Eqs. (34)–(37), near-cushion benchmark; Dr. Dave, Safeties You Must Master (2020), long-cushion safety.",
+    "hint": "Start along the cue-to-red line and plan a finish in the narrow strip by the long cushion.",
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [],
+      "allCueCushions": [],
+      "pockets": [],
+      "initialBlockedFraction": 0,
+      "initialScreened": false,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.659888905137517,
+      "cueRailDistance": 0.03375,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 0.31176283775941327,
+      "targetTravel": 0.3227981273421725,
+      "targetPocketDistance": 0.8903221681164692,
+      "pocketDistanceGain": 0.32164805229968607,
+      "cueInBaulk": false,
+      "redTotalTravel": 0.3227981273421725
+    }
+  },
+  {
+    "id": "thin-separation",
+    "title": "Thin contact, more distance",
+    "category": "Thin safety · Separation",
+    "difficulty": "Beginner",
+    "paperClass": "open",
+    "targetId": "red1",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 1.1,
+        "y": 0.9
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 1.55,
+        "y": 0.9
+      }
+    ],
+    "referenceShot": {
+      "angle": 6,
+      "cueSpeed": 0.6,
+      "top": 0,
+      "side": 0
+    },
+    "objective": {
+      "type": "distance",
+      "cueZone": {
+        "x": 2.45,
+        "y": 1.35,
+        "radius": 0.24
+      },
+      "targetZone": {
+        "x": 1.65,
+        "y": 0.8,
+        "radius": 0.18
+      }
+    },
+    "acceptance": {
+      "minSeparation": 0.9,
+      "maxTargetTravel": 0.18
+    },
+    "task": "Clip the lower edge of the red and send the cue ball towards the bottom right, moving the red as little as possible.",
+    "goal": "Hit the red first; separate the balls by at least 90 cm while moving the red no more than 18 cm.",
+    "explanation": "A thin contact transfers less normal momentum to the red and leaves more travel in the cue ball. Follow the post-contact direction rather than drawing one straight line. Check that the red also finishes safely.",
+    "source": "Paper p. 4, p. 15 Eq. (35), pp. 20–22; Cuestars Safety: Clipping the Reds; Dr. Dave (2020), Thin-Hit Hide.",
+    "hint": "Aim near the lower edge of the red, leaving room for the cue ball to run towards the bottom right.",
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [],
+      "allCueCushions": [],
+      "pockets": [],
+      "initialBlockedFraction": 0,
+      "initialScreened": false,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.2558899001739239,
+      "cueRailDistance": 0.39081384299802724,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 1.0222560033435106,
+      "targetTravel": 0.12363463913583629,
+      "targetPocketDistance": 0.813184089014079,
+      "pocketDistanceGain": -0.09559214857138942,
+      "cueInBaulk": false,
+      "redTotalTravel": 0.12363463913583629
+    }
+  },
+  {
+    "id": "one-rail-blue",
+    "title": "Around the blue",
+    "category": "1 cushion · Escape",
+    "difficulty": "Foundation",
+    "paperClass": "screened",
+    "targetId": "red1",
+    "objective": {
+      "type": "escape",
+      "cueZone": {
+        "x": 2.7,
+        "y": 0.35,
+        "radius": 0.7
+      }
+    },
+    "acceptance": {
+      "preContactCushions": 1,
+      "initialBlockedFraction": 0.99
+    },
+    "task": "The blue blocks the direct path. Use the top cushion to reach the red, then control the cue-ball finish.",
+    "goal": "Take exactly one cushion before first contact with the red. Avoid the blue and the pockets.",
+    "explanation": "Mirror the target beyond the cushion to find an initial direction, then account for friction and rebound losses. The paper compares first-contact distances: reaching the red is useful only if the blue is not hit first.",
+    "source": "Paper pp. 14–16, Eqs. (34)–(37), screened benchmark; Dr. Dave: Mirror Kick and Bank Shot Aiming System.",
+    "hint": "Look for a return path off the top cushion. Choose the first contact point before planning the leave.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 1,
+        "y": 0.7
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 2.657412215457603,
+        "y": 0.2042911728423104
+      },
+      {
+        "id": "blue",
+        "color": "blue",
+        "x": 1.7458354969559213,
+        "y": 0.4769310277790396
+      }
+    ],
+    "referenceShot": {
+      "angle": -35,
+      "cueSpeed": 1.3,
+      "top": 0,
+      "side": 0
+    },
+    "construction": {
+      "method": "forward-path-then-recheck-all-balls",
+      "seed": {
+        "x": 1,
+        "y": 0.7,
+        "angle": -35,
+        "speed": 1.3
+      },
+      "fraction": 0.35,
+      "blockerFraction": 0.45
+    },
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [
+        "top"
+      ],
+      "allCueCushions": [
+        "top"
+      ],
+      "pockets": [],
+      "initialBlockedFraction": 1,
+      "initialScreened": true,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.356600326097138,
+      "cueRailDistance": 0.2047370668437308,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 0.7733547443186598,
+      "targetTravel": 0.9032138458810217,
+      "targetPocketDistance": 0.39223847385284755,
+      "pocketDistanceGain": -0.5042606166075878,
+      "cueInBaulk": false,
+      "redTotalTravel": 0.9032138458810217
+    }
+  },
+  {
+    "id": "one-rail-short",
+    "title": "Take the short cushion",
+    "category": "1 cushion · Change of angle",
+    "difficulty": "Foundation",
+    "paperClass": "screened",
+    "targetId": "red1",
+    "objective": {
+      "type": "escape",
+      "cueZone": {
+        "x": 2.2,
+        "y": 0.07,
+        "radius": 0.22
+      }
+    },
+    "acceptance": {
+      "preContactCushions": 1,
+      "initialBlockedFraction": 0.99,
+      "minSeparation": 0.8,
+      "maxCueRailDistance": 0.04,
+      "minTargetPocketDistance": 0.45
+    },
+    "task": "The pink blocks the direct route. Rebound from the right cushion, hit the red and leave the cue ball near the top cushion.",
+    "goal": "Use one cushion before the red, finish within 4 cm of the long cushion and separate the balls by at least 80 cm.",
+    "explanation": "Changing to a short cushion changes both the approach angle and the speed lost. Contact is only the first step: keep the cue ball near the long cushion while separating the balls. The mirror line is a starting guide.",
+    "source": "Paper pp. 14–16, Eqs. (34)–(37), screened and near-cushion benchmarks; Dr. Dave: mirror aiming and speed corrections.",
+    "hint": "Use the right cushion for a return path instead of trying to pass through the pink.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 2.7,
+        "y": 1.2
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 2.9929753789077402,
+        "y": 0.36823652324564865
+      },
+      {
+        "id": "pink",
+        "color": "pink",
+        "x": 2.831838920508483,
+        "y": 0.8257064354605419
+      }
+    ],
+    "referenceShot": {
+      "angle": -21,
+      "cueSpeed": 1.95,
+      "top": 0,
+      "side": 0
+    },
+    "construction": {
+      "method": "forward-path-then-recheck-all-balls",
+      "seed": {
+        "x": 2.7,
+        "y": 1.2,
+        "angle": -20,
+        "speed": 1.5
+      },
+      "fraction": 0.35,
+      "blockerFraction": 0.45,
+      "refinement": "bounded angle/speed/top search improved separation and rail position; selected shot independently verified"
+    },
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [
+        "right"
+      ],
+      "allCueCushions": [
+        "right"
+      ],
+      "pockets": [],
+      "initialBlockedFraction": 1,
+      "initialScreened": true,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.3125080453483112,
+      "cueRailDistance": 0.0068575763709778186,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 0.8723437987668635,
+      "targetTravel": 0.31280960622285275,
+      "targetPocketDistance": 0.5207004535236628,
+      "pocketDistanceGain": -0.16296796110182254,
+      "cueInBaulk": false,
+      "redTotalTravel": 0.31280960622285275
+    }
+  },
+  {
+    "id": "hide-brown",
+    "title": "Behind the brown",
+    "category": "Snooker · Brown",
+    "difficulty": "Intermediate",
+    "paperClass": "open → screened",
+    "targetId": "red1",
+    "objective": {
+      "type": "snooker",
+      "cueZone": {
+        "x": 0.6,
+        "y": 0.82,
+        "radius": 0.12
+      }
+    },
+    "acceptance": {
+      "minBlockedFraction": 0.95
+    },
+    "task": "Clip the red, then leave the cue ball in the hiding area to the left of the brown on its official spot.",
+    "goal": "Hit the red first, return towards baulk and let the brown block at least 95% of the red’s contact directions.",
+    "explanation": "Watch the landing window behind the brown. A small speed change can expose the edge of the red again. The continuous occlusion angle is a teaching extension, not a probability from the paper.",
+    "source": "Paper pp. 14–16, Eq. (37), exposure proxy; approved occlusion-angle extension; Dr. Dave: entering a safety zone along the blocking line.",
+    "hint": "After contact with the red, aim to finish to the left of the brown. Do not hit the brown directly.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 0.8354251319576461,
+        "y": 0.12302824140494262
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 0.8354251319576461,
+        "y": 0.5730282414049426
+      },
+      {
+        "id": "brown",
+        "color": "brown",
+        "x": 0.737,
+        "y": 0.889
+      }
+    ],
+    "referenceShot": {
+      "angle": 93,
+      "cueSpeed": 0.6,
+      "top": 0,
+      "side": 0
+    },
+    "construction": {
+      "method": "verified-track-clear-colour-on-official-spot",
+      "baseShot": {
+        "angle": 3,
+        "cueSpeed": 0.6,
+        "top": 0,
+        "side": 0
+      },
+      "rotation": 90
+    },
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [],
+      "allCueCushions": [],
+      "pockets": [],
+      "initialBlockedFraction": 0,
+      "initialScreened": false,
+      "finalDeltaDegrees": 12.346518429744384,
+      "finalBlockedFraction": 1,
+      "finalExposure": 0,
+      "cueRailDistance": 0.5764525562203515,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 0.4882115098266411,
+      "targetTravel": 0.5094186901965764,
+      "targetPocketDistance": 1.0486799555322657,
+      "pocketDistanceGain": 0.03561701743113699,
+      "cueInBaulk": true,
+      "redTotalTravel": 0.5094186901965764
+    }
+  },
+  {
+    "id": "hide-yellow",
+    "title": "The yellow-ball window",
+    "category": "Snooker · Yellow",
+    "difficulty": "Intermediate",
+    "paperClass": "open → screened",
+    "targetId": "red1",
+    "objective": {
+      "type": "snooker",
+      "cueZone": {
+        "x": 0.59,
+        "y": 1.2,
+        "radius": 0.12
+      }
+    },
+    "acceptance": {
+      "minBlockedFraction": 0.95
+    },
+    "task": "Use a thin contact to bring the cue ball to the left of the yellow, which sits on its official D-area spot.",
+    "goal": "Hit the red first and finish behind the yellow with at least 95% of contact directions blocked.",
+    "explanation": "Contact thickness and the last few centimetres matter more than a long route here. Do not draw the cue ball onto the yellow: the centres must remain at least one ball diameter apart.",
+    "source": "Paper pp. 14–16, inflated 2R collision geometry; approved occlusion-angle extension; Dr. Dave: thin-hit hiding shots.",
+    "hint": "Clip the red first, then bring the last segment into the window to the left of the yellow.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 0.9301793861912933,
+        "y": 0.34560451071861653
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 0.9301793861912933,
+        "y": 0.7956045107186165
+      },
+      {
+        "id": "yellow",
+        "color": "yellow",
+        "x": 0.737,
+        "y": 1.181
+      }
+    ],
+    "referenceShot": {
+      "angle": 94,
+      "cueSpeed": 0.6,
+      "top": 0,
+      "side": 0
+    },
+    "construction": {
+      "method": "verified-track-clear-colour-on-official-spot",
+      "baseShot": {
+        "angle": 4,
+        "cueSpeed": 0.6,
+        "top": 0,
+        "side": 0
+      },
+      "rotation": 90
+    },
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [],
+      "allCueCushions": [],
+      "pockets": [],
+      "initialBlockedFraction": 0,
+      "initialScreened": false,
+      "finalDeltaDegrees": 10.6440538254858,
+      "finalBlockedFraction": 1,
+      "finalExposure": 0,
+      "cueRailDistance": 0.5556611597538528,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 0.56601711417453,
+      "targetTravel": 0.4083447918354096,
+      "targetPocketDistance": 0.8997594322550662,
+      "pocketDistanceGain": -0.26765234113695113,
+      "cueInBaulk": true,
+      "redTotalTravel": 0.4083447918354096
+    }
+  },
+  {
+    "id": "hide-blue",
+    "title": "Hide behind the blue",
+    "category": "Snooker · Blue",
+    "difficulty": "Intermediate",
+    "paperClass": "open → screened",
+    "targetId": "red1",
+    "objective": {
+      "type": "snooker",
+      "cueZone": {
+        "x": 1.72,
+        "y": 1.03,
+        "radius": 0.12
+      }
+    },
+    "acceptance": {
+      "minBlockedFraction": 0.95
+    },
+    "task": "Clip the red and stop below the blue on its official spot.",
+    "goal": "Hit the red first. Leave the blue between the cue ball and red, blocking at least 95% of contact directions.",
+    "explanation": "Depth matters. A blue beyond the red does not block the route, even when the directions look similar. A different route deserves credit when it creates equivalent obstruction.",
+    "source": "Paper pp. 14–16, Eq. (34), nearest contact; Eq. (37), exposure; approved occlusion-angle extension.",
+    "hint": "Focus on the area below the blue. Imagine the line from the resting cue ball towards the red.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 0.7185374505235957,
+        "y": 0.5757911836631889
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 1.1685374505235957,
+        "y": 0.5757911836631889
+      },
+      {
+        "id": "blue",
+        "color": "blue",
+        "x": 1.7845,
+        "y": 0.889
+      }
+    ],
+    "referenceShot": {
+      "angle": 3,
+      "cueSpeed": 0.8,
+      "top": 0,
+      "side": 0
+    },
+    "construction": {
+      "method": "verified-track-clear-colour-on-official-spot",
+      "baseShot": {
+        "angle": 3,
+        "cueSpeed": 0.8,
+        "top": 0,
+        "side": 0
+      },
+      "rotation": 0
+    },
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [],
+      "allCueCushions": [],
+      "pockets": [],
+      "initialBlockedFraction": 0,
+      "initialScreened": false,
+      "finalDeltaDegrees": 6.346972292475026,
+      "finalBlockedFraction": 1,
+      "finalExposure": 0,
+      "cueRailDistance": 0.7261079735306049,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 0.9483472889248793,
+      "targetTravel": 1.031999693919688,
+      "targetPocketDistance": 0.3669133955713146,
+      "pocketDistanceGain": -0.47626235689179314,
+      "cueInBaulk": false,
+      "redTotalTravel": 1.031999693919688
+    }
+  },
+  {
+    "id": "two-rail-corridor",
+    "title": "Through the two-cushion corridor",
+    "category": "2 cushions · Escape",
+    "difficulty": "Advanced",
+    "paperClass": "congested",
+    "targetId": "red1",
+    "objective": {
+      "type": "escape",
+      "cueZone": {
+        "x": 3.05,
+        "y": 1.05,
+        "radius": 0.7
+      }
+    },
+    "acceptance": {
+      "preContactCushions": 2,
+      "initialBlockedFraction": 0.99
+    },
+    "task": "The green blocks direct access. Use the top cushion and then the right cushion to reach the red.",
+    "goal": "Take two cushions before first contact with the red. Avoid the green and leave the cue ball in the right-hand recovery area.",
+    "explanation": "Each cushion changes speed and spin, so the second rebound is not simply a copy of the first. Establish the first contact point, then refine the approach to the red after the second cushion.",
+    "source": "Paper pp. 2–4 and 14–16, executable shots and first contact; two cushions are a teaching extension; Dr. Dave: Plus System.",
+    "hint": "Start towards the top long cushion and use the right short cushion to approach the red.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 1.1,
+        "y": 0.9
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 3.157473548578941,
+        "y": 0.9907657081178359
+      },
+      {
+        "id": "green",
+        "color": "green",
+        "x": 2.0258630968605233,
+        "y": 0.9408445686530262
+      }
+    ],
+    "referenceShot": {
+      "angle": -30,
+      "cueSpeed": 2,
+      "top": 0,
+      "side": 0
+    },
+    "construction": {
+      "method": "forward-path-then-recheck-all-balls",
+      "seed": {
+        "x": 1.1,
+        "y": 0.9,
+        "angle": -30,
+        "speed": 2
+      },
+      "fraction": 0.35,
+      "blockerFraction": 0.45
+    },
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [
+        "top",
+        "right"
+      ],
+      "allCueCushions": [
+        "top",
+        "right"
+      ],
+      "pockets": [],
+      "initialBlockedFraction": 1,
+      "initialScreened": true,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.49899234991918556,
+      "cueRailDistance": 0.4098125468019047,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 0.5213733856285591,
+      "targetTravel": 0.5837760978301937,
+      "targetPocketDistance": 0.6882572927993321,
+      "pocketDistanceGain": -0.20005112804019898,
+      "cueInBaulk": false,
+      "redTotalTravel": 0.5837760978301937
+    }
+  },
+  {
+    "id": "two-rail-return",
+    "title": "Two cushions back to safety",
+    "category": "2 cushions · Escape and recover",
+    "difficulty": "Advanced",
+    "paperClass": "congested",
+    "targetId": "red1",
+    "objective": {
+      "type": "escape",
+      "cueZone": {
+        "x": 0.55,
+        "y": 0.75,
+        "radius": 0.7
+      }
+    },
+    "acceptance": {
+      "preContactCushions": 2,
+      "initialBlockedFraction": 0.99
+    },
+    "task": "Go around the brown using the bottom and left cushions, hit the red and keep the cue ball on the left.",
+    "goal": "Take two cushions before the red, then finish in the left-hand area without potting a ball.",
+    "explanation": "Escaping is only the start. The paper separates reliable contact from a safe return. Continue your drawing beyond contact to the actual resting position and check the leave of both balls.",
+    "source": "Paper pp. 5–6 and 20–22; multiple cushions are a teaching extension; Cuestars: checking both cue-ball and red-ball finishes.",
+    "hint": "Use the bottom long cushion first, then rebound from the left short cushion.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 2.4,
+        "y": 0.8
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 0.37753985417315156,
+        "y": 0.7489740180572184
+      },
+      {
+        "id": "brown",
+        "color": "brown",
+        "x": 1.489892934377918,
+        "y": 0.7770383081257484
+      }
+    ],
+    "referenceShot": {
+      "angle": 145,
+      "cueSpeed": 2,
+      "top": 0,
+      "side": 0
+    },
+    "construction": {
+      "method": "forward-path-then-recheck-all-balls",
+      "seed": {
+        "x": 2.4,
+        "y": 0.8,
+        "angle": 145,
+        "speed": 2
+      },
+      "fraction": 0.35,
+      "blockerFraction": 0.45
+    },
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [
+        "bottom",
+        "left"
+      ],
+      "allCueCushions": [
+        "bottom",
+        "left"
+      ],
+      "pockets": [],
+      "initialBlockedFraction": 1,
+      "initialScreened": true,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.5211983601380195,
+      "cueRailDistance": 0.37193891603646545,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 0.48871843504229256,
+      "targetTravel": 0.5431186832384756,
+      "targetPocketDistance": 0.6336112188914481,
+      "pocketDistanceGain": -0.20513690850667554,
+      "cueInBaulk": true,
+      "redTotalTravel": 0.5431186832384756
+    }
+  },
+  {
+    "id": "three-rail-escape",
+    "title": "The three-cushion escape",
+    "category": "3 cushions · Escape",
+    "difficulty": "Challenge",
+    "paperClass": "congested",
+    "targetId": "red1",
+    "objective": {
+      "type": "escape",
+      "cueZone": {
+        "x": 1.3,
+        "y": 0.2,
+        "radius": 0.3
+      }
+    },
+    "acceptance": {
+      "preContactCushions": 3,
+      "initialBlockedFraction": 0.99,
+      "minSeparation": 1.5,
+      "maxCueRailDistance": 0.2,
+      "minTargetPocketDistance": 0.6
+    },
+    "task": "Use the top, right and bottom cushions to get around the pink. Clip the red after the third cushion and bring the cue ball back towards the top.",
+    "goal": "Take exactly three cushions before the red, separate the balls by at least 1.5 m and finish in the top recovery area.",
+    "explanation": "A small error at the first cushion grows over a long route. Adjust one rebound at a time, then refine contact thickness to keep enough separation. This route needs more cue speed than a routine gentle safety. The reference is generated by the engine.",
+    "source": "Paper pp. 2–4 and 20–22; three cushions extend the paper’s planar 0/1-cushion benchmark; Dr. Dave: Corner-5.",
+    "hint": "Start towards the top cushion, then plan consecutive rebounds from the right and bottom cushions.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 1,
+        "y": 0.8
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 2.4805805353850525,
+        "y": 1.466730374228537
+      },
+      {
+        "id": "pink",
+        "color": "pink",
+        "x": 1.6662612409232738,
+        "y": 1.1000286684028415
+      }
+    ],
+    "referenceShot": {
+      "angle": -24.4,
+      "cueSpeed": 4,
+      "top": 0.05,
+      "side": 0
+    },
+    "construction": {
+      "method": "forward-path-then-recheck-all-balls",
+      "seed": {
+        "x": 1,
+        "y": 0.8,
+        "angle": -25,
+        "speed": 3
+      },
+      "fraction": 0.35,
+      "blockerFraction": 0.45,
+      "refinement": "bounded angle/speed/top search improved separation and rail position; selected shot independently verified"
+    },
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [
+        "top",
+        "right",
+        "bottom"
+      ],
+      "allCueCushions": [
+        "top",
+        "right",
+        "bottom"
+      ],
+      "pockets": [],
+      "initialBlockedFraction": 1,
+      "initialScreened": true,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.08819561088443291,
+      "cueRailDistance": 0.1325218628385387,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 1.8211485603170008,
+      "targetTravel": 0.0718332146917591,
+      "targetPocketDistance": 0.6940563251294661,
+      "pocketDistanceGain": -0.06845065298276598,
+      "cueInBaulk": false,
+      "redTotalTravel": 0.0718332146917591
+    }
+  },
+  {
+    "id": "break-off",
+    "title": "A controlled break-off",
+    "category": "Break-off · Return to baulk",
+    "difficulty": "Challenge",
+    "paperClass": "congested",
+    "targetId": "red15",
+    "objective": {
+      "type": "rail",
+      "cueZone": {
+        "x": 0.12,
+        "y": 1.02,
+        "radius": 0.18
+      }
+    },
+    "acceptance": {
+      "cueBaulk": true,
+      "maxRedTotalTravel": 0.5,
+      "fullRack": true,
+      "maxCueRailDistance": 0.04
+    },
+    "task": "From the D, clip the outer red and return to baulk off the cushions. All 15 reds and six colours are on the table.",
+    "goal": "Hit a red first, pot nothing, return the cue ball to baulk near the end cushion and keep the reds compact.",
+    "explanation": "Aim for a repeatable return before chasing a tiny landing window. Watch both the compact red pack and the cue-ball return. Packed collisions are simplified; this reference is not a uniquely optimal real-table break-off.",
+    "source": "Paper pp. 20–22 and numerical model limits; Cuestars Safety: Break Off; The Snooker Gym: Break Off Shot.",
+    "hint": "Clip the outside red and leave a route back to baulk on the left.",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 0.6900000000000001,
+        "y": 1.13
+      },
+      {
+        "id": "yellow",
+        "color": "yellow",
+        "x": 0.737,
+        "y": 1.181
+      },
+      {
+        "id": "green",
+        "color": "green",
+        "x": 0.737,
+        "y": 0.597
+      },
+      {
+        "id": "brown",
+        "color": "brown",
+        "x": 0.737,
+        "y": 0.889
+      },
+      {
+        "id": "blue",
+        "color": "blue",
+        "x": 1.7845,
+        "y": 0.889
+      },
+      {
+        "id": "pink",
+        "color": "pink",
+        "x": 2.67675,
+        "y": 0.889
+      },
+      {
+        "id": "black",
+        "color": "black",
+        "x": 3.245,
+        "y": 0.889
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 2.733,
+        "y": 0.889
+      },
+      {
+        "id": "red2",
+        "color": "red",
+        "x": 2.7789,
+        "y": 0.8625
+      },
+      {
+        "id": "red3",
+        "color": "red",
+        "x": 2.7789,
+        "y": 0.9155
+      },
+      {
+        "id": "red4",
+        "color": "red",
+        "x": 2.8248,
+        "y": 0.836
+      },
+      {
+        "id": "red5",
+        "color": "red",
+        "x": 2.8248,
+        "y": 0.889
+      },
+      {
+        "id": "red6",
+        "color": "red",
+        "x": 2.8248,
+        "y": 0.9420000000000001
+      },
+      {
+        "id": "red7",
+        "color": "red",
+        "x": 2.8707000000000003,
+        "y": 0.8095
+      },
+      {
+        "id": "red8",
+        "color": "red",
+        "x": 2.8707000000000003,
+        "y": 0.8625
+      },
+      {
+        "id": "red9",
+        "color": "red",
+        "x": 2.8707000000000003,
+        "y": 0.9155
+      },
+      {
+        "id": "red10",
+        "color": "red",
+        "x": 2.8707000000000003,
+        "y": 0.9685
+      },
+      {
+        "id": "red11",
+        "color": "red",
+        "x": 2.9166000000000003,
+        "y": 0.783
+      },
+      {
+        "id": "red12",
+        "color": "red",
+        "x": 2.9166000000000003,
+        "y": 0.836
+      },
+      {
+        "id": "red13",
+        "color": "red",
+        "x": 2.9166000000000003,
+        "y": 0.889
+      },
+      {
+        "id": "red14",
+        "color": "red",
+        "x": 2.9166000000000003,
+        "y": 0.9420000000000001
+      },
+      {
+        "id": "red15",
+        "color": "red",
+        "x": 2.9166000000000003,
+        "y": 0.995
+      }
+    ],
+    "referenceShot": {
+      "angle": -2.129648535284854,
+      "cueSpeed": 3.2335000000000007,
+      "top": 0.08039999999999997,
+      "side": -0.04959999999999999
+    },
+    "legalTargetIds": [
+      "red1",
+      "red2",
+      "red3",
+      "red4",
+      "red5",
+      "red6",
+      "red7",
+      "red8",
+      "red9",
+      "red10",
+      "red11",
+      "red12",
+      "red13",
+      "red14",
+      "red15"
+    ],
+    "construction": {
+      "method": "bounded full-rack search followed by independent forward verification",
+      "globalOptimality": false
+    },
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red15",
+      "legalFirstContact": true,
+      "preContactCushions": [],
+      "allCueCushions": [
+        "right",
+        "left"
+      ],
+      "pockets": [],
+      "initialBlockedFraction": 0,
+      "initialScreened": false,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.023990793845598005,
+      "cueRailDistance": 0.0018736523316700143,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 2.890716009509899,
+      "targetTravel": 0.0026328888931221013,
+      "targetPocketDistance": 1.0189199654825583,
+      "pocketDistanceGain": -0.00025360167859966865,
+      "cueInBaulk": true,
+      "redTotalTravel": 0.24687344500899566
+    }
+  },
+  {
+    "id": "send-red-safe",
+    "title": "Move the danger away",
+    "category": "Object ball · Safe zone",
+    "difficulty": "Challenge",
+    "paperClass": "near-cushion",
+    "targetId": "red1",
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 3.34,
+        "y": 0.08
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 3.26,
+        "y": 0.28
+      }
+    ],
+    "referenceShot": {
+      "angle": 111.80140948635182,
+      "cueSpeed": 0.9,
+      "top": 0,
+      "side": 0
+    },
+    "objective": {
+      "type": "target",
+      "cueZone": {
+        "x": 3.18,
+        "y": 0.48,
+        "radius": 0.16
+      },
+      "targetZone": {
+        "x": 2.63,
+        "y": 1.71,
+        "radius": 0.16
+      }
+    },
+    "acceptance": {
+      "minTargetPocketDistance": 0.65,
+      "minPocketDistanceGain": 0.3,
+      "minSeparation": 1
+    },
+    "task": "Send the red near the top-right corner towards a safe area by the bottom cushion, keeping the cue ball in the upper-right half.",
+    "goal": "Leave the red at least 65 cm from every pocket, inside the lower safe zone, and more than 1 m from the cue ball.",
+    "explanation": "Hiding the cue ball is not enough if the red stays near a pocket. Check the red’s safe zone first, then the cue ball. A cushion is not universally safe; the zone depends on this layout and its pockets.",
+    "source": "Paper pp. 5–6 and 20–22, residual opportunity; Cuestars Safety: Cross Double and Re-Spotted Black safe-zone practice.",
+    "hint": "Move the red away from the top-right corner towards the middle of the bottom cushion. The cue ball need not follow far.",
+    "legalTargetIds": [
+      "red1"
+    ],
+    "proof": {
+      "engine": "src/physics.js",
+      "dt": 0.001,
+      "completed": true,
+      "firstContactId": "red1",
+      "legalFirstContact": true,
+      "preContactCushions": [],
+      "allCueCushions": [],
+      "pockets": [],
+      "initialBlockedFraction": 0,
+      "initialScreened": false,
+      "finalDeltaDegrees": 0,
+      "finalBlockedFraction": 0,
+      "finalExposure": 0.16367843491966325,
+      "cueRailDistance": 0.360582429459964,
+      "cueZoneReached": true,
+      "targetZoneReached": true,
+      "separation": 1.3573886539909124,
+      "targetTravel": 1.5668080595706009,
+      "targetPocketDistance": 0.845084324648075,
+      "pocketDistanceGain": 0.42809391708454353,
+      "cueInBaulk": false,
+      "redTotalTravel": 1.5668080595706009
+    }
+  }
+];
+
+</script><script>
+(function(root){
+  'use strict';
+  const C=root.Coach=root.Coach||{};
+  const colors={white:'#fffdf1',red:'#c64640',yellow:'#e9ca51',green:'#5a9470',brown:'#956841',blue:'#6094c5',pink:'#d79aab',black:'#242a28'};
+  class TableRenderer {
+    constructor(canvas){this.canvas=canvas;this.ctx=canvas.getContext('2d');this.state={};this.resize();this.observer=new ResizeObserver(()=>{this.resize();this.draw(this.state);});this.observer.observe(canvas);}
+    resize(){const b=this.canvas.getBoundingClientRect();this.w=b.width||900;this.h=this.w/1.83;const d=Math.min(devicePixelRatio||1,2);this.canvas.width=Math.round(this.w*d);this.canvas.height=Math.round(this.h*d);this.ctx.setTransform(d,0,0,d,0,0);this.pad=this.w*.061;this.scale=(this.w-this.pad*2)/3.569;this.oy=(this.h-1.778*this.scale)/2;}
+    project(p){return{x:this.pad+p.x*this.scale,y:this.oy+p.y*this.scale};}
+    unproject(e){const b=this.canvas.getBoundingClientRect();return{x:((e.clientX-b.left)*this.w/b.width-this.pad)/this.scale,y:((e.clientY-b.top)*this.h/b.height-this.oy)/this.scale};}
+    path(points,color,width=1.5,dash=[]){if(!points||points.length<2)return;const c=this.ctx;c.save();c.strokeStyle=color;c.lineWidth=width;c.lineCap='round';c.lineJoin='round';c.setLineDash(dash);c.beginPath();points.forEach((p,i)=>{const q=this.project(p);i?c.lineTo(q.x,q.y):c.moveTo(q.x,q.y);});c.stroke();c.restore();}
+    circle(p,r,color,fill=false,line=1){const q=this.project(p),c=this.ctx;c.beginPath();c.arc(q.x,q.y,r*this.scale,0,Math.PI*2);c.lineWidth=line;fill?(c.fillStyle=color,c.fill()):(c.strokeStyle=color,c.stroke());}
+    label(p,text,color='#d8e1ce'){const q=this.project(p),c=this.ctx;c.fillStyle=color;c.font=`${Math.max(8,this.w*.011)}px 'Segoe UI',sans-serif`;c.textAlign='center';c.fillText(text,q.x,q.y);}
+    draw(s={}){this.state=s;const c=this.ctx,w=this.w,h=this.h,P=C.physics,T=P?.TABLE||{width:3.569,height:1.778,radius:.02625},sc=this.scale;
+      c.clearRect(0,0,w,h);const outer=c.createLinearGradient(0,0,w,h);outer.addColorStop(0,'#254a3e');outer.addColorStop(1,'#102f29');c.fillStyle=outer;c.fillRect(0,0,w,h);
+      const x=this.pad,y=this.oy,tw=T.width*sc,th=T.height*sc,rim=w*.021;
+      c.fillStyle='#102e25';c.fillRect(x-rim,y-rim,tw+2*rim,th+2*rim);c.strokeStyle='#6b795244';c.lineWidth=1;c.strokeRect(x-rim-4,y-rim-4,tw+2*rim+8,th+2*rim+8);
+      const cloth=c.createRadialGradient(x+tw*.44,y+th*.45,0,x+tw*.5,y+th*.5,tw*.75);cloth.addColorStop(0,'#2b6954');cloth.addColorStop(1,'#1d4f41');c.fillStyle=cloth;c.fillRect(x,y,tw,th);
+      c.save();c.globalAlpha=.025;c.fillStyle='#e1f0d6';for(let i=0;i<tw;i+=4)for(let j=0;j<th;j+=4)c.fillRect(x+i,y+j,1,.6);c.restore();
+      const baulk=.737*sc,dr=.292*sc;c.strokeStyle='#b6c3a841';c.lineWidth=.9;c.beginPath();c.moveTo(x+baulk,y);c.lineTo(x+baulk,y+th);c.stroke();c.beginPath();c.arc(x+baulk,y+th/2,dr,Math.PI/2,Math.PI*1.5);c.stroke();
+      [[.737,.889],[1.7845,.889],[2.67675,.889],[3.245,.889],[.737,.597],[.737,1.181]].forEach(([px,py])=>this.circle({x:px,y:py},.004,'#c7d1b760',true));
+      c.fillStyle='#0b211d';[[0,0],[T.width/2,0],[T.width,0],[0,T.height],[T.width/2,T.height],[T.width,T.height]].forEach(([px,py],i)=>{const q=this.project({x:px,y:py});c.beginPath();c.arc(q.x,q.y,(i%3===1?.051:.0445)*sc,0,Math.PI*2);c.fill();c.strokeStyle='#9c8d5b66';c.lineWidth=2;c.stroke();});
+      for(let i=1;i<8;i++){if(i===4)continue;const dx=x+tw*i/8;c.fillStyle='#9dba8c66';c.beginPath();c.arc(dx,y-rim*.55,1.2,0,7);c.fill();c.beginPath();c.arc(dx,y+th+rim*.55,1.2,0,7);c.fill();}for(let j=1;j<4;j++){c.fillStyle='#9dba8c66';[x-rim*.55,x+tw+rim*.55].forEach(dx=>{c.beginPath();c.arc(dx,y+th*j/4,1.2,0,7);c.fill();});}
+      c.save();c.beginPath();c.rect(x,y,tw,th);c.clip();
+      if(s.zone){const z=s.zone;this.circle(z,z.radius||.22,'#d6c17c22',true);c.setLineDash([4,4]);this.circle(z,z.radius||.22,'#d5c38370');c.setLineDash([]);if(z.label)this.label({x:z.x,y:z.y+.07},z.label,'#dccb8b');}
+      if(s.reference){this.path(s.reference,'#d2aa6419',.0525*sc);this.path(s.reference,'#d7b776',1.7,[5,4]);}
+      if(s.prediction)this.path(s.prediction,'#d6dbba88',1,[4,5]);
+      if(s.tracks)Object.entries(s.tracks).forEach(([id,pts])=>this.path(pts,id==='cue'?'#cddbc48a':'#bc7e6680',1));
+      if(s.student)this.path(s.student,'#91d4e3',2);
+      if(s.endpoint&&s.reference?.length){const end=s.reference.at(-1);this.path([end,s.endpoint],'#d6c58a88',1,[3,3]);this.circle(end,Math.hypot(end.x-s.endpoint.x,end.y-s.endpoint.y),'#d6c58a55');}
+      if(s.aim&&s.balls){const cue=s.balls.find(b=>b.id==='cue'&&!b.potted);if(cue){const a=s.aim.angle*Math.PI/180;let d=1;let hit=null;for(const b of s.balls){if(b===cue||b.potted)continue;const dx=b.x-cue.x,dy=b.y-cue.y,proj=dx*Math.cos(a)+dy*Math.sin(a),disc=(2*T.radius)**2-(dx*dx+dy*dy-proj*proj);if(disc>=0){const v=proj-Math.sqrt(disc);if(v>0&&v<d){d=v;hit=b;}}}const end={x:cue.x+d*Math.cos(a),y:cue.y+d*Math.sin(a)};this.path([cue,end],'#dbe5ce88',1,[4,5]);if(hit)this.circle(end,T.radius,'#e7edda99');}}
+      c.restore();
+      (s.balls||[]).filter(b=>!b.potted).forEach(b=>{const q=this.project(b),r=T.radius*sc;c.save();c.shadowColor='#071c27aa';c.shadowBlur=r*.8;c.shadowOffsetY=r*.35;const g=c.createRadialGradient(q.x-r*.3,q.y-r*.3,0,q.x,q.y,r);const color=colors[b.color]||b.color||colors.red;g.addColorStop(0,b.color==='white'?'#ffffff':color);g.addColorStop(.65,color);g.addColorStop(1,b.color==='white'?'#c6d1ba':'#12291d');c.fillStyle=g;c.beginPath();c.arc(q.x,q.y,Math.max(r,2.8),0,7);c.fill();c.shadowBlur=0;c.shadowOffsetY=0;c.fillStyle='#ffffff88';c.beginPath();c.arc(q.x-r*.27,q.y-r*.3,r*.17,0,7);c.fill();c.restore();if(s.selected===b.id)this.circle(b,T.radius*1.65,'#d5c58c',false,1.5);if(s.targetId===b.id){c.save();c.setLineDash([2,3]);this.circle(b,T.radius*1.65,'#deb98999');c.restore();}});
+      if(s.handles)s.handles.forEach((p,i)=>{this.circle(p,.022,'#153b32',true);this.circle(p,.022,i===s.activeHandle?'#e9cc84':'#a9deeb');if(i>0)this.label({x:p.x,y:p.y-.05},String(i),'#b7e5ec');});
+      if(s.errors)s.errors.forEach(e=>this.label({x:e.x,y:e.y+(e.y<T.height/2?.11:-.09)},e.text,'#e2c788'));
+      c.fillStyle='#8bab9560';c.font=`${w*.009}px 'Segoe UI',sans-serif`;c.textAlign='center';c.fillText('SAFETY  COACH',w/2,y+th*.8);
+    }
+  }
+  C.renderer={TableRenderer,colors};
+})(globalThis);
+
+</script><script>
+(function(root){
+ 'use strict';
+ const C=root.Coach,P=C.physics,$=id=>document.getElementById(id),renderer=new C.renderer.TableRenderer($('table'));
+ const clone=x=>JSON.parse(JSON.stringify(x)),clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+ function toast(t){$('toast').textContent=t;$('toast').classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('toast').classList.remove('show'),4200);}
+ const storage={get(k,f){try{const value=JSON.parse(localStorage.getItem('ssc.'+k))??f;if(k==='progress'&&value&&typeof value==='object'){const legacy={'\u4e2d':'Developing','\u4e2d\u504f\u4f18':'Promising','\u4f18':'Excellent'};for(const item of Object.values(value))if(item&&typeof item==='object')for(const key of ['grade','lastGrade'])if(legacy[item[key]])item[key]=legacy[item[key]];}return value;}catch{return f;}},set(k,v){try{localStorage.setItem('ssc.'+k,JSON.stringify(v));return true;}catch{toast('Local storage is unavailable. You can still practise in this session.');return false;}}};
+ function rack(){const b=[{id:'cue',color:'white',x:.57,y:.99},{id:'yellow',color:'yellow',x:.737,y:1.181},{id:'green',color:'green',x:.737,y:.597},{id:'brown',color:'brown',x:.737,y:.889},{id:'blue',color:'blue',x:1.7845,y:.889},{id:'pink',color:'pink',x:2.67675,y:.889},{id:'black',color:'black',x:3.245,y:.889}];for(let row=0,id=1;row<5;row++)for(let j=0;j<=row;j++,id++)b.push({id:'red'+id,color:'red',x:2.733+row*.0459,y:.889+(j-row/2)*.053});return b.map(P.createBall);}
+ const S={mode:'sandbox',balls:rack(),shot:{angle:-24,cueSpeed:1.2,top:0,side:0},params:{...P.DEFAULTS},last:null,before:null,playing:false,placing:false,selected:null,drag:null,prediction:null,ghost:true,predict:false,playId:0,playSpeed:1};S.before=clone(S.balls);
+ const parameterSpec=[['muSlide','Sliding friction μ_slide',.1,.35,.005,''],['muRoll','Rolling resistance μ_roll',.005,.03,.001,''],['cushionRestitution','Cushion restitution e_c',.5,.9,.01,''],['cushionTangent','Tangential retention',.3,.9,.01,''],['spinCushion','Side-spin coupling',0,2,.05,'×'],['ballRestitution','Ball restitution e_ball',.85,1,.005,''],['spinDecay','Spin decay',0,20,.5,' rad/s²']];
+ function dialog(html){$('dialog-content').innerHTML=html;$('info-dialog').showModal();}
+ function draw(){const extra=C.training?.renderState?.()||{};renderer.draw({balls:S.balls,aim:S.mode==='sandbox'&&!S.playing&&S.ghost&&!S.placing?S.shot:null,selected:S.selected,prediction:S.mode==='sandbox'&&!S.playing&&S.predict?S.prediction:null,tracks:S.playing&&S.last?S.last.tracks:null,...extra});}
+ function preview(){if(S.mode!=='sandbox'||!S.predict||S.playing)return;try{S.prediction=P.simulate(S.balls,S.shot,S.params,{recordFrames:false}).path;}catch{S.prediction=null;}draw();}
+ function schedulePreview(){clearTimeout(preview.timer);preview.timer=setTimeout(preview,100);}
+ function spinDraw(){const cv=$('spin'),c=cv.getContext('2d');c.clearRect(0,0,180,180);const g=c.createRadialGradient(65,60,3,90,90,64);g.addColorStop(0,'#fff');g.addColorStop(1,'#e4e7d9');c.fillStyle=g;c.beginPath();c.arc(90,90,64,0,7);c.fill();c.strokeStyle='#cdd5c1';c.stroke();c.setLineDash([2,3]);c.beginPath();c.arc(90,90,32,0,7);c.stroke();c.setLineDash([]);c.strokeStyle='#cbd3bf';c.beginPath();c.moveTo(50,90);c.lineTo(130,90);c.moveTo(90,50);c.lineTo(90,130);c.stroke();c.fillStyle='#285f48';c.beginPath();c.arc(90+S.shot.side*64,90-S.shot.top*64,6,0,7);c.fill();$('spin-values').textContent=`Side spin ${S.shot.side.toFixed(2)}R · Top / back ${S.shot.top.toFixed(2)}R`;}
+ function update(){ $('speed').value=S.shot.cueSpeed;$('angle').value=S.shot.angle;$('speed-value').textContent=S.shot.cueSpeed.toFixed(2)+' m/s';$('angle-value').textContent=S.shot.angle.toFixed(1)+'°';spinDraw();draw();schedulePreview();}
+ function stopPlayback(){S.playId++;S.playing=false;$('shoot').disabled=false;}
+ function play(result){stopPlayback();if(!result.frames?.length||!result.duration){S.balls=clone(result.balls);draw();return;}S.playing=true;$('shoot').disabled=true;S.last=result;const token=S.playId,start=performance.now(),speed=S.playSpeed;let fi=0;function frame(now){if(token!==S.playId)return;const t=(now-start)/1000*speed;while(fi<result.frames.length-2&&result.frames[fi+1].t<t)fi++;const a=result.frames[fi],b=result.frames[Math.min(fi+1,result.frames.length-1)],f=clamp((t-a.t)/(b.t-a.t||1),0,1);S.balls=a.balls.map((ball,i)=>({...ball,x:ball.x+(b.balls[i].x-ball.x)*f,y:ball.y+(b.balls[i].y-ball.y)*f,potted:f===1?b.balls[i].potted:ball.potted}));draw();if(t<result.duration)requestAnimationFrame(frame);else{S.balls=clone(result.balls);stopPlayback();draw();toast(result.completed?'Shot complete. Check where both balls finished.':'Simulation time limit reached. Some balls are still moving.');}}requestAnimationFrame(frame);}
+ function shoot(){if(S.playing)return;try{S.before=clone(S.balls);S.last=P.simulate(S.balls,S.shot,S.params);S.prediction=null;play(S.last);}catch(e){toast(e.message);}}
+ function safePosition(p,id){const R=P.TABLE.radius;return p.x>=R&&p.x<=P.TABLE.width-R&&p.y>=R&&p.y<=P.TABLE.height-R&&!P.TABLE.pockets.some(k=>Math.hypot(p.x-k.x,p.y-k.y)<k.radius)&&!S.balls.some(b=>b.id!==id&&!b.potted&&Math.hypot(b.x-p.x,b.y-p.y)<2*R+.0001);}
+ function stopBalls(){S.balls=S.balls.map(b=>({...b,vx:0,vy:0,wx:0,wy:0,wz:0}));}
+ function addBall(color){if(S.playing)return;const existing=color!=='red'&&S.balls.find(b=>b.color===color);if(existing&&!existing.potted){S.selected=existing.id;S.placing=true;$('place-mode').classList.add('active');draw();toast('Ball selected. Drag it to reposition.');return;}const id=color==='white'?'cue':color==='red'?'red'+Date.now():color;let pos=null;for(let x=.3;x<3.3&&!pos;x+=.12)for(let y=.25;y<1.6;y+=.12)if(safePosition({x,y},existing?.id)){pos={x,y};break;}if(!pos){toast('There is not enough space to add a ball.');return;}if(existing)S.balls=S.balls.filter(b=>b!==existing);S.balls.push(P.createBall({id,color,...pos}));S.selected=id;S.placing=true;$('place-mode').classList.add('active');S.last=null;draw();schedulePreview();}
+ function controls(){ $('spin-section').hidden=false;$('advanced-controls').innerHTML=`<div class="checks"><label><input id="ghost-toggle" type="checkbox" checked>Ghost-ball guide</label><label><input id="predict-toggle" type="checkbox">Predict trajectory (Free Table only)</label><label>Replay speed <select id="replay-speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label></div><div class="ball-tools"><div class="section-label" style="margin:0">Add or select a ball</div><div class="ball-palette">${Object.entries(C.renderer.colors).map(([name,c])=>`<button data-color="${name}" style="--ball:${c}" aria-label="${{white:'cue',red:'red',yellow:'yellow',green:'green',brown:'brown',blue:'blue',pink:'pink',black:'black'}[name]} ball" title="Add or select a ball"></button>`).join('')}</div><div class="small-row"><button id="delete-ball">Remove selected</button><button id="empty-table">Clear object balls</button><button id="rack-table">Full rack</button></div></div><details><summary>Table physics</summary><p class="preset-note">Match-style preset · Teaching baseline<br>Published ranges; real-table calibration pending.</p>${parameterSpec.map(([key,label,min,max,step,unit])=>`<label class="control">${label}<output id="val-${key}">${S.params[key]}${unit}</output><input data-param="${key}" type="range" min="${min}" max="${max}" step="${step}" value="${S.params[key]}"></label>`).join('')}<p class="preset-note">g = 9.81 m/s² · Ball diameter 52.5 mm<br>Ball mass 0.142 kg · Fixed step 1 ms<br>Model constants: cue mass 0.50 kg; tip restitution 0.75.</p><button class="wide" id="pro-preset">Match-style preset ↺</button><div class="small-row" style="margin:0 18px"><button id="save-preset">Save preset</button><button id="load-preset">Load preset</button></div></details>`;
+ document.querySelectorAll('[data-param]').forEach(el=>el.oninput=()=>{S.params[el.dataset.param]=Number(el.value);$('val-'+el.dataset.param).textContent=Number(el.value).toFixed(3)+parameterSpec.find(p=>p[0]===el.dataset.param)[5];schedulePreview();});
+ $('pro-preset').onclick=()=>{S.params={...P.DEFAULTS};S.shot={angle:0,cueSpeed:1.2,top:0,side:0};syncParams();update();toast('Teaching preset restored, with a centre-ball strike.');};$('save-preset').onclick=()=>{if(storage.set('preset',{...S.params,shot:S.shot}))toast('Table and shot settings saved.');};$('load-preset').onclick=()=>{const p=storage.get('preset',null);if(!p){toast('No saved preset yet.');return;}for(const [key,,lo,hi] of parameterSpec)S.params[key]=clamp(Number.isFinite(p[key])?p[key]:P.DEFAULTS[key],lo,hi);if(p.shot&&['angle','cueSpeed','top','side'].every(k=>Number.isFinite(p.shot[k]))){S.shot={angle:clamp(p.shot.angle,-180,180),cueSpeed:clamp(p.shot.cueSpeed,0,6),top:p.shot.top,side:p.shot.side};const r=Math.hypot(S.shot.top,S.shot.side);if(r>.5){S.shot.top*=.5/r;S.shot.side*=.5/r;}}syncParams();update();toast('Your preset has been loaded.');};
+ $('ghost-toggle').onchange=e=>{S.ghost=e.target.checked;draw();};$('predict-toggle').onchange=e=>{S.predict=e.target.checked;preview();draw();};$('replay-speed').onchange=e=>S.playSpeed=Number(e.target.value);
+ document.querySelectorAll('[data-color]').forEach(el=>el.onclick=()=>addBall(el.dataset.color));$('delete-ball').onclick=()=>{if(S.playing)return;if(!S.selected){toast('Select a ball first.');return;}S.balls=S.balls.filter(b=>b.id!==S.selected);S.selected=null;S.last=null;draw();schedulePreview();};$('empty-table').onclick=()=>{stopPlayback();S.balls=[P.createBall({id:'cue',color:'white',x:.737,y:.889})];S.before=clone(S.balls);S.last=null;draw();schedulePreview();};$('rack-table').onclick=()=>{stopPlayback();S.balls=rack();S.before=clone(S.balls);S.last=null;draw();schedulePreview();}; }
+ function syncParams(){document.querySelectorAll('[data-param]').forEach(el=>{el.value=S.params[el.dataset.param];$('val-'+el.dataset.param).textContent=Number(el.value).toFixed(3)+parameterSpec.find(p=>p[0]===el.dataset.param)[5];});schedulePreview();}
+ function switchMode(mode){stopPlayback();S.mode=mode;document.body.classList.toggle('sandbox',mode==='sandbox');$('sandbox-mode').classList.toggle('active',mode==='sandbox');$('puzzle-mode').classList.toggle('active',mode==='puzzle');$('sandbox-toolbar').hidden=mode!=='sandbox';$('puzzle-toolbar').hidden=mode==='sandbox';$('sandbox-controls').hidden=mode!=='sandbox';$('puzzle-details').hidden=mode==='sandbox';draw();}
+ $('shoot').onclick=shoot;$('replay').onclick=()=>S.last?play(S.last):toast('Take a shot first.');$('undo-shot').onclick=()=>{stopPlayback();S.balls=clone(S.before);stopBalls();draw();schedulePreview();};$('place-mode').onclick=()=>{S.placing=!S.placing;$('place-mode').classList.toggle('active',S.placing);$('table-status').textContent=S.placing?'Drag balls to set up the table':'Click to aim, then take your shot';draw();};$('reset-table').onclick=()=>{stopPlayback();S.balls=clone(S.before);stopBalls();draw();schedulePreview();};$('speed').oninput=e=>{S.shot.cueSpeed=Number(e.target.value);update();};$('angle').oninput=e=>{S.shot.angle=Number(e.target.value);update();};$('reset-shot').onclick=()=>{S.shot={angle:0,cueSpeed:1.2,top:0,side:0};update();};$('reset-spin').onclick=()=>{S.shot.top=S.shot.side=0;update();};
+ let spinDrag=false;function setSpin(e){const r=$('spin').getBoundingClientRect();let x=((e.clientX-r.left)/r.width*180-90)/64,y=(90-(e.clientY-r.top)/r.height*180)/64;const len=Math.hypot(x,y);if(len>.5){x*=.5/len;y*=.5/len;}S.shot.side=x;S.shot.top=y;update();}$('spin').onpointerdown=e=>{spinDrag=true;$('spin').setPointerCapture(e.pointerId);setSpin(e);};$('spin').onpointermove=e=>{if(spinDrag)setSpin(e);};$('spin').onpointerup=()=>spinDrag=false;$('spin').onkeydown=e=>{const ds={ArrowLeft:[-.01,0],ArrowRight:[.01,0],ArrowUp:[0,.01],ArrowDown:[0,-.01]}[e.key];if(ds){e.preventDefault();let x=S.shot.side+ds[0],y=S.shot.top+ds[1],v=Math.hypot(x,y);if(v>.5){x*=.5/v;y*=.5/v;}S.shot.side=x;S.shot.top=y;update();}};
+ $('table').onpointerdown=e=>{if(S.playing||S.mode!=='sandbox')return;const p=renderer.unproject(e);if(S.placing){S.drag=S.balls.find(b=>!b.potted&&Math.hypot(b.x-p.x,b.y-p.y)<.065)?.id;S.selected=S.drag;$('table').setPointerCapture(e.pointerId);draw();}else{const cue=S.balls.find(b=>b.id==='cue'&&!b.potted);if(cue){S.shot.angle=Math.atan2(p.y-cue.y,p.x-cue.x)*180/Math.PI;update();}}};$('table').onpointermove=e=>{if(!S.drag)return;const p=renderer.unproject(e),b=S.balls.find(b=>b.id===S.drag);if(safePosition(p,b.id)){b.x=p.x;b.y=p.y;stopBalls();S.last=null;draw();}};$('table').onpointerup=()=>{S.drag=null;schedulePreview();};$('table').onpointercancel=()=>S.drag=null;
+ $('sandbox-mode').onclick=()=>switchMode('sandbox');$('puzzle-mode').onclick=()=>toast('Free Table is ready.');$('help').onclick=()=>dialog('<h2>Turn judgement into instinct.</h2><h3>Free Table</h3><p>Click the table to aim and set cue speed. Use the tip control for spin; arrow keys make fine adjustments. Select Place balls to arrange a position. Prediction and replay help you compare shots.</p><h3>Offline use</h3><p>Open index.html in a browser. Your data stays in this browser; the app makes no network requests.</p>');$('model-info').onclick=()=>dialog('<h2>Model and calibration</h2><p>The model combines sliding-to-rolling physics with first-contact and exposure geometry. The preset is a teaching baseline within published ranges, not a fit to a measured professional table.</p><p>The occlusion angle is an approved teaching extension, distinct from the paper’s model-error delta. Collision circles of radius 2R determine reachable directions.</p><p>The 2D model omits jumps, swerve, pocket jaws and ball-to-ball friction. Packed balls use sequential collision resolution. See README and docs/sources.md for sources.</p>');document.querySelector('.dialog-close').onclick=()=>$('info-dialog').close();$('editor-entry').onclick=()=>toast('The puzzle editor is loading.');
+ controls();switchMode('sandbox');update();C.app={state:S,renderer,draw,play,stopPlayback,toast,dialog,storage,rack,clone,update,switchMode,safePosition,stopBalls,schedulePreview};
+})(globalThis);
+
+</script><script>
+(function(root){
+ 'use strict';const C=root.Coach,A=C.app,S=A.state,P=C.physics,G=C.geometry,$=id=>document.getElementById(id),clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+ const demo={id:'demo',title:'Touch and control',category:'Straight-line control',difficulty:'Beginner',balls:[{id:'cue',color:'white',x:.7,y:.68},{id:'red1',color:'red',x:1.2,y:.68},{id:'blue',color:'blue',x:1.9,y:1.15}],targetId:'red1',referenceShot:{angle:0,cueSpeed:.7,top:0,side:0},task:'Hit the red first and control the cue-ball finish. Read the starting position and stopping distance.',explanation:'Making contact does not guarantee a safe return. Check the attacking chance left after the shot.',source:'Paper §4、§8.3',objective:{type:'distance'},hint:'Start towards the red and control the speed remaining after contact.'};
+ const T={puzzles:C.puzzles||[demo],index:0,route:[],raw:[],editing:false,drawing:false,handle:-1,activeHandle:-1,pointerId:null,showReference:false,showHint:false,reference:null,report:null,busy:false};
+ const sandboxKeys=['balls','before','last','prediction','selected','placing','shot','params','ghost','predict','playSpeed'];
+ function captureSandbox(){const snapshot={};for(const key of sandboxKeys)snapshot[key]=A.clone(S[key]);if(S.playing&&S.last){snapshot.balls=A.clone(S.last.balls);snapshot.prediction=null;}return snapshot;}
+ let sandboxSnapshot=captureSandbox();
+ function resetGesture(){T.drawing=false;T.handle=-1;T.activeHandle=-1;T.editing=false;T.raw=[];if(T.pointerId!==null){try{$('table').releasePointerCapture(T.pointerId);}catch{}T.pointerId=null;}$('edit-route').classList.remove('active');}
+ function invalidateAssessment(){T.report=null;T.showReference=false;$('analysis-panel').hidden=true;$('reference-legend').hidden=true;if(S.mode==='puzzle'){S.balls=current().balls.map(P.createBall);S.last=null;}}
+ function current(){return T.puzzles[T.index];}
+ function initialCue(){return current().balls.find(b=>b.id==='cue');}
+ function normalize(points,smooth=false){return G.normalizePath(points,{start:initialCue(),smooth}).points;}
+ function point(e){const p=A.renderer.unproject(e),R=P.TABLE.radius;let x=clamp(p.x,R,P.TABLE.width-R),y=clamp(p.y,R,P.TABLE.height-R);const snap=.045;if(x<R+snap)x=R;if(x>P.TABLE.width-R-snap)x=P.TABLE.width-R;if(y<R+snap)y=R;if(y>P.TABLE.height-R-snap)y=P.TABLE.height-R;return{x,y};}
+ function renderState(){if(S.mode!=='puzzle')return{};return{student:T.route,reference:T.showReference?T.reference?.path:null,endpoint:T.showReference?(T.report?.diagnostics?.scoredEndpoint||T.route.at(-1)):null,handles:T.editing?T.route:null,activeHandle:T.activeHandle,targetId:current().targetId,zone:T.showHint?{...T.reference.path.at(-1),radius:.25,label:'Suggested leave'}:null,errors:T.report?.diagnostics?.cushionErrors?.map(e=>({...e,text:e.text}))||[]};}
+ function list(){const progress=A.storage.get('progress',{});$('lesson-count').textContent=T.puzzles.length+' puzzles';$('lesson-list').innerHTML=T.puzzles.map((p,i)=>`<button class="lesson ${i===T.index?'active':''}" data-level="${i}"><span class="lesson-index">${String(i+1).padStart(2,'0')}</span><span><strong>${escapeHTML(p.title)}</strong><small>${escapeHTML(p.category||'Safety')} · ${escapeHTML(p.difficulty||'Intermediate')}</small></span><span class="lesson-state">${progress[p.id]?.grade==='Excellent'?'✓':progress[p.id]?'◦':'·'}</span></button>`).join('');document.querySelectorAll('[data-level]').forEach(el=>el.onclick=()=>load(Number(el.dataset.level)));const done=T.puzzles.filter(p=>progress[p.id]?.attempts).length;$('progress-count').innerHTML=done+'<span> / '+T.puzzles.length+'</span>';$('progress-fill').style.width=done/T.puzzles.length*100+'%';}
+ function escapeHTML(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+ function load(i){if(T.busy||!Number.isInteger(i)||i<0||i>=T.puzzles.length)return;A.stopPlayback();T.index=i;T.route=[];resetGesture();T.showHint=false;invalidateAssessment();S.drag=null;S.selected=null;S.balls=current().balls.map(P.createBall);S.before=A.clone(S.balls);S.last=null;S.prediction=null;T.reference=P.simulate(S.balls,current().referenceShot,P.DEFAULTS);$('table-title').textContent=String(i+1).padStart(2,'0')+' / '+current().title;$('difficulty').textContent=current().difficulty;$('table-status').textContent='Start at the cue ball and draw your safety';$('puzzle-details').innerHTML=`<div class="puzzle-intro"><div class="eyebrow">YOUR NEXT CHALLENGE</div><h2>${escapeHTML(current().title)}</h2><p>${escapeHTML(current().task)}</p></div><div class="objective"><span>Your objective</span><p>${escapeHTML(current().goal||'Make legal contact, then control the cue-ball finish.')}</p></div><div class="coach-tip"><h3><span class="tip-icon">✦</span>Coach’s note</h3><p>${escapeHTML(current().explanation)}</p><div class="citation">${escapeHTML(current().source||'Paper §8')}</div></div><div class="level-meta"><div>Difficulty<b>${escapeHTML(current().difficulty)}</b></div><div>Attempts<b id="attempt-count">${A.storage.get('progress',{})[current().id]?.attempts||0}</b></div></div>`;$('instruction').innerHTML='<span class="step-number">01</span><div><strong>Draw your plan from the cue ball</strong><p>Include each cushion and your predicted finish. Drag points to refine the route.</p></div><span class="strip-icon">↗</span>';list();A.draw();}
+ function clear(){if(T.busy)return;A.stopPlayback();T.route=[];resetGesture();invalidateAssessment();T.showHint=false;$('table-status').textContent='Start at the cue ball and draw your safety';A.draw();}
+ $('table').addEventListener('pointerdown',e=>{if(S.mode!=='puzzle'||S.playing||T.busy||T.pointerId!==null)return;const p=point(e);$('table').setPointerCapture(e.pointerId);T.pointerId=e.pointerId;if(T.editing&&T.route.length){T.handle=T.route.findIndex((q,i)=>i>0&&Math.hypot(p.x-q.x,p.y-q.y)<.085);T.activeHandle=T.handle;A.draw();return;}const cue=initialCue();if(Math.hypot(p.x-cue.x,p.y-cue.y)>.14){A.toast('Start your drawing at the white cue ball.');return;}T.drawing=true;invalidateAssessment();T.raw=[{x:cue.x,y:cue.y}];T.route=T.raw;});
+ $('table').addEventListener('pointermove',e=>{if(S.mode!=='puzzle'||S.playing||T.busy||(T.pointerId!==null&&e.pointerId!==T.pointerId))return;const p=point(e);if(T.drawing){const last=T.raw.at(-1);if(last&&Math.hypot(p.x-last.x,p.y-last.y)>.005){T.raw.push(p);T.route=T.raw;invalidateAssessment();A.draw();}}else if(T.handle>0&&T.route[T.handle]){T.route[T.handle]=p;invalidateAssessment();A.draw();}});
+ function end(e){if(S.mode!=='puzzle'||(T.pointerId!==null&&e?.pointerId!==undefined&&e.pointerId!==T.pointerId))return;if(T.busy||S.playing){T.drawing=false;T.handle=-1;T.pointerId=null;return;}if(T.drawing){T.drawing=false;T.route=normalize(T.raw,true);invalidateAssessment();if(T.route.length>1){T.editing=true;$('edit-route').classList.add('active');$('table-status').textContent='Drag to adjust · Double-click to add · Right-click to remove';}}T.handle=-1;T.pointerId=null;A.draw();}
+ $('table').addEventListener('pointerup',end);$('table').addEventListener('pointercancel',end);
+ $('table').addEventListener('dblclick',e=>{if(S.mode!=='puzzle'||S.playing||!T.editing||T.busy||T.route.length<2)return;const p=point(e);let best=Infinity,index=-1;for(let i=1;i<T.route.length;i++){const d=G.pointSegmentDistance(p,T.route[i-1],T.route[i]);if(d<best){best=d;index=i;}}if(best<.16){T.route.splice(index,0,p);T.activeHandle=index;invalidateAssessment();A.draw();}});
+ $('table').addEventListener('contextmenu',e=>{if(S.mode!=='puzzle'||!T.editing)return;e.preventDefault();if(S.playing||T.busy)return;const p=point(e),i=T.route.findIndex((q,j)=>j>0&&Math.hypot(p.x-q.x,p.y-q.y)<.08);if(i>0){T.route.splice(i,1);T.activeHandle=-1;invalidateAssessment();A.draw();}});
+ $('table').addEventListener('keydown',e=>{if(S.mode!=='puzzle'||S.playing||T.activeHandle<=0||T.busy)return;const i=T.activeHandle,p=T.route[i];if(!p){T.activeHandle=-1;return;}if(e.key==='Delete'||e.key==='Backspace'){e.preventDefault();T.route.splice(i,1);T.activeHandle=-1;invalidateAssessment();A.draw();return;}const d={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[e.key];if(d){e.preventDefault();const step=e.shiftKey?.005:.001;p.x=clamp(p.x+d[0]*step,P.TABLE.radius,P.TABLE.width-P.TABLE.radius);p.y=clamp(p.y+d[1]*step,P.TABLE.radius,P.TABLE.height-P.TABLE.radius);invalidateAssessment();A.draw();}});
+ $('redraw').onclick=clear;$('hint').onclick=()=>{T.showHint=true;A.toast(current().hint||'Choose the first cushion, then plan the leave.');A.draw();};$('edit-route').onclick=()=>{if(T.busy||S.playing)return;if(T.route.length<2){A.toast('Draw a route first.');return;}T.editing=!T.editing;$('edit-route').classList.toggle('active',T.editing);A.draw();};
+ $('submit').onclick=()=>{if(T.route.length<2){A.toast('Draw your route from the cue ball first.');return;}if(C.assessment)return C.assessment.submit();T.showReference=true;$('reference-legend').hidden=false;A.play(T.reference);};
+ function enterPuzzle(){if(T.busy||S.mode==='puzzle')return;sandboxSnapshot=captureSandbox();S.drag=null;A.switchMode('puzzle');load(T.index);}
+ function enterSandbox(){if(T.busy||S.mode==='sandbox')return;resetGesture();invalidateAssessment();A.switchMode('sandbox');for(const key of sandboxKeys)S[key]=A.clone(sandboxSnapshot[key]);S.drag=null;$('place-mode').classList.toggle('active',S.placing);$('ghost-toggle').checked=S.ghost;$('predict-toggle').checked=S.predict;$('replay-speed').value=S.playSpeed;$('table-title').textContent='Free Table';$('difficulty').textContent='Practice';$('table-status').textContent=S.placing?'Drag balls to set up the table':'Click to aim, then take your shot';$('instruction').innerHTML='<span class="step-number">02</span><div><strong>Try your ideas on the Free Table</strong><p>Click to aim or arrange the balls. Trajectory prediction is available here only.</p></div>';A.update();}
+ $('puzzle-mode').onclick=enterPuzzle;$('sandbox-mode').onclick=enterSandbox;$('reset-table').onclick=()=>{if(S.mode==='puzzle'){clear();return;}A.stopPlayback();S.balls=A.clone(S.before);A.stopBalls();A.draw();A.schedulePreview();};
+ C.training={state:T,current,load,list,clear,renderState,escapeHTML,resetGesture,invalidateAssessment,enterPuzzle,enterSandbox};A.switchMode('puzzle');load(0);
+})(globalThis);
+
+</script><script>
+(function(root){
+ 'use strict';const C=root.Coach,A=C.app,T=C.training.state,S=A.state,$=id=>document.getElementById(id),esc=C.training.escapeHTML;
+ function setBusy(value){T.busy=value;['submit','redraw','edit-route','hint','puzzle-mode','sandbox-mode','reset-table'].forEach(id=>$(id).disabled=value);$('submit').classList.toggle('loading',value);if(!value)$('submit').innerHTML='Analyse shot <span>↗</span>';}
+ function display(report,fit){
+  const labels={E:'Endpoint',P:'Path fit',C:'Cushion sequence',O:'Safety outcome'},weights={E:25,P:20,C:10,O:45};
+  const feedback=Array.isArray(report.feedback)?report.feedback:[String(report.feedback||'')];
+  const d=report.diagnostics||{};
+  const endpoint=d.endpointDistance??d.dEnd??0,actual=report.outcome?.actual,ref=report.outcome?.reference;
+  $('analysis-panel').innerHTML=`<div class="score-heading"><strong>${Math.round(report.total)}</strong><span class="grade">${esc(report.grade)}</span><small>${fit.status==='feasible'?'Verified by simulation':'Geometric estimate · Unverified'}</small></div><div class="score-bars">${['O','E','P','C'].map(k=>`<div class="score-bar"><div><span>${k} · ${labels[k]} <small>${weights[k]}%</small></span><span>${(report[k]*100).toFixed(0)}</span></div><div class="bar"><i style="width:${Math.max(0,Math.min(100,report[k]*100))}%;${k==='O'?'background:#c0a36b':''}"></i></div></div>`).join('')}</div><div class="feedback">${feedback.map((p,i)=>`<p class="${i===0?'next-step':''}">${esc(p)}</p>`).join('')}</div><div class="metric-row"><span>Endpoint error ${(endpoint*100).toFixed(1)} cm</span><span>Reference cushions: ${T.reference.events.filter(e=>e.type==='cushion'&&e.id==='cue').length}</span><span>Drawn cushions: ${C.geometry.cushionSignature(T.route).length}</span></div><div class="feasibility">${esc(fit.message||'The bounded search has not found a matching shot.')}${fit.shot?`<br>Verified shot: ${fit.shot.angle.toFixed(2)}° · ${fit.shot.cueSpeed.toFixed(3)} m/s · Top / back ${fit.shot.top.toFixed(2)}R · Side spin ${fit.shot.side.toFixed(2)}R`:''}</div><div class="analysis-actions"><button id="reference-replay">↺ Replay reference</button>${fit.status==='feasible'?'<button id="student-replay">▶ Replay your shot</button>':''}<button id="next-level">Next puzzle →</button></div>`;
+  if(actual&&ref){const detail=document.createElement('div');detail.className='metric-row';detail.innerHTML=`<span>Occlusion δ_occ: ${actual.deltaDegrees.toFixed(2)}° / Reference ${ref.deltaDegrees.toFixed(2)}°</span><span>Blocked directions ${(actual.blockedFraction*100).toFixed(0)}%</span><span>Paper exposure E_geo: ${actual.exposure.toFixed(3)}</span><span>Cue-to-cushion gap ${(actual.cueRailDistance*100).toFixed(1)} cm</span>`;$('analysis-panel').querySelector('.feasibility').before(detail);}
+  if(fit.status!=='feasible')$('analysis-panel').querySelector('.feasibility').innerHTML=$('analysis-panel').querySelector('.feasibility').innerHTML.replace('Verified shot: ','Closest candidate (unverified): ');
+  $('analysis-panel').hidden=false;$('reference-replay').onclick=()=>A.play(T.reference);if($('student-replay'))$('student-replay').onclick=()=>A.play(fit.result);$('next-level').onclick=()=>C.training.load((T.index+1)%T.puzzles.length);
+ }
+ function save(report,fit){const p=C.training.current(),all=A.storage.get('progress',{}),old=all[p.id]||{attempts:0,best:0,grade:'Developing'};const ranks={'Developing':0,'Promising':1,'Excellent':2};all[p.id]={attempts:old.attempts+1,best:Math.max(old.best,report.total),grade:ranks[report.grade]>ranks[old.grade]?report.grade:old.grade,verifiedBest:fit.status==='feasible'?Math.max(old.verifiedBest||0,report.total):old.verifiedBest||0,lastGrade:report.grade,lastVerified:fit.status==='feasible',updatedAt:new Date().toISOString()};A.storage.set('progress',all);C.training.list();$('attempt-count').textContent=String(all[p.id].attempts);}
+ async function submit(){if(T.busy||T.route.length<2)return;setBusy(true);A.stopPlayback();S.balls=C.training.current().balls.map(C.physics.createBall);T.showReference=false;T.report=null;A.draw();try{const fit=await C.scoring.invert({puzzle:C.training.current(),path:T.route,reference:T.reference,params:C.physics.DEFAULTS,maxEvaluations:320,onProgress:value=>{$('submit').textContent='Testing shots… '+(typeof value==='number'?value:(value?.evaluations||''));}});const report=C.scoring.evaluate({puzzle:C.training.current(),studentPath:T.route,reference:T.reference,realized:fit.status==='feasible'?fit.result:null,feasibility:fit});T.report=report;T.showReference=true;T.editing=false;$('edit-route').classList.remove('active');$('reference-legend').hidden=false;display(report,fit);save(report,fit);A.play(T.reference);}catch(e){A.toast('Analysis could not finish: '+e.message);}finally{setBusy(false);}}
+ C.assessment={submit,display};
+})(globalThis);
+
+</script><script>
+(function(root){
+ 'use strict';const C=root.Coach,P=C.physics,F=C.scoring;
+ function validatePuzzle(input){
+  if(!input||typeof input!=='object'||!Array.isArray(input.balls)||input.balls.length<2||input.balls.length>32)throw Error('A puzzle needs 2–32 balls.');
+  const ids=new Set(),allowed=['white','red','yellow','green','brown','blue','pink','black'];
+  const balls=input.balls.map(b=>{if(!b||typeof b.id!=='string'||!b.id||b.id.length>64||ids.has(b.id))throw Error('Each ball needs a valid, unique ID.');ids.add(b.id);if(!allowed.includes(b.color)||!Number.isFinite(b.x)||!Number.isFinite(b.y))throw Error('Invalid ball colour or position.');if(b.x<P.TABLE.radius||b.x>P.TABLE.width-P.TABLE.radius||b.y<P.TABLE.radius||b.y>P.TABLE.height-P.TABLE.radius)throw Error('Ball centres must be inside the cushions.');if(P.TABLE.pockets.some(p=>Math.hypot(p.x-b.x,p.y-b.y)<=p.radius))throw Error('Starting balls cannot occupy a pocket capture zone.');return {id:b.id,color:b.color,x:b.x,y:b.y};});
+  if(balls.filter(b=>b.id==='cue'&&b.color==='white').length!==1||balls.filter(b=>b.color==='white').length!==1)throw Error('A puzzle must have exactly one white ball with ID cue.');
+  for(let i=0;i<balls.length;i++)for(let j=i+1;j<balls.length;j++)if(Math.hypot(balls[i].x-balls[j].x,balls[i].y-balls[j].y)<2*P.TABLE.radius-1e-8)throw Error('Starting balls overlap.');
+  if(!ids.has(input.targetId)||input.targetId==='cue')throw Error('Choose a valid target ball.');
+  const sh=input.referenceShot;if(!sh||!['angle','cueSpeed','top','side'].every(k=>Number.isFinite(sh[k])))throw Error('Reference shot settings are missing.');if(Math.abs(sh.angle)>360||sh.cueSpeed<=0||sh.cueSpeed>6||Math.hypot(sh.top,sh.side)>.5+1e-9)throw Error('Cue speed or combined tip offset is outside the physical range.');
+  const text=(key,fallback,max)=>typeof input[key]==='string'?input[key].slice(0,max):fallback;
+  const objective={type:['rail','snooker','escape','distance','target'].includes(input.objective?.type)?input.objective.type:'distance'};
+  for(const key of ['cueZone','targetZone']){const z=input.objective?.[key];if(z){if(!Number.isFinite(z.x)||!Number.isFinite(z.y)||!Number.isFinite(z.radius)||z.radius<.025||z.radius>2||z.x<0||z.y<0||z.x>P.TABLE.width||z.y>P.TABLE.height)throw Error('Invalid target zone position or radius.');objective[key]={x:z.x,y:z.y,radius:z.radius};}}
+  const legal=input.legalTargetIds||[input.targetId];if(!Array.isArray(legal)||!legal.length||legal.some(id=>!ids.has(id)||id==='cue'))throw Error('Invalid list of legal targets.');
+  return {id:text('id','custom-'+Date.now(),100),title:text('title','My safety puzzle',60),category:text('category','Custom puzzle',30),difficulty:text('difficulty','Custom',20),balls,targetId:input.targetId,legalTargetIds:[...new Set(legal)],referenceShot:{angle:sh.angle,cueSpeed:sh.cueSpeed,top:sh.top,side:sh.side},objective,task:text('task','Make legal contact and control the leave.',1000),goal:text('goal','Control where the cue ball and object ball finish.',500),explanation:text('explanation','Choose the leave, then find the route.',2000),hint:text('hint','Start by choosing a route towards the target area.',400),source:text('source','Custom puzzle · Forward simulation with default physics',200),custom:true};
+ }
+ function validateAndSimulate(input){const puzzle=validatePuzzle(input),result=P.simulate(puzzle.balls,puzzle.referenceShot,P.DEFAULTS,{recordFrames:false}),legal=F.checkResult(puzzle,result);if(!legal.valid)throw Error('Reference shot failed validation: '+legal.reason);const m=F.outcomeMetrics(puzzle,result.balls,{verified:true});if(puzzle.objective.type==='snooker'&&m.blockedFraction<.8)throw Error('A snooker puzzle must block at least 80% of contact directions. Adjust the layout and reshoot, or choose another tactic.');if(puzzle.objective.type==='rail'&&m.cueRailDistance>.08)throw Error('A cushion-control puzzle must leave the cue ball within 8 cm of a cushion. Adjust your speed.');if(puzzle.objective.cueZone&&m.cueZone<1-1e-9)throw Error('The reference cue ball missed the specified zone.');if(puzzle.objective.targetZone&&m.targetSafety<1-1e-9)throw Error('The reference object ball missed the specified zone.');return {puzzle,result};}
+ C.editor={validatePuzzle,validateAndSimulate};if(typeof module!=='undefined'&&module.exports)module.exports=C.editor;
+ if(typeof document==='undefined')return;
+ const A=C.app,S=A.state,T=C.training.state,$=id=>document.getElementById(id),esc=C.training.escapeHTML;
+ function getCustom(){const saved=A.storage.get('custom-puzzles',[]);if(!Array.isArray(saved))return[];const valid=[];for(const p of saved.slice(0,50)){try{valid.push({...validatePuzzle(p),recording:p.recording});}catch{}}return valid;}
+ function addToList(){const i=T.index;T.puzzles=[...(C.puzzles||T.puzzles.filter(p=>!p.custom)),...getCustom()];T.index=Math.min(i,T.puzzles.length-1);C.training.list();}
+ function snapshot(result){return {path:result.path,tracks:result.tracks,balls:result.balls,events:result.events,duration:result.duration,params:result.params,shot:result.shot,completed:result.completed};}
+ function download(data,name){const a=document.createElement('a'),url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+ function open(){if(S.mode!=='sandbox'){A.toast('Open Free Table, arrange the balls and take a shot before opening the editor.');return;}const last=S.last,initial=S.before?.filter(b=>!b.potted).map(({id,color,x,y})=>({id,color,x,y}));const ready=last?.shot&&initial?.some(b=>b.id==='cue');A.dialog(`<div class="eyebrow">COACH'S WORKBENCH</div><h2>Turn a good shot into a puzzle.</h2><p>${ready?'Your last starting position and shot have been captured. Saving reruns the shot with default physics and checks first contact, pockets and the final resting state.':'Take a shot in Free Table to record a puzzle, or import an existing puzzle file.'}</p>${ready?`<label>Puzzle name<input id="editor-title" maxlength="60" value="My safety puzzle"></label><div class="editor-grid"><label>Legal target<select id="editor-target">${initial.filter(b=>b.id!=='cue').map(b=>`<option value="${esc(b.id)}">${esc(b.id)} · ${esc({red:'red',yellow:'yellow',green:'green',brown:'brown',blue:'blue',pink:'pink',black:'black'}[b.color])} ball</option>`).join('')}</select></label><label>Tactical objective<select id="editor-type"><option value="distance">Create distance</option><option value="rail">Cushion control</option><option value="snooker">Hide behind a colour</option><option value="escape">Multi-cushion escape</option><option value="target">Move the object ball to safety</option></select></label></div><label>Task<textarea id="editor-task">Make legal contact and leave the cue ball in the recorded safe area.</textarea></label><label>Coaching note<textarea id="editor-note" placeholder="Key contact points, speed and what to look for"></textarea></label><label>Cue-ball zone radius (cm)<input id="editor-radius" type="number" value="18" min="3" max="80"></label><button id="save-puzzle" class="primary">Validate and save puzzle ↗</button><p id="editor-result" role="status"></p>`:''}<hr style="border:0;border-top:1px solid #e1e5d9;margin:22px 0"><div class="small-row"><button id="export-puzzles">Export custom puzzles</button><button id="import-puzzles">Import puzzles</button></div><input type="file" id="import-file" accept=".json,application/json" hidden><p>Custom puzzles are saved in this browser. Exported JSON includes starting positions, the reference shot and complete trajectories. Imports are simulated again; supplied traces are not trusted as reference shots.</p>`);
+  if(ready){const first=last.events.find(e=>e.type==='ball'&&e.ids.includes('cue'));if(first){const id=first.ids.find(x=>x!=='cue');if(initial.some(b=>b.id===id))$('editor-target').value=id;}$('save-puzzle').onclick=()=>{try{const targetId=$('editor-target').value,target=initial.find(b=>b.id===targetId),shot={angle:last.shot.angle,cueSpeed:last.shot.cueSpeed,top:last.shot.top,side:last.shot.side},pre=P.simulate(initial,shot,P.DEFAULTS,{recordFrames:false}),cue=pre.balls.find(b=>b.id==='cue'),targetEnd=pre.balls.find(b=>b.id===targetId),radius=Math.max(.03,Math.min(.8,Number($('editor-radius').value)/100||.18)),type=$('editor-type').value;const input={id:'custom-'+Date.now(),title:$('editor-title').value.trim()||'My safety puzzle',category:'Custom puzzle',difficulty:'Custom',balls:initial,targetId,legalTargetIds:target?.color==='red'?initial.filter(b=>b.color==='red').map(b=>b.id):[targetId],referenceShot:shot,task:$('editor-task').value,goal:'Leave the cue ball in the recorded target zone.',explanation:$('editor-note').value||'Check where both balls finish, not just the moment of contact.',objective:{type,cueZone:{x:cue.x,y:cue.y,radius},...(type==='target'?{targetZone:{x:targetEnd.x,y:targetEnd.y,radius:.2}}:{})}};const checked=validateAndSimulate(input),all=getCustom();if(all.length>=50)throw Error('The 50-puzzle limit has been reached. Export a backup first.');all.push({...checked.puzzle,recording:snapshot(checked.result)});if(!A.storage.set('custom-puzzles',all))return;addToList();$('editor-result').textContent='Saved: '+checked.puzzle.title+'. Verified with default physics.';$('save-puzzle').disabled=true;A.toast('Your new puzzle is in the practice list.');}catch(e){$('editor-result').textContent=e.message;}};}
+  $('export-puzzles').onclick=()=>{const p=getCustom();if(!p.length){A.toast('No custom puzzles yet.');return;}download({format:'snooker-safety-coach',version:1,puzzles:p},'snooker-custom-puzzles.json');};$('import-puzzles').onclick=()=>$('import-file').click();$('import-file').onchange=async e=>{const file=e.target.files?.[0];if(!file)return;try{if(file.size>5e6)throw Error('The JSON file must be smaller than 5 MB.');const input=JSON.parse(await file.text()),items=Array.isArray(input)?input:input.puzzles;if(!Array.isArray(items)||!items.length||items.length>50)throw Error('The file must contain 1–50 puzzles.');const all=getCustom();if(all.length+items.length>50)throw Error('This import would exceed 50 puzzles. Split the collection first.');const checked=[];for(let i=0;i<items.length;i++){const q=validateAndSimulate({...items[i],id:'custom-import-'+Date.now()+'-'+i});checked.push({...q.puzzle,recording:snapshot(q.result)});if(i%3===0)await new Promise(r=>setTimeout(r,0));}if(A.storage.set('custom-puzzles',all.concat(checked))){addToList();A.toast(`Verified and imported ${checked.length} puzzles.`);$('info-dialog').close();}}catch(error){A.toast('Import failed: '+error.message);}};
+  const saved=getCustom(),trash=A.storage.get('custom-trash',[]);if(saved.length||trash.length){const box=document.createElement('div');box.innerHTML=`<h3>Manage custom puzzles</h3>${saved.length?`<select id="custom-manage">${saved.map(p=>`<option value="${esc(p.id)}">${esc(p.title)}</option>`).join('')}</select><button id="archive-custom" style="margin-top:10px">Move to local trash</button>`:''}${trash.length?'<button id="restore-custom" style="margin-left:8px">Restore last removed puzzle</button>':''}`;$('dialog-content').append(box);if($('archive-custom'))$('archive-custom').onclick=()=>{const id=$('custom-manage').value,all=getCustom(),p=all.find(q=>q.id===id);if(p&&A.storage.set('custom-trash',[...trash,p])&&A.storage.set('custom-puzzles',all.filter(q=>q.id!==id))){addToList();$('info-dialog').close();A.toast('Moved to local trash. You can restore it in the editor.');}};if($('restore-custom'))$('restore-custom').onclick=()=>{if(getCustom().length>=50){A.toast('Export or remove a puzzle first. The limit is 50.');return;}const copy=trash.slice(),p=copy.pop();if(A.storage.set('custom-puzzles',[...getCustom(),p])&&A.storage.set('custom-trash',copy)){addToList();$('info-dialog').close();A.toast('The last removed puzzle has been restored.');}};}
+ }
+ $('editor-entry').onclick=open;document.addEventListener('keydown',e=>{if(e.altKey&&e.key.toLowerCase()==='e'){e.preventDefault();open();}});C.editor.open=open;addToList();
+})(globalThis);
+
+</script>
+</body></html>
