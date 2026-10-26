@@ -4,6 +4,10 @@
 const fs = require('node:fs'), path = require('node:path');
 const root = path.resolve(__dirname, '..'), dist = path.join(root, 'dist');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
+// dist is owned by this builder. Recreate it so removed assets never linger
+// in a release. Validate the absolute target before recursively removing it.
+if (path.dirname(dist) !== root || path.basename(dist) !== 'dist') throw new Error('Invalid build directory');
+fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
 
 // The classic-script mirror of the lesson data is always regenerated from the editable JSON.

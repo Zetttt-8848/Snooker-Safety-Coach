@@ -76,7 +76,7 @@
     $('#st-model').onclick = () => { ui.dialog.open(`<div class="notes"><p class="eyebrow">${icon('book')}Behind the scenes</p><h2>About the physics model</h2>
       <ul class="plain"><li>Balls slide, then roll. Raised cushion contact couples side spin, topspin and cloth friction, with grip limited by the impact.</li>
       <li>The standard table is a <b>teaching baseline</b> inside published ranges. It is not a measurement of a real match table.</li>
-      <li>The model leaves out jumps, swerve, cloth nap and pocket jaws, and treats packed balls approximately.</li>
+      <li>Pockets have openings and rounded jaws. Vertical pocket bounce, jumps, swerve and cloth nap are omitted; packed balls are approximate.</li>
       <li>The “blocked angle” is a teaching measure of how much of the red a colour hides. It is not a probability.</li>
       <li>Safe-leave maps apply the paper’s direct-line exposure threshold to the final layout. They show geometric candidates, not guaranteed reachable positions.</li>
       <li>A search that finds no matching shot never proves a route is impossible.</li></ul>

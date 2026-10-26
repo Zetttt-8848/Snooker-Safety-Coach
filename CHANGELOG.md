@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.4.0 — Full-frame start, pocket openings and controlled pace
+
+- Free Table opens with all 22 balls in the break-off layout; New frame restores it and clears the previous shot and review.
+- Removed the duplicate floating angle badge that obscured the brown in the opening layout; the angle remains in the Aim control.
+- Replaced closed rectangular rail walls and circular pocket suction with finite cushions, round jaws and swept throat capture. Rendering and the aim guide use the same boundary model.
+- Raised baseline rolling drag from .011 to .014, reduced the initial cue speed to 1.10 m/s and added gentler snooker power shortcuts. Previous stock settings migrate; custom cloth remains intact.
+- Added pocket-entry, jaw, energy-transfer, stopping-distance and frame-reset regressions. Regenerated all 23 lessons, excluding jaw-assisted cushion escapes.
+- Removed obsolete screenshot automation, superseded screenshots, migration scratch files, the old-language archive and an unused break-off fixture. Builds now recreate dist so stale assets cannot reappear.
+
 ## 1.3.0 — Cushion physics and post-shot safe leaves
 
 - Replaced the unbounded tangential/side-spin adjustment with a raised-nose cushion model derived from Mathavan et al.: friction-limited impulses, spin/cloth coupling and energetic restitution. Replaced the artificial spin-gain settings and migrated old presets.

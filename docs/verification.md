@@ -1,61 +1,40 @@
-# Verification record · 1.3.0
+# Verification record · 1.4.0
 
-Audit date: 2026-10-26. The designer's seven-screen interface and 23-lesson course are preserved.
-
-## Current automated checks
-
-The incoming redesign passed 153 tests before changes. The final suite contains 167 passing tests, using Node's built-in runner without installed dependencies.
-
-- Sliding-to-rolling, stopping distance, swept contacts, momentum, deterministic replay and passive dense-pack behaviour.
-- Revised cushion: frictionless restitution, artificial-reversal regression, bounded grazing response, opposite-spin symmetry, topspin changes, extreme-parameter energy dissipation, and convergence from 512 to 4096 impulse subdivisions.
-- All 23 references regenerated and independently replayed: legal first target, no pots, stopped balls, exact cushion order, intended zones, hiding and separation. Every reference earns 100/Excellent.
-- The four required grading boundaries and equivalent alternative routes; cancelled/unresolved searches never claim impossibility.
-- Safe-leave geometry: paper distance law and .30 threshold, blocker depth, all legal reds, overlap/pocket exclusions, potted targets, final object positions and immutable input.
-- UI regressions: diagonal tip limit, immediate angle entry, potted-white restoration, old-settings migration, review source switching, map hidden during replay, undo invalidation, and labelled reference-only maps for unresolved drawings.
-- Existing geometry, authoring, storage, replay, course and English-interface tests remain.
-
-Commands: `node scripts/generate-puzzles.js`, `npm test`, `npm run build`.
-
-## Current browser checks
-
-The standalone HTML is tested over the local static preview server in the in-app browser, at desktop and phone sizes. Checks cover route assessment, final-leave overlays, replay source switching, Free Table spin/angle controls, a potted white restored through Arrange balls, post-shot map review, and physics settings. Screenshots: `docs/screens/safe-leaves-desktop.png` and `docs/screens/safe-leaves-mobile.png`.
-
-## Current limits
-
-- The browser's file:// policy prevents an automated direct-disk run here. The release is checked for inline scripts/styles and no external runtime dependencies; the same standalone HTML is tested over HTTP. No alternate browser is used to circumvent the policy.
-- The physics is literature-informed, without independent real-table calibration. Cushion deformation, swerve, jumps, nap, detailed jaws and ball-to-ball tangential throw remain omitted.
-- The map is sampled geometry with final object balls fixed. It is not a reachable set, a return-probability certificate, protection against every pot, or the paper's complete defensive value.
-- Real touch hardware, Safari, Firefox, screen readers and audio fidelity were not independently tested in this audit.
-
-# Previous designer verification record · 1.2.0
-
-The following is preserved from the incoming delivery. Its screenshots and file://, contrast and accessibility statements are historical, not a substitute for the current checks above.
-
-Date: 2026-10-25. The application is static and uses no backend.
+Audit date: 2026-10-26. The English seven-screen interface and 23-lesson course are retained.
 
 ## Automated checks
 
-`npm test` uses the Node built-in runner with no installed dependencies. 153 tests pass:
+`npm test`: **174 tests pass**, zero failures. The 13 app-boot tests were also rerun after removing the floating badge that hid the brown.
 
-- **Physics (19):** sliding-to-rolling, stopping distance, cushion response, momentum and energy, pocket capture, swept collisions, dense packs, determinism.
-- **Geometry (19):** smoothing, simplification, cushion signatures (including a bounce near a corner counting once), occlusion, and the new aim preview (cut angle, object-ball line, stun deflection, cushion mirror).
-- **Scoring (30):** grading boundaries, alternative routes, legality protections, bounded route search, the closest-legal-shot tier, cancellation, progress reporting, and the plain-language explanations.
-- **Route editor (16) and replay (9):** freehand strokes, snapping rules, handle and segment hit-testing, insert and remove, undo and redo, keyboard nudges, live cushion and first-contact summary; interpolation, trails, contact markers, clock, seeking and speed.
-- **Course (34):** 23 lessons independently re-simulated; each reference earns 100/Excellent; levels never decrease in difficulty and each has at least three puzzles; every tactic and spin are present; hiding, escape, object-ball, screw-back and baulk-return outcomes are checked.
-- **Store, course helpers and puzzle builder (10):** progress migration from the earlier-language release, best scores and grades, clamped settings, blocked and corrupt storage, presets inside range, course ordering and recommendations, Free Table capture to puzzle.
-- **Editor (5) and English-only (2):** authoring validation and rejection of impossible puzzles; no non-English characters in the page, data or source, and generated lesson text matches its definitions.
-- **App smoke test (9):** the real scripts, in `index.html` order, against a stand-in browser: all screens register, the library lists all lessons by level, a puzzle opens empty, an unknown puzzle redirects, a drawn route is checked on the real engine and recorded, results without a check redirect, drafts survive navigation, a Free Table shot finishes and is captured, and no shipped file contains non-English characters.
+- All four corners: 30, 45 and 60 degree approaches at .4, 1, 3 and 8 m/s ball speed, with no phantom cushion contact on a clean line.
+- Both middle-pocket jaws, near-mouth passes, shallow versus normal entry, delayed throat capture and swept crossings between 1 ms ticks.
+- The aim guide enters all six pockets without drawing a false cushion reflection.
+- Exact inelastic normal-energy loss, no energy amplification of an initially stationary object ball, thin-hit transfer and the revised analytical stopping distance.
+- Existing sliding/rolling, cushion symmetry, energy passivity, integration convergence, dense-pack, replay, geometry and four grading-boundary tests.
+- All 23 regenerated references independently replay, meet their declared tasks and earn 100/Excellent. Cushion escapes use the advertised cushion faces in order, without relying on pocket jaws.
+- Full 22-ball initial frame, white in the D, New frame reset, custom-settings preservation and migration of the previous stock drag.
+- Safe-leave source selection, final-layout geometry, undo invalidation, potted-white restoration, authoring, progress and English-interface checks remain passing.
+
+A further deterministic stress check (seed 140, 200 single-ball shots, cue speeds .4–4.4 m/s, varied aim and spin) found no balls escaping the pocket/cushion geometry and no unfinished trajectories. This is a numerical sample, not a proof over all inputs.
 
 ## Browser checks
 
-- The built `dist/Snooker-Safety-Coach.html` was opened from disk (`file://`) in headless Edge by `scripts/capture-screens.js`, which walked Home, Puzzles, Practice (touch-style drawing, check), Results, Free table (shot), Create and Settings at 1440×900, then Home, Practice, Results and Free table at 390×844. It fails on any console error and reported none.
-- In the in-app browser (served over HTTP): drawing, adding and removing points, keyboard editing, undo, hints, coach notes, the guide, library filters, checking, cancelling mid-search, a verified result, an "estimate" result, the Free Table shot and summary, the Create error message and save, Settings, and phone layouts. An accessibility sweep found every interactive element named, one H1 per screen and no target under 36 px. Colour contrast was computed for every text and background pair; the lowest is 4.8:1.
+The self-contained HTML was served locally and checked in the in-app browser at desktop (1440×1000) and phone (390×844) sizes. Verified:
+
+- Full rack on initial load, 1.10 m/s opening power, all six colours visible.
+- New frame cancels an in-progress shot, restores the rack and centre-ball spin, and clears the previous shot/review controls.
+- Two-ball layout: angle −5.2 degrees with the Firm preset pots the red into the top-right corner; the interface reports “First hit: red · 0 cushions · Red potted”.
+- Settings shows baseline rolling drag .014. Mobile mode buttons have accessible names and the page has no horizontal overflow.
+- No console errors in the working preview tab.
+
+Screenshots: `docs/screens/free-table-opening.png` and `docs/screens/free-table-mobile.png`.
+
+## Release and cleanup
+
+The builder recreates its owned dist directory, so deleted assets cannot linger. Superseded screenshots, screenshot automation, an unused break-off fixture and dead styling were removed. Old local archive/scratch files were sent to the Recycle Bin, keeping that cleanup recoverable. Git history retains earlier tracked releases. The current source, tests, reference data, standalone HTML, documentation and ZIP are the deliverables.
 
 ## Limits
 
-- Real touch hardware and other browsers (Safari, Firefox) were not tested; Chromium-based Edge was. Touch was simulated with pointer events.
-- The in-app browser blocks `file://`; the file build was therefore checked in headless Edge instead.
-- The physics is a teaching baseline, not a calibration of a real table. A route search that finds no match is not proof of impossibility.
-- Screen-reader behaviour was reasoned from the markup (labels, roles, live regions), not tested with a screen reader.
-- Sound is synthesised in the browser and was not listened to in an automated run.
-- Custom puzzle text typed by a user is not translated.
+The browser file:// policy prevented an automated direct-disk run in the previous audit; no alternate browser was used to bypass it. This release is checked for inline scripts/styles and no external runtime dependencies, and the same standalone HTML is exercised over HTTP. Real touch hardware, Safari, Firefox and screen readers were not tested.
+
+The pocket model uses assumed rounded jaws and throat depths, not measured WPBSA templates. Vertical pocket bounce, cushion deformation, swerve, jumps, nap and ball-to-ball tangential throw are omitted. Physical invariant checks and literature-informed defaults are not independent real-table calibration. The safe-leave map remains sampled post-shot geometry, not a guaranteed reachable set or a return-probability certificate.

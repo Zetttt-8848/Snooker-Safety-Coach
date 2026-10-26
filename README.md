@@ -2,13 +2,13 @@
 
 An offline, English-language web app that teaches snooker safety. Draw where the white ball will go, test the line on a physics table, and see what you left behind. Built with Canvas 2D and a shared custom physics engine. No backend, account, CDN, external font or installation.
 
-![Drawing a route on a puzzle](docs/preview.png)
+![Free Table starts with a full snooker frame](docs/screens/free-table-opening.png)
 
 ## Run it
 
 - **Open `dist/Snooker-Safety-Coach.html`.** The whole app is inside that one file. It works from disk (`file://`) with no network.
 - To work on the source: open the project-root `index.html` with its neighbouring folders, or run `npm start` and visit `http://127.0.0.1:4173` (a static preview server, not a backend).
-- `npm test` runs the Node built-in test suite (no `npm install` needed). `npm run build` refreshes `dist/` and the puzzle catalogue. `npm run screens` rebuilds the screenshots in `docs/screens/` from the built file and fails on any browser error.
+- `npm test` runs the Node built-in test suite (no `npm install` needed). `npm run build` recreates `dist/` and refreshes the puzzle catalogue, removing stale generated files.
 
 Progress, settings and your own puzzles are kept in the browser's local storage. Opening the file from disk and from a web address use separate storage. If storage is blocked, a notice appears and practice still works.
 
@@ -39,13 +39,13 @@ Navigation is a top bar on wide screens and a bottom tab bar on phones. Your dra
 
 **Final leave** jumps to the resting position and shows **Safe leaves**, computed from the selected shot's final layout. Mint marks the paper's low-exposure region (Eq. 37, threshold .30 from Eq. 38); purple marks positions hiding 95% or more of every legal red's contact directions. Toggle the map or switch replay source to compare. These are sampled geometric candidates, not guaranteed reachable finishes or scoring probabilities. The same review is available after a completed shot on the Free Table.
 
-![Post-shot review with low-exposure and hidden regions](docs/screens/safe-leaves-desktop.png)
-
 The score ring, a one-line coaching tip and the next action come first. Below: four meters with a plain sentence each (safety of the leave, finish spot, route shape, cushion contacts). The replay offers *Your shot* and *Reference shot*, play/pause, a scrubber with contact markers, 0.25×–2× speed, and layers for your route, the reference, the target area, ball trails and (for hiding puzzles) the **blocked view**: green directions where the red can still be hit, coral where it is hidden. A badge says whether the result was verified on the physics table, played as the closest legal shot, or only estimated.
 
 ### Free table
 
-Drag on the table to aim. A cue stick, the ghost-ball contact point, the object ball's direction (orange) and the cue ball's stun deflection are drawn. If nothing is hit, the first cushion and its mirror line are shown. **Predict path** previews the full route. `Space` takes the shot. **Arrange balls** adds, moves and removes balls or loads a preset layout. After a shot, **Save as puzzle** sends it to Create.
+Free Table starts with 15 reds in a triangle, all six colours on their spots, and the white in the D. **New frame** restores this layout and resets power and spin. Drag on the table to aim. A cue stick, the ghost-ball contact point, the object ball's direction (orange) and the cue ball's stun deflection are drawn. The guide uses the same cushion openings and rounded jaws as the physics, and does not reflect off an imaginary wall across a pocket. **Predict path** previews the full route. `Space` takes the shot. **Arrange balls** adds, moves and removes balls or loads a preset layout. After a shot, **Save as puzzle** sends it to Create.
+
+Power is cue speed, not the red ball's speed. The opening setting is 1.10 m/s; Soft, Medium, Firm and Break-off use 0.40, 0.80, 1.30 and 1.80 m/s. Higher speeds remain available on the slider. Rolling drag is now .014: the same .50 m/s rolling ball stops in about .91 m instead of 1.16 m. Existing custom cloth settings are preserved; the previous stock baseline upgrades automatically.
 
 ## Puzzle library
 
@@ -99,15 +99,15 @@ The playing area is 3569 × 1778 mm with 52.5 mm balls, a baulk line at 737 mm, 
 | Parameter | Default | Range |
 |---|---:|---:|
 | Sliding friction | 0.20 | 0.10–0.35 |
-| Rolling resistance | 0.011 | 0.005–0.030 |
+| Rolling resistance | 0.014 | 0.005–0.030 |
 | Cushion energetic restitution | 0.98 | 0.50–1.00 |
 | Cushion friction | 0.14 | 0–0.30 |
 | Ball restitution | 0.94 | 0.85–1.00 |
 | Side-spin decay | 8 rad/s² | 0–20 rad/s² |
-| Cue speed | 1.50 m/s | 0.10–6 m/s in the interface |
+| Cue speed | 1.10 m/s in Free Table | 0.10–6 m/s in the interface |
 | Tip offset | Centre | combined radius ≤ 0.5R |
 
-The standard table is a **teaching baseline**, not a calibration of a professional table. Sliding friction acts on contact slip, with an analytic sliding-to-rolling transition. The cushion model now uses a nose height of 1.4R, Coulomb friction at cushion and cloth, all three spin components, and compression/restitution work. The .98 value is energetic restitution, not 98% retained horizontal speed. See [the derivation, sources and regression checks](docs/cushion-model.md). Equal-mass ball collisions still apply normal restitution only. The outer step is 1 ms with swept collision and pocket events. The model omits jumps, masse, swerve, cloth nap, complex pocket jaws and cushion deformation. Numerical consistency is not real-table validation.
+The standard table is a **teaching baseline**, not a calibration of a professional table. Sliding friction acts on contact slip, with an analytic sliding-to-rolling transition. The cushion model now uses a nose height of 1.4R, Coulomb friction at cushion and cloth, all three spin components, and compression/restitution work. The .98 value is energetic restitution, not 98% retained horizontal speed. See [the derivation, sources and regression checks](docs/cushion-model.md). Finite cushion openings, rounded jaws and throat capture replace the old circular pocket zones; see [pocket geometry and energy checks](docs/pockets-and-energy.md). Equal-mass ball collisions still apply normal restitution only. The outer step is 1 ms with swept collision and pocket events. The model omits jumps, masse, swerve, cloth nap, vertical pocket bounce, measured pocket templates and cushion deformation. Numerical consistency is not real-table validation.
 
 ## Source layout
 
@@ -120,8 +120,8 @@ The standard table is a **teaching baseline**, not a calibration of a profession
 | `src/ui.js`, `home.js`, `library.js`, `practice.js`, `results.js`, `freetable.js`, `creator.js`, `settings.js`, `guide.js`, `main.js` | Router, shared interface, and one file per screen |
 | `data/puzzles.json` | Editable lesson data; `puzzles.js` is its offline mirror and `references.json` holds full reference trajectories |
 | `scripts/generate-puzzles.js` | Reproducibly constructs and verifies every lesson (`node scripts/generate-puzzles.js` overwrites the built-in data) |
-| `scripts/build.js`, `serve.js`, `capture-screens.js` | Build, preview server, screenshot and file:// check |
-| `tests/` | 150+ tests: physics, geometry, scoring, lessons, editing, replay, storage, a scripted run through the main journey, and English-only checks |
+| `scripts/build.js`, `serve.js` | Clean offline build and local preview server |
+| `tests/` | 174 tests: physics, geometry, scoring, lessons, editing, replay, storage, a scripted run through the main journey, and English-only checks |
 
 More: [design notes](docs/design.md) · [verification](docs/verification.md) · [staged delivery](docs/stages.md) · [designer brief](DESIGN_BRIEF.md) · [changelog](CHANGELOG.md).
 

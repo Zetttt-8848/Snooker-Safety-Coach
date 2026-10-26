@@ -127,6 +127,10 @@ test('the free table takes a shot and records it so it can become a puzzle', () 
   C.ui.router.render();
   const S = C.freeTable.state;
   assert.ok(S.balls.some(b => b.id === 'cue'));
+  assert.equal(S.balls.length,22);
+  assert.equal(S.balls.filter(b=>b.color==='red').length,15);
+  const cue=S.balls.find(b=>b.id==='cue'),T=C.physics.TABLE;
+  assert.ok(cue.x<=T.baulk&&Math.hypot(cue.x-T.baulk,cue.y-T.height/2)<=T.dRadius);
   env.nodes('#ft-shoot').onclick();
   assert.equal(S.playing, true);
   const capture = C.ui.session.capture;
@@ -140,6 +144,11 @@ test('the free table takes a shot and records it so it can become a puzzle', () 
   env.nodes('#ft-undo').onclick();
   assert.equal(env.nodes('#ft-safe-legend').hidden,true);
   assert.equal(env.nodes('#ft-safety').disabled,true,'undo cannot label the initial layout as a final leave');
+  S.shot.cueSpeed=5; S.shot.side=.3;
+  env.nodes('#ft-new').onclick();
+  assert.equal(S.balls.length,22);assert.equal(S.last,null);
+  assert.equal(S.shot.cueSpeed,1.1);assert.equal(S.shot.side,0);
+  assert.equal(C.ui.session.capture,null);
 });
 
 test('dragging a diagonal tip point to the limit still permits a physical shot', () => {

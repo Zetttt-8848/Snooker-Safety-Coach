@@ -9,20 +9,20 @@
     <div class="view-head tight">
       <div><p class="eyebrow">Experiment</p><h1 data-focus>Free table</h1></div>
       <div class="mode-switch segmented" role="group" aria-label="Mode">
-        <button type="button" id="ft-mode-aim" aria-pressed="true">${icon('target')}<span>Aim and shoot</span></button>
-        <button type="button" id="ft-mode-arrange" aria-pressed="false">${icon('table')}<span>Arrange balls</span></button>
+        <button type="button" id="ft-mode-aim" aria-label="Aim and shoot" aria-pressed="true">${icon('target')}<span>Aim and shoot</span></button>
+        <button type="button" id="ft-mode-arrange" aria-label="Arrange balls" aria-pressed="false">${icon('table')}<span>Arrange balls</span></button>
       </div>
     </div>
     <div class="free-layout"><div class="free-main">
     <div class="stage">
       <div class="table-frame">
         <canvas id="ft-canvas" class="interactive" tabindex="0" aria-label="Snooker table. Drag to aim the cue. Press Space to take the shot. In arrange mode, drag balls to move them."></canvas>
-        <div class="stage-overlay"><div class="aim-readout" id="ft-readout" aria-hidden="true"></div></div>
       </div>
       <div class="route-chips" id="ft-summary" aria-live="polite"></div>
       <div class="safe-legend" id="ft-safe-legend" hidden><div><span class="safe-key">Low exposure</span><span class="safe-key hidden-key">95%+ hidden</span></div><p>Final layout · all remaining reds</p><small>Paper exposure ≤ 0.30; 2 cm samples. Geometry only, not guaranteed shot reachability.</small></div>
     </div>
     <div class="toolbar" role="toolbar" aria-label="Table actions">
+      <button class="btn btn-ghost" id="ft-new" type="button">${icon('table')}<span>New frame</span></button>
       <button class="btn btn-ghost" id="ft-replay" type="button">${icon('restart')}<span>Replay last shot</span></button>
       <button class="btn btn-ghost" id="ft-undo" type="button">${icon('undo')}<span>Undo shot</span></button>
       <button class="btn btn-ghost" id="ft-safety" type="button" aria-pressed="false">${icon('shield')}<span>Review safe leaves</span></button>
@@ -45,8 +45,8 @@
         <h2 id="ft-power-h">${icon('gauge')}Power <output id="ft-power-out"></output></h2>
         <input id="ft-power" class="power-range" type="range" min="0.1" max="6" step="0.05" aria-label="Cue speed in metres per second">
         <div class="chip-row small" role="group" aria-label="Power presets">
-          <button class="chip" type="button" data-power="0.6">Soft</button><button class="chip" type="button" data-power="1.5">Medium</button>
-          <button class="chip" type="button" data-power="3">Firm</button><button class="chip" type="button" data-power="5">Break</button>
+          <button class="chip" type="button" data-power="0.4">Soft</button><button class="chip" type="button" data-power="0.8">Medium</button>
+          <button class="chip" type="button" data-power="1.3">Firm</button><button class="chip" type="button" data-power="1.8">Break-off</button>
         </div>
       </section>
       <section class="dock-card spin-card" aria-labelledby="ft-spin-h">
@@ -93,7 +93,8 @@
   }
 
   // ---------- state ----------
-  const S = { balls: layout('colours'), before: null, shot: { angle: -20, cueSpeed: 1.5, top: 0, side: 0 }, last: null, mode: 'aim', selected: null, drag: null, aiming: false, prediction: null, player: null, playing: false, summary: null };
+  const openingShot = () => ({ angle: 0, cueSpeed: 1.1, top: 0, side: 0 });
+  const S = { balls: layout('frame'), before: null, shot: openingShot(), last: null, mode: 'aim', selected: null, drag: null, aiming: false, prediction: null, player: null, playing: false, summary: null };
   S.before = clone(S.balls);
   let renderer = null, spinCtx = null, predictTimer = 0, wired = false, spinDrag = false;
   let safetyMap = null, reviewingSafety = false;
@@ -133,12 +134,6 @@
     $('#ft-safe-legend').hidden = !review;
     if (S.playing && S.player) state.trails = R.trailsAt(S.player.result, S.player.time, S.player.snapshot());
     renderer.draw(state);
-    const readout = $('#ft-readout');
-    if (aim && c) {
-      const at = renderer.toPage(c);
-      readout.hidden = false; readout.textContent = `${S.shot.angle.toFixed(1)}°`;
-      readout.style.left = (at.x + 22) + 'px'; readout.style.top = (at.y - 38) + 'px';
-    } else readout.hidden = true;
   }
 
   function schedulePrediction() {
@@ -362,6 +357,12 @@
     $('#ft-guide').onchange = e => { ui.saveSettings({ aimGuide: e.target.checked }); draw(); };
     $('#ft-predict').onchange = e => { ui.saveSettings({ predict: e.target.checked }); schedulePrediction(); };
     $('#ft-replay').onclick = () => { if (S.last && !S.playing) { S.balls = clone(S.before); playResult(S.last, false); } };
+    $('#ft-new').onclick = () => {
+      stopPlayback(); S.balls=layout('frame'); S.before=clone(S.balls); S.shot=openingShot();
+      S.last=null; S.summary=''; S.selected=null; S.drag=null; S.aiming=false;
+      reviewingSafety=false; safetyMap=null; ui.session.capture=null; setMode('aim');
+      renderPalette(); update(); ui.toast('New frame: 15 reds, colours on their spots, white in the D.');
+    };
     $('#ft-undo').onclick = () => { if (!S.playing) { restore(S.before); } };
     $('#ft-safety').onclick = () => {
       if (!canReviewSafety()) return;

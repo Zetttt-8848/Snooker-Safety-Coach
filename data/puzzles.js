@@ -75,16 +75,16 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "initialScreened": false,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.659888905137517,
+      "finalExposure": 0.7291733076905995,
       "cueRailDistance": 0.03375,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 0.31176283775941327,
-      "targetTravel": 0.3227981273421725,
-      "targetPocketDistance": 0.8903221681164692,
-      "pocketDistanceGain": 0.32164805229968607,
+      "separation": 0.23688288132749014,
+      "targetTravel": 0.2295908383766032,
+      "targetPocketDistance": 0.797351516754317,
+      "pocketDistanceGain": 0.22867740093753386,
       "cueInBaulk": false,
-      "redTotalTravel": 0.3227981273421725
+      "redTotalTravel": 0.2295908383766032
     }
   },
   {
@@ -109,10 +109,10 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       }
     ],
     "referenceShot": {
-      "angle": 6,
+      "angle": 6.5,
       "cueSpeed": 0.6,
-      "top": 0,
-      "side": 0
+      "top": 0.1,
+      "side": -0.1
     },
     "objective": {
       "type": "distance",
@@ -145,6 +145,11 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "label": "Clip this",
       "role": "target"
     },
+    "construction": {
+      "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
+      "engine": "raised-nose cushions with rounded pocket jaws v3",
+      "globalOptimality": false
+    },
     "legalTargetIds": [
       "red1"
     ],
@@ -162,16 +167,16 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "initialScreened": false,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.2558899001739239,
-      "cueRailDistance": 0.39081384299802724,
+      "finalExposure": 0.2739993658750978,
+      "cueRailDistance": 0.5319373395602423,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 1.0222560033435106,
-      "targetTravel": 0.12363463913583629,
-      "targetPocketDistance": 0.813184089014079,
-      "pocketDistanceGain": -0.09559214857138942,
+      "separation": 0.970972115190904,
+      "targetTravel": 0.030518139406851073,
+      "targetPocketDistance": 0.8996970469825604,
+      "pocketDistanceGain": -0.009079190602908072,
       "cueInBaulk": false,
-      "redTotalTravel": 0.12363463913583629
+      "redTotalTravel": 0.030518139406851073
     }
   },
   {
@@ -197,9 +202,9 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
     ],
     "referenceShot": {
       "angle": 186.19040063023567,
-      "cueSpeed": 0.9523344257846476,
-      "top": 0.18458029064349832,
-      "side": -0.04452831884846091
+      "cueSpeed": 1.2023344257846476,
+      "top": -0.015419709356501693,
+      "side": -0.044528318848460896
     },
     "objective": {
       "type": "target",
@@ -235,7 +240,7 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
     },
     "construction": {
       "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
-      "engine": "Mathavan-style cushion v2",
+      "engine": "raised-nose cushions with rounded pocket jaws v3",
       "globalOptimality": false
     },
     "legalTargetIds": [
@@ -257,16 +262,16 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "initialScreened": false,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.33675923997612145,
-      "cueRailDistance": 0.14454677577106317,
+      "finalExposure": 0.3221044777160477,
+      "cueRailDistance": 0.0762470018224675,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 0.8162902690396667,
-      "targetTravel": 0.9009881265246135,
-      "targetPocketDistance": 1.1582403102533052,
-      "pocketDistanceGain": 0.8992803712665964,
+      "separation": 0.849659490831322,
+      "targetTravel": 0.9461268334071413,
+      "targetPocketDistance": 1.2033606702461745,
+      "pocketDistanceGain": 0.9444007312594658,
       "cueInBaulk": true,
-      "redTotalTravel": 0.9009881265246135
+      "redTotalTravel": 0.9461268334071413
     }
   },
   {
@@ -305,14 +310,14 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       {
         "id": "cue",
         "color": "white",
-        "x": 0.8354251319576461,
-        "y": 0.12302824140494262
+        "x": 0.7827123672989782,
+        "y": 0.1973232332130943
       },
       {
         "id": "red1",
         "color": "red",
-        "x": 0.8354251319576461,
-        "y": 0.5730282414049426
+        "x": 0.7827123672989782,
+        "y": 0.6473232332130943
       },
       {
         "id": "brown",
@@ -352,18 +357,18 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "pockets": [],
       "initialBlockedFraction": 0,
       "initialScreened": false,
-      "finalDeltaDegrees": 12.346518429744384,
+      "finalDeltaDegrees": 16.17519724716382,
       "finalBlockedFraction": 1,
       "finalExposure": 0,
-      "cueRailDistance": 0.5764525562203515,
+      "cueRailDistance": 0.5781566069824586,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 0.4882115098266411,
-      "targetTravel": 0.5094186901965764,
-      "targetPocketDistance": 1.0486799555322657,
-      "pocketDistanceGain": 0.03561701743113699,
+      "separation": 0.37316895823491314,
+      "targetTravel": 0.37776014930097035,
+      "targetPocketDistance": 1.1569652319074173,
+      "pocketDistanceGain": 0.1412556187894629,
       "cueInBaulk": true,
-      "redTotalTravel": 0.5094186901965764
+      "redTotalTravel": 0.37776014930097035
     }
   },
   {
@@ -402,14 +407,14 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       {
         "id": "cue",
         "color": "white",
-        "x": 0.9301793861912933,
-        "y": 0.34560451071861653
+        "x": 0.8478020952215726,
+        "y": 0.45784070254806375
       },
       {
         "id": "red1",
         "color": "red",
-        "x": 0.9301793861912933,
-        "y": 0.7956045107186165
+        "x": 0.8478020952215726,
+        "y": 0.9078407025480637
       },
       {
         "id": "yellow",
@@ -449,18 +454,18 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "pockets": [],
       "initialBlockedFraction": 0,
       "initialScreened": false,
-      "finalDeltaDegrees": 10.6440538254858,
+      "finalDeltaDegrees": 14.194592488905196,
       "finalBlockedFraction": 1,
       "finalExposure": 0,
-      "cueRailDistance": 0.5556611597538528,
+      "cueRailDistance": 0.5605329451973116,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 0.56601711417453,
-      "targetTravel": 0.4083447918354096,
-      "targetPocketDistance": 0.8997594322550662,
-      "pocketDistanceGain": -0.26765234113695113,
+      "separation": 0.42491318956661456,
+      "targetTravel": 0.30242343010293044,
+      "targetPocketDistance": 0.9884305958987843,
+      "pocketDistanceGain": -0.22645441742722416,
       "cueInBaulk": true,
-      "redTotalTravel": 0.4083447918354096
+      "redTotalTravel": 0.30242343010293044
     }
   },
   {
@@ -499,14 +504,14 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       {
         "id": "cue",
         "color": "white",
-        "x": 1.451397605167654,
-        "y": 0.890319456048871
+        "x": 1.3932772212298958,
+        "y": 0.8201738764542805
       },
       {
         "id": "red1",
         "color": "red",
-        "x": 1.0167309833375733,
-        "y": 0.7738508857527368
+        "x": 0.9586105993998152,
+        "y": 0.7037053061581464
       },
       {
         "id": "green",
@@ -546,18 +551,18 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "pockets": [],
       "initialBlockedFraction": 0,
       "initialScreened": false,
-      "finalDeltaDegrees": 12.34651842974301,
+      "finalDeltaDegrees": 16.175197247164014,
       "finalBlockedFraction": 1,
       "finalExposure": 0,
-      "cueRailDistance": 0.4583215328940835,
+      "cueRailDistance": 0.46082702737902914,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 0.4882115098266952,
-      "targetTravel": 0.5094186901966584,
-      "targetPocketDistance": 0.9932920027385529,
-      "pocketDistanceGain": -0.09680636728457703,
+      "separation": 0.3731689582349087,
+      "targetTravel": 0.3777601493009629,
+      "targetPocketDistance": 0.9595970597044216,
+      "pocketDistanceGain": -0.12543494901184815,
       "cueInBaulk": false,
-      "redTotalTravel": 0.5094186901966584
+      "redTotalTravel": 0.3777601493009629
     }
   },
   {
@@ -603,14 +608,14 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       {
         "id": "red1",
         "color": "red",
-        "x": 2.6243427005783735,
-        "y": 0.38870044329639847
+        "x": 2.6496405921989967,
+        "y": 0.40140356960859414
       },
       {
         "id": "blue",
         "color": "blue",
-        "x": 1.730954215260268,
-        "y": 0.5599151994833793
+        "x": 1.7423382664895486,
+        "y": 0.5656316063238673
       }
     ],
     "referenceShot": {
@@ -653,16 +658,16 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "initialScreened": true,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.3916647734568345,
-      "cueRailDistance": 0.47646307948181543,
+      "finalExposure": 0.33002439576741704,
+      "cueRailDistance": 0.4494950259935814,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 0.7030117311081757,
-      "targetTravel": 0.9447389392427777,
-      "targetPocketDistance": 0.8436577056658804,
-      "pocketDistanceGain": -0.08177397540711606,
+      "separation": 0.831441525514586,
+      "targetTravel": 0.9918391649833078,
+      "targetPocketDistance": 0.8833737426105078,
+      "pocketDistanceGain": -0.07035214566397552,
       "cueInBaulk": false,
-      "redTotalTravel": 0.9447389392427777
+      "redTotalTravel": 0.9918391649833078
     }
   },
   {
@@ -701,14 +706,14 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       {
         "id": "cue",
         "color": "white",
-        "x": 0.7185374505235957,
-        "y": 0.5757911836631889
+        "x": 0.854101652859057,
+        "y": 0.6709437816437903
       },
       {
         "id": "red1",
         "color": "red",
-        "x": 1.1685374505235957,
-        "y": 0.5757911836631889
+        "x": 1.304101652859057,
+        "y": 0.6709437816437903
       },
       {
         "id": "blue",
@@ -748,18 +753,18 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "pockets": [],
       "initialBlockedFraction": 0,
       "initialScreened": false,
-      "finalDeltaDegrees": 6.346972292475026,
+      "finalDeltaDegrees": 8.082646104625834,
       "finalBlockedFraction": 1,
       "finalExposure": 0,
-      "cueRailDistance": 0.7261079735306049,
+      "cueRailDistance": 0.7268813596946755,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 0.9483472889248793,
-      "targetTravel": 1.031999693919688,
-      "targetPocketDistance": 0.3669133955713146,
-      "pocketDistanceGain": -0.47626235689179314,
+      "separation": 0.7449352702811594,
+      "targetTravel": 0.7996686277071436,
+      "targetPocketDistance": 0.43142546790855263,
+      "pocketDistanceGain": -0.3937703452547354,
       "cueInBaulk": false,
-      "redTotalTravel": 1.031999693919688
+      "redTotalTravel": 0.7996686277071436
     }
   },
   {
@@ -817,18 +822,13 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
     "referenceShot": {
       "angle": 63,
       "cueSpeed": 0.5,
-      "top": 0,
+      "top": 0.1,
       "side": 0
     },
     "construction": {
-      "method": "verified-track-clear-colour-on-official-spot",
-      "baseShot": {
-        "angle": 3,
-        "cueSpeed": 0.5,
-        "top": 0,
-        "side": 0
-      },
-      "rotation": 60
+      "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
+      "engine": "raised-nose cushions with rounded pocket jaws v3",
+      "globalOptimality": false
     },
     "legalTargetIds": [
       "red1"
@@ -845,18 +845,18 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "pockets": [],
       "initialBlockedFraction": 0,
       "initialScreened": false,
-      "finalDeltaDegrees": 19.629125162113677,
-      "finalBlockedFraction": 1,
+      "finalDeltaDegrees": 21.416195328089575,
+      "finalBlockedFraction": 0.9673012903179308,
       "finalExposure": 0,
-      "cueRailDistance": 0.8600699676396308,
+      "cueRailDistance": 0.8365052671984949,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 0.30799023492493016,
-      "targetTravel": 0.304118959861799,
-      "targetPocketDistance": 1.150862494188378,
-      "pocketDistanceGain": 0.07997769007004396,
+      "separation": 0.27342408769620474,
+      "targetTravel": 0.26408842289020656,
+      "targetPocketDistance": 1.1538581237086802,
+      "pocketDistanceGain": 0.08297331959034615,
       "cueInBaulk": false,
-      "redTotalTravel": 0.304118959861799
+      "redTotalTravel": 0.26408842289020656
     }
   },
   {
@@ -916,14 +916,14 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       }
     ],
     "referenceShot": {
-      "angle": -22.35797199966273,
-      "cueSpeed": 1.4500990280782025,
-      "top": -0.20780425889114712,
-      "side": -0.2058455900258357
+      "angle": -21.861425385519386,
+      "cueSpeed": 1.3820121825883784,
+      "top": -0.14982510362712337,
+      "side": -0.22850518065951686
     },
     "construction": {
       "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
-      "engine": "Mathavan-style cushion v2",
+      "engine": "raised-nose cushions with rounded pocket jaws v3",
       "globalOptimality": false
     },
     "legalTargetIds": [
@@ -943,24 +943,23 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
         "right"
       ],
       "allCueCushions": [
-        "right",
-        "top"
+        "right"
       ],
       "pockets": [],
       "initialBlockedFraction": 1,
       "initialScreened": true,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.25387563475772923,
-      "cueRailDistance": 0.016825389583563468,
+      "finalExposure": 0.32773997651314285,
+      "cueRailDistance": 0.023832236557601052,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 1.0281830691060636,
-      "targetTravel": 0.08783526797853614,
-      "targetPocketDistance": 0.6200973062687227,
-      "pocketDistanceGain": -0.0635711083567626,
+      "separation": 0.8366510546453547,
+      "targetTravel": 0.0516717970533153,
+      "targetPocketDistance": 0.6435104594649934,
+      "pocketDistanceGain": -0.04015795516049192,
       "cueInBaulk": false,
-      "redTotalTravel": 0.08783526797853614
+      "redTotalTravel": 0.0516717970533153
     }
   },
   {
@@ -971,8 +970,8 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
     "objective": {
       "type": "escape",
       "cueZone": {
-        "x": 1.301,
-        "y": 0.494,
+        "x": 1.018,
+        "y": 0.519,
         "radius": 0.35
       }
     },
@@ -1006,14 +1005,14 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       {
         "id": "red1",
         "color": "red",
-        "x": 1.2696487294342038,
-        "y": 0.4968725551709775
+        "x": 1.0056968947514209,
+        "y": 0.5205863552217288
       },
       {
         "id": "brown",
         "color": "brown",
-        "x": 1.1763419282453917,
-        "y": 0.6085926498269398
+        "x": 1.0575636026381394,
+        "y": 0.6192638598497779
       }
     ],
     "referenceShot": {
@@ -1056,16 +1055,16 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "initialScreened": true,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.5903838840666217,
-      "cueRailDistance": 0.4677916183328467,
+      "finalExposure": 0.6544280848847067,
+      "cueRailDistance": 0.49320408100917634,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 0.39523672702767004,
-      "targetTravel": 0.4267282281541351,
-      "targetPocketDistance": 0.46723243373850665,
-      "pocketDistanceGain": -0.2482772914821577,
+      "separation": 0.3179951832109878,
+      "targetTravel": 0.3305906654413735,
+      "targetPocketDistance": 0.6656179479615302,
+      "pocketDistanceGain": -0.27115546647115607,
       "cueInBaulk": false,
-      "redTotalTravel": 0.4267282281541351
+      "redTotalTravel": 0.3305906654413735
     }
   },
   {
@@ -1076,8 +1075,8 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
     "objective": {
       "type": "escape",
       "cueZone": {
-        "x": 1.607,
-        "y": 0.225,
+        "x": 1.633,
+        "y": 0.411,
         "radius": 0.35
       }
     },
@@ -1122,22 +1121,15 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       }
     ],
     "referenceShot": {
-      "angle": -10,
-      "cueSpeed": 1.8,
-      "top": 0,
+      "angle": -9,
+      "cueSpeed": 1.55,
+      "top": 0.1,
       "side": 0.25
     },
     "construction": {
-      "method": "forward-path-then-recheck-all-balls",
-      "seed": {
-        "x": 1.5,
-        "y": 0.4,
-        "angle": -10,
-        "speed": 1.8,
-        "side": 0.25
-      },
-      "fraction": 0.35,
-      "blockerFraction": 0.6
+      "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
+      "engine": "raised-nose cushions with rounded pocket jaws v3",
+      "globalOptimality": false
     },
     "legalTargetIds": [
       "red1"
@@ -1163,16 +1155,16 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "initialScreened": true,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.30896659102332424,
-      "cueRailDistance": 0.19854075569808627,
+      "finalExposure": 0.6947094796122485,
+      "cueRailDistance": 0.38506693458739755,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 0.8808915956965209,
-      "targetTravel": 1.031398300821742,
-      "targetPocketDistance": 0.7942201178327011,
-      "pocketDistanceGain": 0.5824266552800542,
+      "separation": 0.27319615181726464,
+      "targetTravel": 0.07390828300025587,
+      "targetPocketDistance": 0.16630795797024986,
+      "pocketDistanceGain": -0.04548550458239703,
       "cueInBaulk": false,
-      "redTotalTravel": 1.031398300821742
+      "redTotalTravel": 0.07390828300025587
     }
   },
   {
@@ -1218,14 +1210,14 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       {
         "id": "red1",
         "color": "red",
-        "x": 2.5508546609776634,
-        "y": 1.0067419883922901
+        "x": 2.854652657471851,
+        "y": 0.8258946125183393
       },
       {
         "id": "green",
         "color": "green",
-        "x": 1.7528845974399485,
-        "y": 0.9480338947765306
+        "x": 1.889593695862333,
+        "y": 0.8666525756332527
       }
     ],
     "referenceShot": {
@@ -1242,7 +1234,7 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
         "angle": -30,
         "speed": 2
       },
-      "fraction": 0.35,
+      "fraction": 0.2,
       "blockerFraction": 0.45
     },
     "legalTargetIds": [
@@ -1270,16 +1262,16 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "initialScreened": true,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.2047949233938674,
-      "cueRailDistance": 0.6286975916371382,
+      "finalExposure": 0.26975108079883464,
+      "cueRailDistance": 0.8354004821105411,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 1.1893096306799225,
-      "targetTravel": 1.4153976543885405,
-      "targetPocketDistance": 0.44945207191197667,
-      "pocketDistanceGain": -0.6378098040274255,
+      "separation": 0.9826917511375459,
+      "targetTravel": 1.1582609760662368,
+      "targetPocketDistance": 0.36370033201486573,
+      "pocketDistanceGain": -0.7282676330664577,
       "cueInBaulk": false,
-      "redTotalTravel": 1.4153976543885405
+      "redTotalTravel": 1.1582609760662368
     }
   },
   {
@@ -1325,14 +1317,14 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       {
         "id": "red1",
         "color": "red",
-        "x": 0.7123364967305716,
-        "y": 0.6942131743830141
+        "x": 0.7435640810755726,
+        "y": 0.668487496372695
       },
       {
         "id": "brown",
         "color": "brown",
-        "x": 1.6405514235287573,
-        "y": 0.7523959284723564
+        "x": 1.6546038364840077,
+        "y": 0.7408193733677128
       }
     ],
     "referenceShot": {
@@ -1377,16 +1369,16 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "initialScreened": true,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.2767186496423849,
-      "cueRailDistance": 0.5293776179767973,
+      "finalExposure": 0.31920258107481014,
+      "cueRailDistance": 0.5551825103868208,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 0.9635654956763172,
-      "targetTravel": 1.1915635015940118,
-      "targetPocketDistance": 0.11842973321770713,
-      "pocketDistanceGain": -0.8762336349935309,
+      "separation": 0.8564469955239067,
+      "targetTravel": 1.001062878264489,
+      "targetPocketDistance": 0.2503919097300638,
+      "pocketDistanceGain": -0.7494896209886484,
       "cueInBaulk": false,
-      "redTotalTravel": 1.1915635015940118
+      "redTotalTravel": 1.001062878264489
     }
   },
   {
@@ -1397,8 +1389,8 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
     "objective": {
       "type": "escape",
       "cueZone": {
-        "x": 1.977,
-        "y": 0.654,
+        "x": 1.801,
+        "y": 0.573,
         "radius": 0.45
       }
     },
@@ -1432,14 +1424,14 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       {
         "id": "red1",
         "color": "red",
-        "x": 2.1572473475069494,
-        "y": 0.7358373226203908
+        "x": 1.8697411656493383,
+        "y": 0.603754926385994
       },
       {
         "id": "green",
         "color": "green",
-        "x": 1.355761306378127,
-        "y": 0.8811267951791759
+        "x": 1.2263835245422023,
+        "y": 0.8216897168736973
       }
     ],
     "referenceShot": {
@@ -1484,16 +1476,16 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "initialScreened": true,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.23907656402310623,
-      "cueRailDistance": 0.6281411055738524,
+      "finalExposure": 0.4660180327662725,
+      "cueRailDistance": 0.5465400669428873,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 1.0732285700933384,
-      "targetTravel": 1.2708696205106425,
-      "targetPocketDistance": 0.8133440668395036,
-      "pocketDistanceGain": -0.011517830955885988,
+      "separation": 0.5726482115113997,
+      "targetTravel": 0.6476808404256276,
+      "targetPocketDistance": 0.6065857452105294,
+      "pocketDistanceGain": -0.0031568787355212846,
       "cueInBaulk": false,
-      "redTotalTravel": 1.2708696205106425
+      "redTotalTravel": 0.6476808404256276
     }
   },
   {
@@ -1549,20 +1541,15 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       }
     ],
     "referenceShot": {
-      "angle": 274,
+      "angle": 274.5,
       "cueSpeed": 0.5,
-      "top": 0,
+      "top": 0.1,
       "side": 0
     },
     "construction": {
-      "method": "verified-track-clear-colour-on-official-spot",
-      "baseShot": {
-        "angle": 4,
-        "cueSpeed": 0.5,
-        "top": 0,
-        "side": 0
-      },
-      "rotation": 270
+      "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
+      "engine": "raised-nose cushions with rounded pocket jaws v3",
+      "globalOptimality": false
     },
     "legalTargetIds": [
       "red1"
@@ -1579,18 +1566,18 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "pockets": [],
       "initialBlockedFraction": 0,
       "initialScreened": false,
-      "finalDeltaDegrees": 17.39132074599782,
+      "finalDeltaDegrees": 17.703920535808724,
       "finalBlockedFraction": 1,
       "finalExposure": 0,
-      "cueRailDistance": 0.14791028771176995,
+      "cueRailDistance": 0.145071679542073,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 0.3472544890635764,
-      "targetTravel": 0.24320813655119783,
-      "targetPocketDistance": 1.0225856619973972,
-      "pocketDistanceGain": 0.24299636566626315,
+      "separation": 0.3411705613966128,
+      "targetTravel": 0.1790456995210252,
+      "targetPocketDistance": 0.9572941024891346,
+      "pocketDistanceGain": 0.17770480615800055,
       "cueInBaulk": false,
-      "redTotalTravel": 0.24320813655119783
+      "redTotalTravel": 0.1790456995210252
     }
   },
   {
@@ -1669,16 +1656,16 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "initialScreened": false,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.1859558647588109,
-      "cueRailDistance": 0.360582429459964,
+      "finalExposure": 0.15039103866779913,
+      "cueRailDistance": 0.34079824287310023,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 1.261684439751542,
-      "targetTravel": 1.4705163916681512,
-      "targetPocketDistance": 0.8441955289945935,
-      "pocketDistanceGain": 0.427205121431062,
+      "separation": 1.4208873394255186,
+      "targetTravel": 1.5771849952394796,
+      "targetPocketDistance": 0.8834388222710677,
+      "pocketDistanceGain": 0.46644841470753623,
       "cueInBaulk": false,
-      "redTotalTravel": 1.4705163916681512
+      "redTotalTravel": 1.5771849952394796
     }
   },
   {
@@ -1703,10 +1690,10 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       }
     ],
     "referenceShot": {
-      "angle": -0.0598364924454457,
-      "cueSpeed": 3.251419710836524,
-      "top": -0.32035426150504964,
-      "side": -0.12112283056054839
+      "angle": -0.16022789638831458,
+      "cueSpeed": 3.511704886031311,
+      "top": -0.3480079469872833,
+      "side": -0.18225751066303894
     },
     "objective": {
       "type": "distance",
@@ -1736,7 +1723,7 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
     },
     "construction": {
       "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
-      "engine": "Mathavan-style cushion v2",
+      "engine": "raised-nose cushions with rounded pocket jaws v3",
       "globalOptimality": false
     },
     "legalTargetIds": [
@@ -1758,16 +1745,16 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "initialScreened": false,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.18578816622306338,
-      "cueRailDistance": 0.5927500655625179,
+      "finalExposure": 0.2596541759397462,
+      "cueRailDistance": 0.44990461086381334,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 1.2623611091792137,
-      "targetTravel": 0.11487831150860643,
-      "targetPocketDistance": 0.8103887157743804,
-      "pocketDistanceGain": -0.09388516419783244,
+      "separation": 1.0113034693982161,
+      "targetTravel": 0.5897788411195112,
+      "targetPocketDistance": 0.7842457946680335,
+      "pocketDistanceGain": -0.12002808530417941,
       "cueInBaulk": true,
-      "redTotalTravel": 0.11487831150860643
+      "redTotalTravel": 0.5897788411195112
     }
   },
   {
@@ -1793,7 +1780,7 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
     ],
     "referenceShot": {
       "angle": -13.958620753294486,
-      "cueSpeed": 2.470577536948578,
+      "cueSpeed": 2.314327536948578,
       "top": -0.1447126629462573,
       "side": -0.07114248911340754
     },
@@ -1827,7 +1814,7 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
     },
     "construction": {
       "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
-      "engine": "Mathavan-style cushion v2",
+      "engine": "raised-nose cushions with rounded pocket jaws v3",
       "globalOptimality": false
     },
     "legalTargetIds": [
@@ -1847,24 +1834,23 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       ],
       "allCueCushions": [
         "right",
-        "top",
-        "left"
+        "top"
       ],
       "pockets": [],
       "initialBlockedFraction": 0,
       "initialScreened": false,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.08044779479923578,
-      "cueRailDistance": 0.5372008210264028,
+      "finalExposure": 0.07525415982238105,
+      "cueRailDistance": 0.46057814966548205,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 1.8901101125573236,
-      "targetTravel": 0.007823874293085037,
-      "targetPocketDistance": 0.8466704468501248,
-      "pocketDistanceGain": 0.0014247725044941317,
+      "separation": 1.940163072637046,
+      "targetTravel": 0.12922131224016076,
+      "targetPocketDistance": 0.849874458737642,
+      "pocketDistanceGain": 0.004628784392011309,
       "cueInBaulk": true,
-      "redTotalTravel": 0.007823874293085037
+      "redTotalTravel": 0.12922131224016076
     }
   },
   {
@@ -1875,8 +1861,8 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
     "objective": {
       "type": "escape",
       "cueZone": {
-        "x": 0.036,
-        "y": 1.629,
+        "x": 0.189,
+        "y": 1.651,
         "radius": 0.5
       }
     },
@@ -1910,14 +1896,14 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       {
         "id": "red1",
         "color": "red",
-        "x": 0.5104484114239793,
-        "y": 1.69723263045311
+        "x": 0.5125521499374343,
+        "y": 1.6971645172126837
       },
       {
         "id": "blue",
         "color": "blue",
-        "x": 1.3297017851407906,
-        "y": 1.4787546837038996
+        "x": 1.3306484674718453,
+        "y": 1.4787240327457076
       }
     ],
     "referenceShot": {
@@ -1964,16 +1950,16 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "initialScreened": true,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.3435745094763832,
-      "cueRailDistance": 0.0093161244867121,
+      "finalExposure": 0.6023456988751957,
+      "cueRailDistance": 0.10086761718154302,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 0.8012634586851499,
-      "targetTravel": 0.3678703063196421,
-      "targetPocketDistance": 0.8698916866749453,
-      "pocketDistanceGain": 0.35309293599070846,
+      "separation": 0.380192810901646,
+      "targetTravel": 0.1525406368406442,
+      "targetPocketDistance": 0.6006029295788248,
+      "pocketDistanceGain": 0.08171557987472511,
       "cueInBaulk": true,
-      "redTotalTravel": 0.3678703063196421
+      "redTotalTravel": 0.1525406368406442
     }
   },
   {
@@ -2033,14 +2019,14 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       }
     ],
     "referenceShot": {
-      "angle": -29.25601452410088,
-      "cueSpeed": 3.939448898095794,
-      "top": -0.32377176384352485,
-      "side": -0.17586184253710208
+      "angle": -29.214001079428844,
+      "cueSpeed": 4.130317527247467,
+      "top": -0.3138847946539541,
+      "side": -0.16951927204309522
     },
     "construction": {
       "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
-      "engine": "Mathavan-style cushion v2",
+      "engine": "raised-nose cushions with rounded pocket jaws v3",
       "globalOptimality": false
     },
     "legalTargetIds": [
@@ -2072,16 +2058,16 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "initialScreened": true,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.10452499249382476,
-      "cueRailDistance": 0.06522629529868923,
+      "finalExposure": 0.1057433712649871,
+      "cueRailDistance": 0.0510387512348983,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 1.6937468051638194,
-      "targetTravel": 0.08148317030437462,
-      "targetPocketDistance": 0.681517368907444,
-      "pocketDistanceGain": -0.08098960920478815,
+      "separation": 1.6850551095703679,
+      "targetTravel": 0.08253286689689812,
+      "targetPocketDistance": 0.6803581047430455,
+      "pocketDistanceGain": -0.08214887336918664,
       "cueInBaulk": false,
-      "redTotalTravel": 0.08148317030437462
+      "redTotalTravel": 0.08253286689689812
     }
   },
   {
@@ -2092,8 +2078,8 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
     "objective": {
       "type": "escape",
       "cueZone": {
-        "x": 3.048,
-        "y": 1.385,
+        "x": 3.278,
+        "y": 1.437,
         "radius": 0.5
       }
     },
@@ -2138,26 +2124,21 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       }
     ],
     "referenceShot": {
-      "angle": -150,
-      "cueSpeed": 2.4,
-      "top": 0,
-      "side": 0
+      "angle": -148.234862646562,
+      "cueSpeed": 2.6252009652574335,
+      "top": -0.2957662841128222,
+      "side": 0.1087534331475109
     },
     "construction": {
-      "method": "forward-path-then-recheck-all-balls",
-      "seed": {
-        "x": 0.7,
-        "y": 0.4,
-        "angle": -150,
-        "speed": 2.4
-      },
-      "fraction": 0.35,
-      "blockerFraction": 0.45
+      "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
+      "engine": "raised-nose cushions with rounded pocket jaws v3",
+      "globalOptimality": false
     },
     "legalTargetIds": [
       "red1"
     ],
     "tags": [
+      "spin",
       "3 cushions"
     ],
     "proof": {
@@ -2181,16 +2162,16 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "initialScreened": true,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.523597053245684,
-      "cueRailDistance": 0.3670263319179994,
+      "finalExposure": 0.5827099567325524,
+      "cueRailDistance": 0.26478443998516576,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 0.48527465462644054,
-      "targetTravel": 0.6719431374765469,
-      "targetPocketDistance": 0.7772345845002153,
-      "pocketDistanceGain": 0.02200888313488758,
+      "separation": 0.4050492883071463,
+      "targetTravel": 0.028839515345063085,
+      "targetPocketDistance": 0.7700740658148972,
+      "pocketDistanceGain": 0.014848364449569496,
       "cueInBaulk": false,
-      "redTotalTravel": 0.6719431374765469
+      "redTotalTravel": 0.028839515345063085
     }
   },
   {
@@ -2363,14 +2344,14 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       }
     ],
     "referenceShot": {
-      "angle": -2.198216697061754,
+      "angle": -2.182591697061754,
       "cueSpeed": 1.9460105485032853,
-      "top": -0.06552257265669771,
+      "top": 0.034477427343302294,
       "side": -0.18748106966093667
     },
     "construction": {
       "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
-      "engine": "Mathavan-style cushion v2",
+      "engine": "raised-nose cushions with rounded pocket jaws v3",
       "globalOptimality": false
     },
     "legalTargetIds": [
@@ -2409,16 +2390,16 @@ globalThis.Coach=globalThis.Coach||{};globalThis.Coach.puzzles=[
       "initialScreened": false,
       "finalDeltaDegrees": 0,
       "finalBlockedFraction": 0,
-      "finalExposure": 0.024034376284469427,
-      "cueRailDistance": 0.005768100499218689,
+      "finalExposure": 0.024035315835902626,
+      "cueRailDistance": 0.0030390528060212744,
       "cueZoneReached": true,
       "targetZoneReached": true,
-      "separation": 2.9428578359087303,
-      "targetTravel": 0.05723849581616111,
-      "targetPocketDistance": 0.9891613202050198,
-      "pocketDistanceGain": -0.030012246956138133,
+      "separation": 2.9218852500228616,
+      "targetTravel": 0.03488386559171943,
+      "targetPocketDistance": 1.001215089462195,
+      "pocketDistanceGain": -0.01795847769896297,
       "cueInBaulk": true,
-      "redTotalTravel": 0.49145457167262063
+      "redTotalTravel": 0.3805998302713393
     }
   }
 ];

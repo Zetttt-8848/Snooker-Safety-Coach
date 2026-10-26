@@ -23,7 +23,7 @@
   const PRESETS = [
     { id: 'baseline', label: 'Teaching baseline', blurb: 'The standard table every puzzle is scored on.', params: {} },
     { id: 'fast', label: 'Fast cloth', blurb: 'Balls run on for longer.', params: { muRoll: .007, muSlide: .17 } },
-    { id: 'slow', label: 'Slow cloth', blurb: 'Balls die quickly.', params: { muRoll: .016, muSlide: .24 } },
+    { id: 'slow', label: 'Slow cloth', blurb: 'Balls die quickly.', params: { muRoll: .020, muSlide: .24 } },
     { id: 'lively', label: 'Lively cushions', blurb: 'Rebounds keep more pace.', params: { cushionRestitution: 1, cushionFriction: .12 } },
     { id: 'dead', label: 'Dead cushions', blurb: 'Rebounds lose more pace.', params: { cushionRestitution: .72, cushionFriction: .18 } }
   ];
@@ -98,6 +98,10 @@
         const saved = store.get('settings', {});
         const s = { ...DEFAULT_SETTINGS, ...(saved && typeof saved === 'object' ? saved : {}) };
         s.params = sanitizeParams(s.params);
+        // Upgrade the previous stock baseline only. Keep deliberate custom
+        // cloth values and the user's chosen fast/slow presets unchanged.
+        if(s.physicsVersion!==3 && ['baseline','lively','dead'].includes(s.preset) && s.params.muRoll===.011) s.params.muRoll=P.DEFAULTS.muRoll;
+        s.physicsVersion=3;
         s.replaySpeed = [.25, .5, 1, 2].includes(s.replaySpeed) ? s.replaySpeed : 1;
         if (!['auto', 'reduce', 'full'].includes(s.reduceMotion)) s.reduceMotion = 'auto';
         return s;

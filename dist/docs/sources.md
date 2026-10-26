@@ -25,7 +25,7 @@ Marlow’s *The Physics of Pocket Billiards* was cross-checked through the poolt
 
 ### Preset limits
 
-The revised cushion model uses raised-nose contact, both friction contacts and an energetic restitution rule. Its starting cushion friction is .14 and energetic restitution .98; see [the derivation and numerical checks](cushion-model.md). The old .70 horizontal-speed restitution, .60 tangential retention and artificial side-spin multiplier have been retired. Sliding .20, rolling .011, ball restitution .94 and gravity 9.81 m/s² remain. These are literature-informed starting values, not measurements of the user's table.
+The revised cushion model uses raised-nose contact, both friction contacts and an energetic restitution rule. Its starting cushion friction is .14 and energetic restitution .98; see [the derivation and numerical checks](cushion-model.md). The old .70 horizontal-speed restitution, .60 tangential retention and artificial side-spin multiplier have been retired. Sliding .20, ball restitution .94 and gravity 9.81 m/s² remain. Version 1.4.0 raises the teaching baseline rolling resistance from .011 to .014, within Dr. Dave's approximate .005–.015 range. These are literature-informed starting values, not measurements of the user's table.
 
 Calibrate rolling resistance from known rolling speed/stopping distance using mu_roll≈v²/(2gs), then fit the cushion model to measured velocities and spin before and after impact at several angles. Do not substitute a horizontal rebound-speed ratio for energetic restitution. [Dr. Dave's bank/kick effects](https://drdavepoolinfo.com/faq/bank-kick/effects/) supports the qualitative running/check-side and shallow-angle checks. Independent real trajectories are needed before making table-specific predictive claims. Jumps, masse, nap, complex pocket jaws and cushion deformation are outside this model.
 
@@ -55,3 +55,7 @@ Being closer to a cushion is not always safer. Some layouts make an object ball 
 ## Paper boundary
 
 Equation (37) remains a binary line-clearance factor times distance decay. The continuous delta_occ angle is an author-approved teaching extension. Neither it nor a reproducible reference route is a certified professional escape probability or global optimum.
+
+## Pocket and pace review · 2026-10-26
+
+[Physical property ranges](https://drdavepoolinfo.com/faq/physics/physical-properties/) and [pocket effective size and centre](https://drdavepoolinfo.com/faq/pocket/size-and-center/) were rechecked online. The finite cushions, rounded jaws, throat capture, stopping distances and energy checks are specified in [pockets-and-energy.md](pockets-and-energy.md). Jaw shape and throat depths are modelling assumptions, not measured WPBSA templates.

@@ -11,4 +11,6 @@ Each stage was runnable and checked before the next began.
 
 7. **Physics and paper review (1.3.0):** raised-nose cushion model, paper exposure map, control fixes, regenerated references, desktop and phone review checks.
 
-The current suite holds 167 passing tests. See verification.md for the audit evidence and limits. The 1.2.0 browser statements above describe the earlier designer delivery.
+The current suite holds 174 passing tests. See verification.md for the audit evidence and limits. The 1.2.0 browser statements above describe the earlier designer delivery.
+
+8. **Pocket geometry and frame reset (1.4.0):** full-frame start, gentler pace, finite cushions with rounded jaws, shared aim boundaries, regenerated references and a clean release build.

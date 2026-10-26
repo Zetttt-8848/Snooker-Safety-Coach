@@ -109,9 +109,11 @@ test('glancing smooth collision leaves relative tangential velocity unchanged', 
   P.collidePair(a, b, .94);
   near(a.vy, .3); near(b.vy, -.1);
 });
-test('middle pocket captures a ball before the cushion', () => {
+test('middle pocket waits for the throat, then captures without an invisible rail', () => {
   const w = P.createWorld([ball({ x: P.TABLE.width / 2, y: .06, vy: -1, wx: 1 / R })]);
   for (let i = 0; i < 30; i++) P.step(w);
+  assert.equal(w.balls[0].potted, false, 'no early capture on the cloth');
+  for (let i = 0; i < 70; i++) P.step(w);
   assert.equal(w.balls[0].potted, true);
   assert.equal(w.events[0].type, 'pocket');
 });
@@ -147,13 +149,70 @@ test('swept detection catches a thin grazing collision entirely between 1 ms sam
   assert.ok(Math.hypot(w.balls[1].vx, w.balls[1].vy) > 0);
   assert.ok(w.events[0].t > 0 && w.events[0].t < .001);
 });
-test('swept capture catches a pocket chord entirely between 1 ms samples', () => {
-  const w = P.createWorld([ball({ x: P.TABLE.width / 2 - .004, y: .051 - .00001, vx: 8, wy: 8 / R })],
+test('swept capture locates a fast throat crossing between 1 ms samples', () => {
+  const w = P.createWorld([ball({ x: P.TABLE.width / 2, y: -.006, vy: -8, wx: 8 / R })],
     { ...P.DEFAULTS, muSlide: 0, muRoll: 0 });
   P.step(w);
   assert.equal(w.balls[0].potted, true);
   assert.equal(w.events[0].type, 'pocket');
   assert.ok(w.events[0].t > 0 && w.events[0].t < .001);
+});
+
+test('all four corner pockets accept centred approaches over a range of angles and speeds', () => {
+  for(const p of P.TABLE.pockets.filter(p=>p.id[1]!=='M')) for(const degrees of [30,45,60]) for(const speed of [.4,1,3,8]) {
+    const a=degrees*Math.PI/180,sx=p.x===0?1:-1,sy=p.y===0?1:-1;
+    const vx=-sx*speed*Math.cos(a),vy=-sy*speed*Math.sin(a);
+    const w=P.createWorld([ball({x:p.x+sx*.22*Math.cos(a),y:p.y+sy*.22*Math.sin(a),vx,vy,wx:-vy/R,wy:vx/R})]);
+    for(let i=0;i<2000&&P.isMoving(w);i++)P.step(w);
+    assert.ok(w.balls[0].potted,`${p.id}, ${degrees} deg, ${speed} m/s`);
+    assert.equal(w.events[0].type,'pocket','a clean corner approach meets no phantom wall');
+    assert.equal(w.events[0].pocket,p.id);
+  }
+});
+
+test('both middle pockets reject a near-mouth pass and an off-centre jaw hit', () => {
+  for(const p of P.TABLE.pockets.filter(p=>p.id[1]==='M')) {
+    const sy=p.y===0?1:-1;
+    const pass=P.createWorld([ball({x:p.x-.1,y:p.y+sy*.05099,vx:1,wy:1/R})]);
+    for(let i=0;i<250;i++)P.step(pass);
+    assert.equal(pass.balls[0].potted,false,'passing near a visible hole is not entering it');
+    const miss=P.createWorld([ball({x:p.x+.04,y:p.y+sy*.12,vy:-sy,wx:sy/R})]);
+    const energy=P.energy(miss.balls[0]);
+    for(let i=0;i<250;i++)P.step(miss);
+    assert.equal(miss.events[0]?.type,'cushion');assert.equal(miss.events[0]?.jaw,true);
+    assert.ok(P.energy(miss.balls[0])<energy);
+  }
+});
+
+test('a shallow middle-pocket attempt meets a jaw while a central normal approach drops', () => {
+  const p=P.TABLE.pockets[1];
+  for(const dx of [0,.30]) {
+    const origin={x:p.x-dx,y:.08},end={x:p.x,y:-.01};
+    const hit=P.traceBoundary(origin,{x:end.x-origin.x,y:end.y-origin.y-.001});
+    assert.equal(hit.type,dx===0?'pocket':'cushion');
+  }
+});
+
+test('ball contacts dissipate the exact normal energy loss and cannot amplify a stationary object ball', () => {
+  for(const angle of [0,15,45,75,85]) for(const speed of [.1,1,4]) {
+    const theta=angle*Math.PI/180;
+    const a=ball({vx:speed*Math.cos(theta),vy:speed*Math.sin(theta)}),b=ball({id:'red',x:1+2*R-1e-8});
+    const before=P.energy(a),normal=a.vx,e=P.DEFAULTS.ballRestitution;
+    P.collidePair(a,b,e);
+    near(before-P.energy(a)-P.energy(b),M*(1-e*e)*normal*normal/4);
+    assert.ok(P.energy(b)<=before+1e-12);
+    near(b.vx,(1+e)*normal/2);
+    if(angle===85)assert.ok(P.energy(b)<before*.01,'a feather touch transfers less than 1% here');
+  }
+});
+
+test('the revised default drag shortens roll-out without altering the collision law', () => {
+  const b=ball({vx:.5,wy:.5/R}),start=b.x;
+  P.advanceFree(b,10,P.DEFAULTS);
+  near(b.x-start,.5*.5/(2*.014*9.81));
+  assert.ok(b.x-start<.92&&b.x-start>.90);
+  const old=.5*.5/(2*.011*9.81);
+  near((b.x-start)/old,.011/.014);
 });
 test('static overlaps are separated without false ball-collision events or kinetic energy', () => {
   const w = P.createWorld([ball({}), ball({ id: 'r1' }), ball({ id: 'r2', x: 1.03 })]);

@@ -6,6 +6,14 @@ const G = require('../src/geometry.js');
 const R = G.TABLE.radius, W = G.TABLE.width, H = G.TABLE.height;
 const near = (a, b, tolerance = 1e-9) => assert.ok(Math.abs(a - b) < tolerance, `${a} differs from ${b}`);
 
+test('aim lines enter an open pocket instead of reflecting off an invisible cushion', () => {
+  for(const [x,y,angle,pocket] of [[.3,.3,-135,'TL'],[W-.3,.3,-45,'TR'],[W/2,.3,-90,'TM'],[.3,H-.3,135,'BL'],[W-.3,H-.3,45,'BR'],[W/2,H-.3,90,'BM']]) {
+    const guide=G.aimPreview([{id:'cue',color:'white',x,y}], 'cue', angle);
+    assert.equal(guide.pocket,pocket);assert.equal(guide.wall,null);assert.equal(guide.reflect,null);
+    assert.ok(guide.distance>0);
+  }
+});
+
 test('point to segment distance handles projection, endpoints and degenerate segments', () => {
   near(G.pointSegmentDistance({ x: .5, y: .3 }, { x: 0, y: 0 }, { x: 1, y: 0 }), .3);
   near(G.pointSegmentDistance({ x: 2, y: 1 }, { x: 0, y: 0 }, { x: 1, y: 0 }), Math.sqrt(2));

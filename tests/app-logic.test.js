@@ -11,6 +11,13 @@ const puzzles = require('../data/puzzles.json');
 const memory = (initial = {}) => { const m = new Map(Object.entries(initial)); return { getItem: k => m.has(k) ? m.get(k) : null, setItem: (k, v) => m.set(k, String(v)), removeItem: k => m.delete(k), m }; };
 const plain = v => JSON.parse(JSON.stringify(v));
 
+test('stock baseline upgrades its drag but custom and explicitly chosen cloth stays intact', () => {
+  for(const [preset,version,expected] of [['baseline',undefined,.014],['lively',undefined,.014],['custom',undefined,.011],['fast',undefined,.011],['baseline',3,.011]]) {
+    const store=SF.createStore(memory({'ssc.settings':JSON.stringify({preset,physicsVersion:version,params:{...P.DEFAULTS,muRoll:.011}})}));
+    assert.equal(store.settings().params.muRoll,expected);
+  }
+});
+
 test('earlier-language progress keeps its attempts and maps grades to English', () => {
   // Built from code points so this test file stays free of non-English characters.
   const legacy = { excellent: String.fromCodePoint(0x4f18), promising: String.fromCodePoint(0x4e2d, 0x504f, 0x4f18), developing: String.fromCodePoint(0x4e2d) };

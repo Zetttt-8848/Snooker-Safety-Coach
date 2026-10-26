@@ -1,7 +1,8 @@
 (function (root) {
   'use strict';
   const Coach = root.Coach = root.Coach || {};
-  const TABLE = Coach.physics?.TABLE || { width: 3.569, height: 1.778, radius: .02625 };
+  const Physics = Coach.physics || require('./physics.js');
+  const TABLE = Physics.TABLE;
   const EPS = 1e-10;
   const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
   const distance = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
@@ -248,14 +249,9 @@
 
   // Distance along a ray from `origin` until a ball centre would meet a cushion.
   function rayToCushion(origin, angle) {
-    const R = TABLE.radius, dx = Math.cos(angle), dy = Math.sin(angle);
-    const options = [];
-    if (dx > EPS) options.push([(TABLE.width - R - origin.x) / dx, 'right']);
-    if (dx < -EPS) options.push([(R - origin.x) / dx, 'left']);
-    if (dy > EPS) options.push([(TABLE.height - R - origin.y) / dy, 'bottom']);
-    if (dy < -EPS) options.push([(R - origin.y) / dy, 'top']);
-    const [distance, wall] = options.filter(o => o[0] >= 0).sort((a, b) => a[0] - b[0])[0] || [0, null];
-    return { distance, wall };
+    const length=2*Math.hypot(TABLE.width,TABLE.height);
+    const hit=Physics.traceBoundary(origin,{x:length*Math.cos(angle),y:length*Math.sin(angle)});
+    return hit ? {distance:hit.fraction*length,wall:hit.wall||null,nx:hit.nx,ny:hit.ny,pocket:hit.pocket?.id||null} : {distance:0,wall:null};
   }
 
   // Everything an aiming overlay needs for one shot direction: where the cue ball first meets a ball
@@ -288,9 +284,10 @@
         objectDirection, cueDirection, cutAngle, wall: null, reflect: null };
     }
     const end = { x: cue.x + direction.x * rail.distance, y: cue.y + direction.y * rail.distance };
-    const reflected = rail.wall === 'left' || rail.wall === 'right' ? { x: -direction.x, y: direction.y } : { x: direction.x, y: -direction.y };
+    const normal=direction.x*rail.nx+direction.y*rail.ny;
+    const reflected = {x:direction.x-2*normal*rail.nx,y:direction.y-2*normal*rail.ny};
     return { cue, direction, distance: rail.distance, end, hit: null, objectDirection: null, cueDirection: null, cutAngle: null,
-      wall: rail.wall, reflect: rail.wall ? { from: end, direction: reflected } : null };
+      wall: rail.wall, pocket:rail.pocket, reflect: rail.wall ? { from: end, direction: reflected } : null };
   }
 
   const api = { TABLE, distance, pointSegmentDistance, pathLength, smoothPath, simplifyPath,

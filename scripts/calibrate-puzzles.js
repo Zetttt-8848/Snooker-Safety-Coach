@@ -34,6 +34,7 @@ for (const puzzle of puzzles.filter(p => names.includes(p.id))) {
       cost += 50 + distance * 100;
     }
     cost += p.pockets.length * 50;
+    if(a.preContactCushions) cost += gen.beforeContact(result).filter(e=>e.jaw).length*20;
     for (const [point, zone] of [[cue, puzzle.objective.cueZone], [target, puzzle.objective.targetZone]])
       if (zone) cost += excess(G.distance(point, zone), 0, zone.radius * .8, .12);
     const mins = { separation: a.minSeparation, targetPocketDistance: a.minTargetPocketDistance, pocketDistanceGain: a.minPocketDistanceGain };

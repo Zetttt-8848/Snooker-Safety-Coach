@@ -129,6 +129,16 @@
       }
 
       // Pockets with brass rims.
+      // Open corner throats; the rounded rubber noses below share the exact
+      // segment geometry used by the collision engine.
+      const corner=TABLE.cushions[0].ax;
+      c.fillStyle='#030c09';
+      for(const p of TABLE.pockets.filter(p=>p.id[1]!=='M')) {
+        const sx=p.x===0?1:-1,sy=p.y===0?1:-1;
+        c.beginPath();c.moveTo(x0+(p.x-sx*.06)*scale,y0+(p.y-sy*.06)*scale);
+        c.lineTo(x0+(p.x+sx*corner)*scale,y0+(p.y-sy*.01)*scale);
+        c.lineTo(x0+(p.x-sx*.01)*scale,y0+(p.y+sy*corner)*scale);c.closePath();c.fill();
+      }
       const mouth = this.pocketMouth = [];
       for (const [i, p] of TABLE.pockets.entries()) {
         const middle = i % 3 === 1, r = (middle ? .062 : .056) * scale;
@@ -142,13 +152,20 @@
         c.strokeStyle = 'rgba(255,240,190,.45)'; c.lineWidth = 1; c.beginPath(); c.arc(cx, cy, r * 1.12 + 1.5, Math.PI * 1.1, Math.PI * 1.6); c.stroke();
       }
 
+      c.save();c.lineCap='round';c.strokeStyle='#124c39';
+      for(const rail of TABLE.cushions) {
+        c.lineWidth=2*rail.radius*scale;c.beginPath();
+        c.moveTo(x0+rail.ax*scale,y0+rail.ay*scale);c.lineTo(x0+rail.bx*scale,y0+rail.by*scale);c.stroke();
+      }
+      c.restore();
+
       // Rail diamonds.
       if (!mini) {
         c.fillStyle = 'rgba(244,238,219,.82)';
         const diamond = (dx, dy) => { c.save(); c.translate(dx, dy); c.rotate(Math.PI / 4); c.fillRect(-2.6, -2.6, 5.2, 5.2); c.restore(); };
         const rail = (this.pad - cushion) / 2 + cushion;
         for (let i = 1; i < 8; i++) if (i !== 4) { diamond(x0 + tw * i / 8, y0 - rail); diamond(x0 + tw * i / 8, y0 + th + rail); }
-        for (let j = 1; j < 4; j++) if (j !== 2 || true) { diamond(x0 - rail, y0 + th * j / 4); diamond(x0 + tw + rail, y0 + th * j / 4); }
+        for (let j = 1; j < 4; j++) { diamond(x0 - rail, y0 + th * j / 4); diamond(x0 + tw + rail, y0 + th * j / 4); }
       }
       this.cache = layer;
     }

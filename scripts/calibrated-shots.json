@@ -16,12 +16,12 @@
     ],
     "referenceShot": {
       "angle": 186.19040063023567,
-      "cueSpeed": 0.9523344257846476,
-      "top": 0.18458029064349832,
-      "side": -0.04452831884846091
+      "cueSpeed": 1.2023344257846476,
+      "top": -0.015419709356501693,
+      "side": -0.044528318848460896
     },
     "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
-    "evaluations": 1
+    "evaluations": 17
   },
   "one-rail-short": {
     "balls": [
@@ -45,13 +45,13 @@
       }
     ],
     "referenceShot": {
-      "angle": -22.35797199966273,
-      "cueSpeed": 1.4500990280782025,
-      "top": -0.20780425889114712,
-      "side": -0.2058455900258357
+      "angle": -21.861425385519386,
+      "cueSpeed": 1.3820121825883784,
+      "top": -0.14982510362712337,
+      "side": -0.22850518065951686
     },
     "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
-    "evaluations": 1
+    "evaluations": 150
   },
   "screw-back": {
     "balls": [
@@ -69,13 +69,13 @@
       }
     ],
     "referenceShot": {
-      "angle": -0.0598364924454457,
-      "cueSpeed": 3.251419710836524,
-      "top": -0.32035426150504964,
-      "side": -0.12112283056054839
+      "angle": -0.16022789638831458,
+      "cueSpeed": 3.511704886031311,
+      "top": -0.3480079469872833,
+      "side": -0.18225751066303894
     },
     "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
-    "evaluations": 1427
+    "evaluations": 101
   },
   "return-to-baulk": {
     "balls": [
@@ -94,12 +94,12 @@
     ],
     "referenceShot": {
       "angle": -13.958620753294486,
-      "cueSpeed": 2.470577536948578,
+      "cueSpeed": 2.314327536948578,
       "top": -0.1447126629462573,
       "side": -0.07114248911340754
     },
     "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
-    "evaluations": 274
+    "evaluations": 47
   },
   "three-rail-escape": {
     "balls": [
@@ -123,13 +123,13 @@
       }
     ],
     "referenceShot": {
-      "angle": -29.25601452410088,
-      "cueSpeed": 3.939448898095794,
-      "top": -0.32377176384352485,
-      "side": -0.17586184253710208
+      "angle": -29.214001079428844,
+      "cueSpeed": 4.130317527247467,
+      "top": -0.3138847946539541,
+      "side": -0.16951927204309522
     },
     "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
-    "evaluations": 2215
+    "evaluations": 152
   },
   "break-off": {
     "balls": [
@@ -267,12 +267,156 @@
       }
     ],
     "referenceShot": {
-      "angle": -2.198216697061754,
+      "angle": -2.182591697061754,
       "cueSpeed": 1.9460105485032853,
-      "top": -0.06552257265669771,
+      "top": 0.034477427343302294,
       "side": -0.18748106966093667
     },
     "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
-    "evaluations": 604
+    "evaluations": 69
+  },
+  "thin-separation": {
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 1.1,
+        "y": 0.9
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 1.55,
+        "y": 0.9
+      }
+    ],
+    "referenceShot": {
+      "angle": 6.5,
+      "cueSpeed": 0.6,
+      "top": 0.1,
+      "side": -0.1
+    },
+    "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
+    "evaluations": 8
+  },
+  "hide-pink": {
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 2.364763103639452,
+        "y": 0.3162245410371085
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 2.589763103639452,
+        "y": 0.7059359727401058
+      },
+      {
+        "id": "pink",
+        "color": "pink",
+        "x": 2.67675,
+        "y": 0.889
+      }
+    ],
+    "referenceShot": {
+      "angle": 63,
+      "cueSpeed": 0.5,
+      "top": 0.1,
+      "side": 0
+    },
+    "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
+    "evaluations": 8
+  },
+  "hide-black": {
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 3.179420543280296,
+        "y": 1.5527316697370939
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 3.179420543280296,
+        "y": 1.102731669737094
+      },
+      {
+        "id": "black",
+        "color": "black",
+        "x": 3.245,
+        "y": 0.889
+      }
+    ],
+    "referenceShot": {
+      "angle": 274.5,
+      "cueSpeed": 0.5,
+      "top": 0.1,
+      "side": 0
+    },
+    "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
+    "evaluations": 8
+  },
+  "one-rail-right": {
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 1.5,
+        "y": 0.4
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 1.757088740336786,
+        "y": 0.21001212732534114
+      },
+      {
+        "id": "yellow",
+        "color": "yellow",
+        "x": 1.6542532442020716,
+        "y": 0.2860072763952047
+      }
+    ],
+    "referenceShot": {
+      "angle": -9,
+      "cueSpeed": 1.55,
+      "top": 0.1,
+      "side": 0.25
+    },
+    "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
+    "evaluations": 16
+  },
+  "three-rail-sweep": {
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 0.7,
+        "y": 0.4
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 2.876374980428057,
+        "y": 1.4769411315610899
+      },
+      {
+        "id": "brown",
+        "color": "brown",
+        "x": 1.6793687411926257,
+        "y": 0.8846235092024903
+      }
+    ],
+    "referenceShot": {
+      "angle": -148.234862646562,
+      "cueSpeed": 2.6252009652574335,
+      "top": -0.2957662841128222,
+      "side": 0.1087534331475109
+    },
+    "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
+    "evaluations": 1473
   }
 }
