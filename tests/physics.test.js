@@ -27,10 +27,10 @@ test('sliding friction opposes contact slip rather than velocity: draw back is p
   for (let i = 0; i < 250; i++) P.advanceFree(b, .001, P.DEFAULTS);
   assert.ok(b.vx < 0); assert.ok(P.energy(b) < initial);
 });
-test('normal cushion impact reflects with prescribed normal restitution', () => {
+test('frictionless normal cushion impact reflects with prescribed restitution', () => {
   const b = ball({ vx: 1, vy: 0 });
-  P.cushionImpulse(b, -1, 0, P.DEFAULTS);
-  near(b.vx, -.7); near(b.vy, 0); near(b.wz, 0);
+  P.cushionImpulse(b, -1, 0, { ...P.DEFAULTS, muSlide: 0, cushionFriction: 0 });
+  near(b.vx, -.98); near(b.vy, 0); near(b.wz, 0);
 });
 test('opposite side spin makes opposite rail deflection; impact remains passive', () => {
   const left = ball({ vx: 1, wz: 20 }), right = ball({ vx: 1, wz: -20 });
@@ -40,12 +40,52 @@ test('opposite side spin makes opposite rail deflection; impact remains passive'
   assert.ok(left.vy < 0); assert.ok(right.vy > 0);
   near(left.vy, -right.vy); assert.ok(P.energy(left) <= old + 1e-12);
 });
+
+test('a modest check-side input no longer artificially reverses travel along a cushion', () => {
+  // Incoming rolling ball: 1 m/s into the right rail, 0.14 m/s along it,
+  // R*wz=0.25 m/s. The old 0.4*slip rule produced vy=-0.016 m/s.
+  const b = ball({ vx: 1, vy: .14, wx: -.14/R, wy: 1/R, wz: .25/R });
+  P.cushionImpulse(b, -1, 0, P.DEFAULTS);
+  assert.ok(b.vx < 0); assert.ok(b.vy > 0 && b.vy < .14);
+});
+
+test('a grazing cushion cannot generate a large sideways impulse even with strong reverse spin', () => {
+  const b = ball({ vx: .02, vy: 1, wx: -1/R, wy: .02/R, wz: 2/R });
+  P.cushionImpulse(b, -1, 0, P.DEFAULTS);
+  assert.ok(b.vx < 0); assert.ok(b.vy > .98 && b.vy <= 1);
+});
+
+test('the raised cushion nose changes topspin, and post-impact cloth slip settles to rolling', () => {
+  const b = ball({ vx: 1, wy: 1/R });
+  P.cushionImpulse(b, -1, 0, P.DEFAULTS);
+  assert.ok(Math.abs(R*b.wy - 1) > .1);
+  assert.ok(P.slip(b).x < 0);
+  const t = Math.abs(P.slip(b).x) / (3.5 * P.DEFAULTS.muSlide * P.DEFAULTS.gravity);
+  P.advanceFree(b, t + .001, P.DEFAULTS);
+  near(P.slip(b).x, 0); assert.ok(b.vx < 0);
+});
+
+test('cushion integration converges, remains passive and has no left/right handedness bias', () => {
+  for (const angle of [5,30,60,85]) for (const side of [-.4,0,.4]) {
+    const a=angle*Math.PI/180, vx=Math.sin(a), vy=Math.cos(a);
+    const seed={ vx,vy,wx:-vy/R,wy:vx/R,wz:side/R };
+    const coarse=ball(seed),fine=ball(seed),mirror=ball({...seed,vy:-vy,wx:vy/R,wz:-side/R});
+    const before=P.energy(coarse);
+    P.cushionImpulse(coarse,-1,0,P.DEFAULTS,512);
+    P.cushionImpulse(fine,-1,0,P.DEFAULTS,4096);
+    P.cushionImpulse(mirror,-1,0,P.DEFAULTS,512);
+    assert.ok(Math.hypot(coarse.vx-fine.vx,coarse.vy-fine.vy)<.002);
+    assert.ok(R*Math.hypot(coarse.wx-fine.wx,coarse.wy-fine.wy,coarse.wz-fine.wz)<.004);
+    assert.ok(P.energy(coarse)<=before+1e-10);
+    near(coarse.vx,mirror.vx);near(coarse.vy,-mirror.vy);near(coarse.wz,-mirror.wz);
+  }
+});
 test('extreme admissible cushion settings cannot add energy', () => {
-  for (const tangent of [.3, .6, .9]) for (const spinCushion of [0, 1, 2]) {
+  for (const cushionFriction of [0, .14, .3]) for (const muSlide of [0, .2, .35]) {
     for (const wz of [-100, -10, 0, 10, 100]) for (const vy of [-3, 0, 3]) {
       const b = ball({ vx: 2, vy, wz, wx: 8, wy: 11 });
       const before = P.energy(b);
-      P.cushionImpulse(b, -1, 0, { ...P.DEFAULTS, cushionTangent: tangent, spinCushion, cushionRestitution: .9 });
+      P.cushionImpulse(b, -1, 0, { ...P.DEFAULTS, cushionFriction, muSlide, cushionRestitution: 1 });
       assert.ok(P.energy(b) <= before + 1e-10);
     }
   }
@@ -133,7 +173,7 @@ test('reversing spin coefficient does not bypass the circular tip offset limit',
   near(shot.initialBallSpeed, 3.5 / (1 + M / .5 + 2.5 * .25));
   assert.ok(w.balls[0].wy > 0); assert.ok(w.balls[0].wz < 0);
 });
-test('a two-rail spin shot converges under halving the physics step', () => {
+test('a multi-rail spin shot converges under halving the physics step', () => {
   function run(dt) {
     const w = P.createWorld([ball({ x: 1.1, y: .6 })]);
     P.strike(w, { angle: -27, cueSpeed: 1.7, top: .2, side: .1 });
@@ -143,7 +183,7 @@ test('a two-rail spin shot converges under halving the physics step', () => {
     return w;
   }
   const coarse = run(.001), fine = run(.0005);
-  assert.equal(coarse.events.filter(e => e.type === 'cushion').length, 2);
+  assert.ok(coarse.events.filter(e => e.type === 'cushion').length >= 2);
   assert.deepEqual(coarse.events.map(e => e.wall), fine.events.map(e => e.wall));
   assert.ok(Math.hypot(coarse.balls[0].x - fine.balls[0].x, coarse.balls[0].y - fine.balls[0].y) < .0001);
 });

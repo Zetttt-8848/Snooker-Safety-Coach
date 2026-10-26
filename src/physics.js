@@ -16,8 +16,8 @@
     ])
   });
   const DEFAULTS = Object.freeze({
-    muSlide: 0.20, muRoll: 0.011, cushionRestitution: 0.70,
-    cushionTangent: 0.60, spinCushion: 1, ballRestitution: 0.94,
+    muSlide: 0.20, muRoll: 0.011, cushionRestitution: 0.98,
+    cushionFriction: 0.14, ballRestitution: 0.94,
     spinDecay: 8, gravity: 9.81
   });
   const DT = 0.001;
@@ -102,22 +102,73 @@
     const spinChange = Math.max(0, p.spinDecay) * duration;
     b.wz = Math.sign(b.wz) * Math.max(0, Math.abs(b.wz) - spinChange);
   }
-  function cushionImpulse(b, nx, ny, p) {
+  // Mathavan, Jackson & Parkin (2010), Eqs. (3), (4), (12)-(14), (16).
+  // Local x is along the rail; y points INTO it. z is the algebraic vertical.
+  // Integrate normal impulse / mass, with the nose 1.4R above the bed.
+  // Compression stores work; restitution returns e^2 of that work. This e is
+  // energetic restitution, NOT a multiplier on horizontal normal velocity.
+  function cushionImpulse(b, nx, ny, p, subdivisions = 512) {
     const vn = b.vx * nx + b.vy * ny;
     if (vn >= 0) return false;
     const tx = -ny, ty = nx;
-    const vt = b.vx * tx + b.vy * ty;
-    const trueSlip = vt - R * b.wz;
-    let change = -(1 - clamp(p.cushionTangent, 0, 1)) * (vt - Math.max(0, p.spinCushion) * R * b.wz);
-    // A passive tangential impulse cannot add kinetic energy. For a solid
-    // sphere ΔE/m = change*trueSlip + (7/4)*change². The bound also prevents
-    // an extreme user coefficient from making the rail an energy source.
-    if (change * trueSlip > 0) change = 0;
-    change = Math.sign(change) * Math.min(Math.abs(change), 2 * Math.abs(trueSlip) / 3.5);
-    const newNormal = -clamp(p.cushionRestitution, 0, 1) * vn;
-    b.vx = newNormal * nx + (vt + change) * tx;
-    b.vy = newNormal * ny + (vt + change) * ty;
-    b.wz -= 2.5 * change / R;
+    const s = .4, c = Math.sqrt(1 - s * s);
+    const mu = clamp(p.cushionFriction ?? DEFAULTS.cushionFriction, 0, .3);
+    const cloth = clamp(p.muSlide, 0, .35), e = clamp(p.cushionRestitution, 0, 1);
+    // Angular components are stored here as surface speeds R*omega.
+    let v = [b.vx * tx + b.vy * ty, -vn,
+      R * (b.wx * tx + b.wy * ty), -R * (b.wx * nx + b.wy * ny), R * b.wz];
+    const steps = Math.max(32, Math.min(16384, Math.floor(subdivisions) || 512));
+    const dj = -vn / (c * steps);
+    function increment(start, j) {
+      let [x, y, wx, wy, wz] = start;
+      const half = c * j / 2;
+      // Symmetric normal/friction split. Accumulate exact normal work in
+      // both half kicks; friction only dissipates the intervening energy.
+      let work = half * (y - half / 2);
+      y -= half;
+      const ux = x + s * wy - c * wz, uq = -s * y + wx;
+      const slip = Math.hypot(ux, uq);
+      // The 1/6 bound regularises sticking without reversing contact slip.
+      // 6 exceeds the largest eigenvalue of the two-contact inverse-mass
+      // matrix for h=1.4R; the coupled friction kick is passive.
+      const grip = slip > 0 ? Math.min(mu * j / slip, 1 / 6) : 0;
+      const jx = -ux * grip, jq = -uq * grip;
+      const bedNormal = Math.max(0, s * j - c * jq);
+      const hx = x - wy, hy = y + wx, bedSlip = Math.hypot(hx, hy);
+      const bedGrip = bedSlip > 0 ? Math.min(cloth * bedNormal / bedSlip, 1 / 6) : 0;
+      const jcx = -hx * bedGrip, jcy = -hy * bedGrip;
+      x += jx + jcx; y += -s * jq + jcy;
+      wx += 2.5 * (jq + jcy);
+      wy += 2.5 * (s * jx - jcx);
+      wz -= 2.5 * c * jx;
+      work += half * (y - half / 2);
+      y -= half;
+      return { v: [x, y, wx, wy, wz], work };
+    }
+    let stored = 0;
+    // Locate the end of compression within the last impulse interval.
+    for (let i = 0; i < steps * 4 + 64; i++) {
+      let step = increment(v, dj);
+      if (step.v[1] <= 0) {
+        let lo = 0, hi = dj;
+        for (let k = 0; k < 32; k++) { const mid = (lo + hi) / 2; if (increment(v, mid).v[1] > 0) lo = mid; else hi = mid; }
+        step = increment(v, (lo + hi) / 2);
+        stored += step.work; v = step.v; break;
+      }
+      stored += step.work; v = step.v;
+    }
+    let remaining = e * e * stored;
+    for (let i = 0; remaining > 1e-16 && i < steps * 4 + 64; i++) {
+      let step = increment(v, dj);
+      if (-step.work >= remaining) {
+        let lo = 0, hi = dj;
+        for (let k = 0; k < 32; k++) { const mid = (lo + hi) / 2; if (-increment(v, mid).work < remaining) lo = mid; else hi = mid; }
+        step = increment(v, (lo + hi) / 2); v = step.v; remaining = 0;
+      } else { remaining += step.work; v = step.v; }
+    }
+    b.vx = v[0] * tx - v[1] * nx; b.vy = v[0] * ty - v[1] * ny;
+    b.wx = (v[2] * tx - v[3] * nx) / R; b.wy = (v[2] * ty - v[3] * ny) / R;
+    b.wz = v[4] / R;
     return true;
   }
   function pocketAndRails(world, b, time) {

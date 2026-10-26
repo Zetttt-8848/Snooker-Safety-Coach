@@ -1,6 +1,6 @@
 # Sources and transfer to teaching
 
-Verified online on 2026-10-25. These primary rules, research, author tutorials and official product pages support the implementation. The supplied paper is mapped separately in `paper-model.md`.
+Original source review: 2026-10-25. Cushion sources (Mathavan, Dr. Dave, pooltool author) rechecked online on 2026-10-26 for the physics revision. These primary rules, research, author tutorials and official product pages support the implementation. The supplied paper is mapped separately in `paper-model.md`.
 
 ## Dimensions and rules
 
@@ -25,9 +25,9 @@ Marlow’s *The Physics of Pocket Billiards* was cross-checked through the poolt
 
 ### Preset limits
 
-Sliding .20, rolling .011, effective cushion restitution .70 and ball restitution .94 are within the cited ranges. Tangential retention .60 is an adjustable simplification without a dedicated professional-snooker measurement. Side-spin coupling 1.0× is relative to this engine, not a material constant. Gravity is 9.81 m/s². A common teaching shot range of .8–2.2 m/s does not describe all professional safety shots.
+The revised cushion model uses raised-nose contact, both friction contacts and an energetic restitution rule. Its starting cushion friction is .14 and energetic restitution .98; see [the derivation and numerical checks](cushion-model.md). The old .70 horizontal-speed restitution, .60 tangential retention and artificial side-spin multiplier have been retired. Sliding .20, rolling .011, ball restitution .94 and gravity 9.81 m/s² remain. These are literature-informed starting values, not measurements of the user's table.
 
-Calibrate from known rolling speed/stopping distance using mu_roll≈v²/(2gs), then low-speed normal cushion speed ratios, symmetric side-spin rebounds, and sliding-to-rolling timing. Independent real trajectories are needed before making predictive claims. Jumps, masse, nap, complex pocket jaws and cushion deformation are outside this model.
+Calibrate rolling resistance from known rolling speed/stopping distance using mu_roll≈v²/(2gs), then fit the cushion model to measured velocities and spin before and after impact at several angles. Do not substitute a horizontal rebound-speed ratio for energetic restitution. [Dr. Dave's bank/kick effects](https://drdavepoolinfo.com/faq/bank-kick/effects/) supports the qualitative running/check-side and shallow-angle checks. Independent real trajectories are needed before making table-specific predictive claims. Jumps, masse, nap, complex pocket jaws and cushion deformation are outside this model.
 
 ## Safety and escape coaching
 

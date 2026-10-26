@@ -177,3 +177,49 @@ test('a route outside the centre rectangle has an explicit geometric failure', a
   const fit = await S.invert({ puzzle, path: [{ x: .5, y: .5 }, { x: -1, y: 1 }], reference });
   assert.equal(fit.status, 'invalid'); assert.equal(fit.evaluations, 0); assert.match(fit.message, /ball-centre boundary/);
 });
+
+test('an imprecise hand-drawn line is played as the closest legal shot, never rejected outright', async () => {
+  const lesson = require('../data/puzzles.json').find(p => p.id === 'hide-yellow');
+  const ref = P.simulate(lesson.balls, lesson.referenceShot);
+  const wobble = G.simplifyPath(ref.path, .02).map((q, i) => i === 0 ? q : { x: q.x + Math.sin(i * 7.1) * .012, y: q.y + Math.cos(i * 5.3) * .012 });
+  const route = G.normalizePath(wobble, { start: lesson.balls[0], smooth: true }).points;
+  const fit = await S.invert({ puzzle: lesson, path: route, reference: ref, maxEvaluations: 320 });
+  assert.ok(['feasible', 'approximate'].includes(fit.status), fit.status);
+  assert.ok(fit.result.completed && S.checkResult(lesson, fit.result).valid);
+  const report = S.evaluate({ puzzle: lesson, studentPath: route, reference: ref, realized: fit.result, feasibility: fit });
+  assert.equal(report.verification, fit.status === 'approximate' ? 'approximate' : 'verified');
+  assert.ok(report.outcome.actual.verified);
+  if (fit.status === 'approximate') assert.match(fit.message, /closest legal shot/);
+});
+
+test('a cancelled search says so and never claims a verified or impossible result', async () => {
+  const fit = await S.invert({ puzzle, path: [{ x: .5, y: .5 }, { x: .7, y: 1.2 }, { x: .8, y: .4 }], reference, maxEvaluations: 100, signal: { aborted: true } });
+  assert.equal(fit.status, 'unresolved'); assert.match(fit.message, /cancelled/i); assert.equal(fit.evaluations, 0);
+});
+
+test('progress is reported while the search runs and the budget is respected', async () => {
+  const seen = [];
+  const fit = await S.invert({ puzzle, path: [{ x: .5, y: .5 }, { x: .7, y: 1.2 }, { x: .8, y: .4 }], reference, maxEvaluations: 30, onProgress: p => seen.push(p) });
+  assert.ok(seen.length >= 3); assert.ok(seen.every(p => p.maxEvaluations === 30 && p.evaluations <= 30));
+  assert.ok(fit.evaluations <= 30);
+});
+
+test('each score dimension has a plain-language explanation and the headline tells the learner what to do', () => {
+  const exact = S.evaluate({ puzzle, studentPath: reference.path, reference, realized: reference });
+  assert.equal(exact.verification, 'verified'); assert.equal(exact.alternative, false);
+  for (const key of ['O', 'E', 'P', 'C']) assert.ok(typeof exact.explain[key] === 'string' && exact.explain[key].length > 10, key);
+  assert.match(exact.explain.E, /within about 1 cm/);
+  const route = [{ x: .5, y: .5 }, { x: .4, y: .8 }, { x: .2, y: 1.2 }];
+  const poor = S.evaluate({ puzzle, studentPath: route, reference });
+  assert.equal(poor.verification, 'estimate');
+  assert.match(poor.headline, /^First/);
+  assert.match(poor.explain.E, /cm from the reference finish/);
+});
+
+test('a different route with an equally safe verified result is recognised as an alternative that works', () => {
+  const end = reference.path.at(-1);
+  const route = [{ x: .5, y: .5 }, { x: .7, y: 1.2 }, { x: 1.3, y: 1.2 }, { x: 1, y: .5 }, end];
+  const report = S.evaluate({ puzzle, studentPath: route, reference, realized: reference });
+  assert.equal(report.alternative, true); assert.match(report.headline, /different route that works/);
+  assert.equal(report.grade, 'Promising');
+});

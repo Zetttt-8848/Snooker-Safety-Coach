@@ -126,3 +126,36 @@ test('overlapping cue positions return an explicit invalid angle, never NaN', ()
   const o = G.occlusion({ x: .5, y: .5 }, { x: .51, y: .5 }, []);
   assert.equal(o.valid, false); assert.ok(Number.isFinite(o.deltaRadians)); assert.equal(o.exposure, 1);
 });
+
+test('a bounce vertex near a corner counts as one contact on the nearer cushion', () => {
+  const G2 = require('../src/geometry.js');
+  const route = [{ x: 1.5, y: .4 }, { x: 3.54, y: .05 }, { x: 3.06, y: .22 }];
+  assert.deepEqual(G2.cushionSignature(route).map(c => c.wall), ['right']);
+});
+
+test('aim preview finds the first ball, the cut angle, the object-ball line and the stun deflection', () => {
+  const G2 = require('../src/geometry.js');
+  const balls = [{ id: 'cue', x: 1, y: .9 }, { id: 'red1', x: 2, y: .9 }, { id: 'blue', x: 2.5, y: 1.4 }];
+  const full = G2.aimPreview(balls, 'cue', 0);
+  assert.equal(full.hit.id, 'red1');
+  assert.ok(Math.abs(full.distance - (1 - 2 * G2.TABLE.radius)) < 1e-9);
+  assert.ok(full.cutAngle < .01); assert.equal(full.cueDirection, null);
+  assert.ok(Math.abs(full.objectDirection.x - 1) < 1e-9);
+  const cut = G2.aimPreview(balls, 'cue', 0.5);
+  assert.equal(cut.hit.id, 'red1');
+  assert.ok(cut.cutAngle > 1 && cut.cutAngle < 90);
+  assert.ok(cut.objectDirection.x > 0.9);
+  const dot = cut.cueDirection.x * cut.objectDirection.x + cut.cueDirection.y * cut.objectDirection.y;
+  assert.ok(Math.abs(dot) < 1e-9, 'stun deflection is perpendicular to the object-ball line');
+  assert.ok(cut.cueDirection.x * cut.direction.x + cut.cueDirection.y * cut.direction.y > 0);
+});
+
+test('aim preview reports the first cushion and its mirror line when nothing is hit', () => {
+  const G2 = require('../src/geometry.js');
+  const balls = [{ id: 'cue', x: 1, y: .9 }];
+  const preview = G2.aimPreview(balls, 'cue', -45);
+  assert.equal(preview.hit, null); assert.equal(preview.wall, 'top');
+  assert.ok(Math.abs(preview.end.y - G2.TABLE.radius) < 1e-9);
+  assert.ok(preview.reflect.direction.y > 0 && preview.reflect.direction.x > 0);
+  assert.equal(G2.aimPreview([{ id: 'cue', x: 1, y: .9, potted: true }], 'cue', 0), null);
+});

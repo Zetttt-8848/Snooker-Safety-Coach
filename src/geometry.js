@@ -68,11 +68,17 @@
     const contacts = [];
     for (let i = 1; i < points.length - 1; i++) {
       const p = points[i], a = points[supportIndex(points, i, -1)], b = points[supportIndex(points, i, 1)];
+      // One vertex is one bounce: near a corner, only the closer cushion counts.
+      let nearest = null;
       for (const wall of ['top', 'right', 'bottom', 'left']) {
         const d = wallDistance(p, wall), da = wallDistance(a, wall), db = wallDistance(b, wall);
         if (Math.abs(d) > tolerance || da <= d + .001 || db <= d + .001) continue;
         if (wallDistance(points[i - 1], wall) < d - EPS || wallDistance(points[i + 1], wall) < d - EPS) continue;
         if (turningAngle(a, p, b) < .08) continue;
+        if (!nearest || Math.abs(d) < nearest.d) nearest = { wall, d: Math.abs(d) };
+      }
+      for (const wall of nearest ? [nearest.wall] : []) {
+        const d = wallDistance(p, wall);
         const projected = wallPoint(p, wall);
         const last = contacts[contacts.length - 1];
         // Nearby hand jitter around one contact is one event, not several banks.
@@ -240,8 +246,55 @@
       theta, intervals, distance: d };
   }
 
+  // Distance along a ray from `origin` until a ball centre would meet a cushion.
+  function rayToCushion(origin, angle) {
+    const R = TABLE.radius, dx = Math.cos(angle), dy = Math.sin(angle);
+    const options = [];
+    if (dx > EPS) options.push([(TABLE.width - R - origin.x) / dx, 'right']);
+    if (dx < -EPS) options.push([(R - origin.x) / dx, 'left']);
+    if (dy > EPS) options.push([(TABLE.height - R - origin.y) / dy, 'bottom']);
+    if (dy < -EPS) options.push([(R - origin.y) / dy, 'top']);
+    const [distance, wall] = options.filter(o => o[0] >= 0).sort((a, b) => a[0] - b[0])[0] || [0, null];
+    return { distance, wall };
+  }
+
+  // Everything an aiming overlay needs for one shot direction: where the cue ball first meets a ball
+  // (the "ghost ball"), where that object ball is sent, the straight-line cue-ball deflection, and
+  // otherwise the first cushion with its ideal mirror line. Pure geometry, no spin or friction.
+  function aimPreview(balls, cueId, angleDegrees) {
+    const cue = balls.find(b => b.id === cueId && !b.potted);
+    if (!cue) return null;
+    const angle = angleDegrees * Math.PI / 180, direction = { x: Math.cos(angle), y: Math.sin(angle) };
+    let hit = null;
+    for (const ball of balls) {
+      if (ball === cue || ball.potted) continue;
+      const travel = rayCircleDistance(cue, angle, ball, 2 * TABLE.radius);
+      if (Number.isFinite(travel) && travel > 1e-9 && (!hit || travel < hit.distance)) hit = { ball, distance: travel };
+    }
+    const rail = rayToCushion(cue, angle);
+    if (hit && hit.distance <= rail.distance) {
+      const ghost = { x: cue.x + direction.x * hit.distance, y: cue.y + direction.y * hit.distance };
+      const nx = hit.ball.x - ghost.x, ny = hit.ball.y - ghost.y, length = Math.hypot(nx, ny) || 1;
+      const objectDirection = { x: nx / length, y: ny / length };
+      // Cut angle: 0 is a full-ball hit, 90 a feather touch.
+      const cross = direction.x * objectDirection.y - direction.y * objectDirection.x;
+      const cutAngle = Math.abs(Math.asin(clamp(cross, -1, 1))) * 180 / Math.PI;
+      // After a smooth equal-mass collision the cue ball keeps only the part of its motion that is
+      // perpendicular to the line of centres (a stun shot with no spin).
+      const along = direction.x * objectDirection.x + direction.y * objectDirection.y;
+      const tx = direction.x - along * objectDirection.x, ty = direction.y - along * objectDirection.y, tl = Math.hypot(tx, ty);
+      const cueDirection = cutAngle < 0.5 || tl < EPS ? null : { x: tx / tl, y: ty / tl };
+      return { cue, direction, distance: hit.distance, end: ghost, hit: { id: hit.ball.id, color: hit.ball.color, x: hit.ball.x, y: hit.ball.y },
+        objectDirection, cueDirection, cutAngle, wall: null, reflect: null };
+    }
+    const end = { x: cue.x + direction.x * rail.distance, y: cue.y + direction.y * rail.distance };
+    const reflected = rail.wall === 'left' || rail.wall === 'right' ? { x: -direction.x, y: direction.y } : { x: direction.x, y: -direction.y };
+    return { cue, direction, distance: rail.distance, end, hit: null, objectDirection: null, cueDirection: null, cutAngle: null,
+      wall: rail.wall, reflect: rail.wall ? { from: end, direction: reflected } : null };
+  }
+
   const api = { TABLE, distance, pointSegmentDistance, pathLength, smoothPath, simplifyPath,
-    resamplePath, cushionSignature, normalizePath, turningAngle, wallPoint, rayCircleDistance, occlusion };
+    resamplePath, cushionSignature, normalizePath, turningAngle, wallPoint, rayCircleDistance, occlusion, rayToCushion, aimPreview };
   Coach.geometry = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(globalThis);

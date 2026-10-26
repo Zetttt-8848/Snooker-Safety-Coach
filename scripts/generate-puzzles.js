@@ -7,6 +7,7 @@ const P = require('../src/physics.js');
 const G = require('../src/geometry.js');
 const S = require('../src/scoring.js');
 const ROOT = path.resolve(__dirname, '..');
+const calibrated = require('./calibrated-shots.json');
 const R = P.TABLE.radius;
 const ball = (id, color, x, y) => ({ id, color, x, y });
 const shot = (angle, cueSpeed, top = 0, side = 0) => ({ angle, cueSpeed, top, side });
@@ -107,7 +108,7 @@ function breakoffFixture() {
   return {balls,referenceShot:shot(-2.129648535284854,3.2335000000000007,.08039999999999997,-.04959999999999999)};
 }
 
-function specs() {
+function baseSpecs() {
   return [
     { id:'rail-touch', title:"A gentle cushion leave", category:"0 cushions · Control", difficulty:"Beginner", paperClass:'near-cushion', targetId:'red1',
       balls:[ball('cue','white',2,.06),ball('red1','red',2.35,.06)], referenceShot:shot(0,.45),
@@ -186,6 +187,128 @@ function specs() {
   ];
 }
 
+// Library expansion. Layouts and shots below were found with bounded, seeded
+// forward searches over the shared engine; generate() re-simulates and verifies
+// every one, so none of these numbers is trusted without that check.
+function addedSpecs() {
+  const escape = (id, title, category, colour, seed, preCushions, extra) => ({ id, title, category, targetId:'red1', preCushions, colour,
+    seeds:[seed], objective:{ type:'escape', cueZone:{ auto:true, radius:extra.zoneRadius || .45 } }, acceptance:{ preContactCushions:preCushions, initialBlockedFraction:.99 },
+    paperClass:'screened', ...extra.text });
+  return [
+    { id:'pull-red-clear', title:"Clear the red from the pocket", category:"Object ball · Safe zone", difficulty:"Beginner", paperClass:'near-cushion', targetId:'red1',
+      balls:[ball('cue','white',2.45,.25),ball('red1','red',1.62,.2)], referenceShot:shot(186.44040063023567,1.2023344257846476,.18458029064349832,-.09452831884846091),
+      objective:{ type:'target', cueZone:{ x:.125, y:.403, radius:.3 }, targetZone:{ x:.897, y:1.042, radius:.25 } },
+      acceptance:{ minTargetPocketDistance:.65, minPocketDistanceGain:.5, minSeparation:.8 },
+      task:"The red sits close to the top middle pocket. Hit it from the right so it travels well away from every pocket.",
+      goal:"Hit the red first, pot nothing and leave the red at least 65 cm from every pocket.",
+      explanation:"A safety is also about where the object ball finishes. Moving the red out of pocket range matters as much as where the white stops. A gentle, slightly cut contact sends the red away without sending the white after it.",
+      source:"Paper pp. 5–6 and 20–22, residual opportunity; Cuestars Safety: Cross Double safe-zone practice.",
+      hint:"Cut the red a little so it rolls down and to the left, away from the middle pocket." },
+    { id:'hide-green', title:"The green hideaway", category:"Snooker · Green", difficulty:"Foundation", paperClass:'open → screened', targetId:'red1', colour:'green', cut:3, speed:.6, rotation:195, spot:{ x:.737, y:.597 },
+      objective:{ type:'snooker', cueZone:{ x:.836, y:.485, radius:.12 } }, acceptance:{ minBlockedFraction:.95 },
+      task:"Clip the red and stop on the far side of the green, which sits on its official spot.",
+      goal:"Hit the red first and leave the green between the cue ball and the red, blocking at least 95% of contact directions.",
+      explanation:"From the new angle the green must sit on the straight line between the two balls. A few centimetres either side lets the red peek out again, so judge the last metre of the route carefully.",
+      source:"Paper pp. 14–16, Eq. (37), exposure proxy; approved occlusion-angle extension; Dr. Dave: entering a safety zone along the blocking line.",
+      hint:"Finish just up and to the right of the green so it lines up with the red." },
+    { id:'hide-pink', title:"Slip in beside the pink", category:"Snooker · Pink", difficulty:"Intermediate", paperClass:'open → screened', targetId:'red1', colour:'pink', cut:3, speed:.5, rotation:60, spot:{ x:2.67675, y:.889 },
+      objective:{ type:'snooker', cueZone:{ x:2.527, y:.892, radius:.12 } }, acceptance:{ minBlockedFraction:.95 },
+      task:"The pink is on its spot in the middle of the table. Clip the red and stop on the left of the pink with the red on the other side.",
+      goal:"Hit the red first and stop on the left of the pink so it blocks at least 95% of contact directions.",
+      explanation:"A blocker works from any side. Here the cue ball and red end up on opposite sides of the pink, so the pink fills the gap between them. Very low speed keeps both balls close to the blocker.",
+      source:"Paper pp. 14–16, Eq. (37), exposure proxy; approved occlusion-angle extension.",
+      hint:"Clip the red thinly, then settle on the left of the pink with the red on its right." },
+    { id:'hide-black', title:"Behind the black", category:"Snooker · Black", difficulty:"Advanced", paperClass:'open → screened', targetId:'red1', colour:'black', cut:4, speed:.5, rotation:270, spot:{ x:3.245, y:.889 },
+      objective:{ type:'snooker', cueZone:{ x:3.395, y:.882, radius:.1 } }, acceptance:{ minBlockedFraction:.95 },
+      task:"The black is near the end cushion. Slip the cue ball into the gap between the black and the cushion while the red finishes on the other side.",
+      goal:"Hit the red first and tuck in behind the black with at least 95% of contact directions blocked.",
+      explanation:"The space between the black and the cushion is only about 10 cm wide, so speed control is everything. A shot that is slightly too firm hits the cushion and rolls out of the window.",
+      source:"Paper pp. 14–16, Eq. (37), exposure proxy; approved occlusion-angle extension; Dr. Dave: thin-hit hiding shots.",
+      hint:"Use very little pace and aim for the narrow gap just behind the black." },
+    escape('one-rail-left', "Off the left cushion", "1 cushion · Escape", 'brown', { x:1.1, y:.7, angle:-175, speed:1.2 }, 1, { zoneRadius:.35, text:{ difficulty:"Intermediate",
+      task:"The brown stands in the direct line. Bounce off the left cushion to reach the red.",
+      goal:"Take exactly one cushion before first contact with the red. Avoid the brown and the pockets.",
+      explanation:"Aim at the mirror image of the red on the other side of the cushion. A gentle shot loses little speed on the way in, so the first guess is usually close.",
+      source:"Paper pp. 14–16, Eqs. (34)–(37), screened benchmark; Dr. Dave: Mirror Kick and Bank Shot Aiming System.",
+      hint:"Head for the left cushion first, then look for the red on the rebound." } }),
+    escape('one-rail-right', "Spin off the right cushion", "1 cushion · Escape with spin", 'yellow', { x:1.5, y:.4, angle:-10, speed:1.8, side:.25 }, 1, { zoneRadius:.35, text:{ difficulty:"Advanced",
+      task:"The yellow blocks the direct route. Use the right cushion, with a touch of side spin, to reach the red.",
+      goal:"Take exactly one cushion before first contact with the red and avoid the yellow.",
+      explanation:"Side spin changes how the ball leaves the cushion. A small amount of spin kicks the cue ball a little longer or shorter. Several shot settings can find the same red, so a route without spin may work too.",
+      source:"Paper pp. 14–16, Eqs. (34)–(37); side-spin cushion coupling is a teaching extension.",
+      hint:"Head for the right cushion first. Side spin carries the ball along the cushion after the rebound." } }),
+    escape('two-rail-bottom', "Bottom then right", "2 cushions · Escape", 'green', { x:.7, y:1, angle:25, speed:2 }, 2, { zoneRadius:.45, text:{ difficulty:"Advanced",
+      task:"The green blocks direct access. Use the bottom cushion and then the right cushion to reach the red.",
+      goal:"Take two cushions before first contact with the red and avoid the green.",
+      explanation:"Plan the second rebound first: where must the ball leave the right cushion? Work backwards to the first contact point, then check the speed that survives two cushions.",
+      source:"Paper pp. 2–4 and 14–16, executable shots and first contact; two cushions are a teaching extension; Dr. Dave: Plus System.",
+      hint:"Start towards the bottom cushion and keep the pace gentle for the second rebound." } }),
+    escape('two-rail-spin', "Right then bottom, with pace", "2 cushions · Escape with spin", 'blue', { x:2, y:1.3, angle:-5, speed:2.6, side:.25 }, 2, { zoneRadius:.5, text:{ difficulty:"Challenge",
+      task:"The blue guards the middle of the table. Go off the right cushion and then the bottom cushion to reach the red.",
+      goal:"Take two cushions before first contact with the red and avoid the blue.",
+      explanation:"A firm shot with side spin bends the second rebound. The reference uses more pace than most safeties, so treat the route as a guide and adjust the first contact point rather than copying the line.",
+      source:"Paper pp. 2–4 and 14–16, executable shots and first contact; side-spin cushion coupling is a teaching extension.",
+      hint:"Hit the right cushion first, then let the ball run along the bottom cushion." } }),
+    escape('three-rail-sweep', "The three-cushion sweep", "3 cushions · Escape", 'brown', { x:.7, y:.4, angle:-150, speed:2.4 }, 3, { zoneRadius:.5, text:{ difficulty:"Challenge",
+      task:"Go off the top, left and bottom cushions in turn to get round the brown and hit the red.",
+      goal:"Take exactly three cushions before first contact with the red. Avoid the brown and the pockets.",
+      explanation:"Three rebounds are very sensitive to the first angle. Change one contact point at a time and watch how the last segment moves. A tiny change at the top cushion becomes a big change at the red.",
+      source:"Paper pp. 2–4 and 20–22; three cushions extend the paper’s planar 0/1-cushion benchmark; Dr. Dave: Corner-5.",
+      hint:"Aim for the top cushion first, then follow the ball round the table." } }),
+    { id:'screw-back', title:"Screw back to baulk", category:"Control · Backspin", difficulty:"Advanced", paperClass:'open', targetId:'red1',
+      balls:[ball('cue','white',1.3,.889),ball('red1','red',1.95,.889)], referenceShot:shot(-.008973906515166163,3.3081079377327116,-.3147926576901227,0),
+      objective:{ type:'distance', cueZone:{ x:.452, y:.876, radius:.3 } }, acceptance:{ cueCushions:0, minSeparation:1 },
+      task:"Hit the red full ball and use backspin to bring the white all the way back into baulk.",
+      goal:"Hit the red first, pot nothing, and leave the cue ball more than 1 m from the red without touching a cushion.",
+      explanation:"Low tip position makes the white spin backwards. After the straight hit it rolls back along the line it came on. More pace means more screw. The red runs on to the end cushion and returns.",
+      source:"Paper pp. 20–22, execution variables and cue-ball control; Dr. Dave: draw shot fundamentals.",
+      hint:"Aim straight at the red, strike low on the ball and hit firmly." },
+    { id:'return-to-baulk', title:"Kick, clip and run home", category:"Control · Cushion first", difficulty:"Challenge", paperClass:'near-cushion', targetId:'red1',
+      balls:[ball('cue','white',1.2,1.3),ball('red1','red',2.5,.45)], referenceShot:shot(-13.778513741457495,3.2322799291694535,-.05435475711710752,.019132359651848674),
+      objective:{ type:'distance', cueZone:{ x:.364, y:.371, radius:.35 } }, acceptance:{ preContactCushions:1, cueBaulk:true, maxTargetTravel:.2, minSeparation:1.5 },
+      task:"Play off the right cushion to reach the red, barely touch it, then let the white run back into baulk.",
+      goal:"Hit the red first after one cushion, move it less than 20 cm, and finish in baulk more than 1.5 m from the red.",
+      explanation:"Arriving from the cushion gives a very thin contact on the red, so almost all the pace stays in the white. It then runs across the top and back down the table. Small changes to the contact point change the whole route, so adjust the first angle by tiny amounts.",
+      source:"Paper pp. 4, 15 Eq. (35) and 20–22, thin contact and separation; Cuestars Safety: Clipping the Reds.",
+      hint:"Aim well to the right of the red, off the right cushion, so the white returns to clip its edge." }
+  ];
+}
+
+const COURSE = [
+  { id:'rail-touch', level:1, tactic:'control', brief:"Tap the red, then stop on the long cushion.", learn:"Control pace so the white stops where you plan.", focus:{ role:'target', label:'Hit first' } },
+  { id:'thin-separation', level:1, tactic:'control', brief:"Clip the edge of the red and send the white far away.", learn:"A thin contact keeps the pace in the white ball.", focus:{ role:'target', label:'Clip this' } },
+  { id:'pull-red-clear', level:1, tactic:'object', brief:"Knock the red away from the pocket.", learn:"Judge where the red goes, not only the white.", focus:{ role:'target', label:'Move this' } },
+  { id:'hide-brown', level:2, tactic:'hide', brief:"Clip the red, then hide the white behind the brown.", learn:"Use a ball on its spot to block the red.", focus:{ role:'colour', id:'brown', label:'Hide behind' } },
+  { id:'hide-yellow', level:2, tactic:'hide', brief:"Clip the red, then tuck in beside the yellow.", learn:"Final centimetres decide whether the red can be seen.", focus:{ role:'colour', id:'yellow', label:'Hide behind' } },
+  { id:'hide-green', level:2, tactic:'hide', brief:"Clip the red and stop in line behind the green.", learn:"Line up a blocker between the white and the red.", focus:{ role:'colour', id:'green', label:'Hide behind' } },
+  { id:'one-rail-blue', level:2, tactic:'escape', brief:"Use the top cushion to reach the red past the blue.", learn:"Mirror the red to find a one-cushion route.", focus:{ role:'colour', id:'blue', label:'In the way' } },
+  { id:'hide-blue', level:3, tactic:'hide', brief:"Clip the red and stop below the blue.", learn:"A blocker only counts if it is in front of the red.", focus:{ role:'colour', id:'blue', label:'Hide behind' } },
+  { id:'hide-pink', level:3, tactic:'hide', brief:"Clip the red and stop on the far side of the pink.", learn:"A blocker works from any side.", focus:{ role:'colour', id:'pink', label:'Hide behind' } },
+  { id:'one-rail-short', level:3, tactic:'escape', brief:"Rebound off the right cushion, then leave the white on the top cushion.", learn:"Pick a cushion that sets up your next position.", focus:{ role:'colour', id:'pink', label:'In the way' } },
+  { id:'one-rail-left', level:3, tactic:'escape', brief:"Bounce off the left cushion to reach the red past the brown.", learn:"Aim at the red's mirror image.", focus:{ role:'colour', id:'brown', label:'In the way' } },
+  { id:'one-rail-right', level:4, tactic:'escape', brief:"Use the right cushion and a little side spin to get round the yellow.", learn:"Side spin changes the angle off a cushion.", focus:{ role:'colour', id:'yellow', label:'In the way' } },
+  { id:'two-rail-corridor', level:4, tactic:'escape', brief:"Top cushion, then right cushion: get round the green.", learn:"Plan the second rebound before the first.", focus:{ role:'colour', id:'green', label:'In the way' } },
+  { id:'two-rail-return', level:4, tactic:'escape', brief:"Bottom cushion, then left cushion: get round the brown.", learn:"Escape first, then recover to a safe leave.", focus:{ role:'colour', id:'brown', label:'In the way' } },
+  { id:'two-rail-bottom', level:4, tactic:'escape', brief:"Bottom cushion, then right cushion: get round the green.", learn:"Speed drops with every cushion, so plan the pace.", focus:{ role:'colour', id:'green', label:'In the way' } },
+  { id:'hide-black', level:4, tactic:'hide', brief:"Clip the red and slip in behind the black.", learn:"Use almost no pace in a narrow gap.", focus:{ role:'colour', id:'black', label:'Hide behind' } },
+  { id:'send-red-safe', level:4, tactic:'object', brief:"Send the red out of the corner and into the safe zone.", learn:"A cushion is not automatically safe.", focus:{ role:'target', label:'Move this' } },
+  { id:'screw-back', level:5, tactic:'control', brief:"Hit the red straight and screw the white back to baulk.", learn:"Backspin brings the white back along its line.", focus:{ role:'target', label:'Hit first' } },
+  { id:'return-to-baulk', level:5, tactic:'control', brief:"Kick off the right cushion, clip the red, and send the white home.", learn:"A thin contact keeps the pace for a long route.", focus:{ role:'target', label:'Clip this' } },
+  { id:'two-rail-spin', level:5, tactic:'escape', brief:"Right cushion, then bottom cushion, with side spin.", learn:"Firm pace and spin make rebounds touchier.", focus:{ role:'colour', id:'blue', label:'In the way' } },
+  { id:'three-rail-escape', level:5, tactic:'escape', brief:"Three cushions to get round the pink.", learn:"Small errors grow with every rebound.", focus:{ role:'colour', id:'pink', label:'In the way' } },
+  { id:'three-rail-sweep', level:5, tactic:'escape', brief:"Top, left and bottom cushions to get round the brown.", learn:"Change one contact point at a time.", focus:{ role:'colour', id:'brown', label:'In the way' } },
+  { id:'break-off', level:5, tactic:'break', brief:"Clip the outside red and bring the white home to baulk.", learn:"A repeatable return beats a tiny landing window.", focus:{ role:'target', label:'Clip this' } }
+];
+const LEVELS = ['Beginner', 'Foundation', 'Intermediate', 'Advanced', 'Challenge'];
+function specs() {
+  const all = [...baseSpecs(), ...addedSpecs()], byId = new Map(all.map(s => [s.id, s]));
+  return COURSE.map(meta => {
+    const spec = byId.get(meta.id);
+    assert.ok(spec, 'COURSE lists an unknown lesson: ' + meta.id);
+    return { ...spec, ...meta, difficulty: LEVELS[meta.level - 1] };
+  });
+}
+
 function makeProof(puzzle, result) {
   const first = firstCueContact(result), cue = result.balls.find(b => b.id === 'cue');
   const target = result.balls.find(b => b.id === puzzle.targetId);
@@ -216,6 +339,10 @@ function verify(puzzle, result) {
   const proof = makeProof(puzzle,result), a = puzzle.acceptance || {};
   assert.ok(proof.cueZoneReached && proof.targetZoneReached, puzzle.id + ': declared zone missed');
   if(a.preContactCushions!==undefined) assert.equal(proof.preContactCushions.length,a.preContactCushions,puzzle.id+': wrong pre-contact rails');
+  const sequences = { 'one-rail-blue':['top'], 'one-rail-short':['right'], 'one-rail-left':['left'], 'one-rail-right':['right'],
+    'two-rail-corridor':['top','right'], 'two-rail-return':['bottom','left'], 'two-rail-bottom':['bottom','right'],
+    'two-rail-spin':['right','bottom'], 'three-rail-escape':['top','right','bottom'], 'three-rail-sweep':['top','left','bottom'], 'return-to-baulk':['right'] };
+  if(sequences[puzzle.id]) assert.deepEqual(proof.preContactCushions,sequences[puzzle.id],puzzle.id+': wrong pre-contact rail order');
   if(a.cueCushions!==undefined) assert.equal(proof.allCueCushions.length,a.cueCushions,puzzle.id+': wrong rail count');
   for(const [field,min] of Object.entries({initialBlockedFraction:a.initialBlockedFraction,finalBlockedFraction:a.minBlockedFraction,separation:a.minSeparation,targetPocketDistance:a.minTargetPocketDistance,pocketDistanceGain:a.minPocketDistanceGain})) {
     if(min!==undefined) assert.ok(proof[field]>=min-1e-9,puzzle.id+': '+field+' '+proof[field]+' < '+min);
@@ -236,7 +363,16 @@ function generate() {
   const output=[], references={version:1,generatedWith:'src/physics.js; fixed 1 ms; default parameters',references:{}};
   for(const original of specs()) {
     const spec={...original};
-    if(spec.preCushions){Object.assign(spec,constructEscape(spec));if(spec.polishedShot){spec.referenceShot=spec.polishedShot;spec.construction.refinement='bounded angle/speed/top search improved separation and rail position; selected shot independently verified';}}
+    // An "auto" cue zone is centred on the verified reference finish once the shot exists.
+    const autoRadius=spec.objective?.cueZone?.auto?spec.objective.cueZone.radius:null;
+    if(autoRadius){spec.objective={...spec.objective};delete spec.objective.cueZone;}
+    if(calibrated[spec.id]) {
+      const saved=calibrated[spec.id];
+      spec.balls=saved.balls.map(simple); spec.referenceShot={...saved.referenceShot};
+      spec.construction={method:saved.method,engine:'Mathavan-style cushion v2',globalOptimality:false};
+      if(spec.id==='break-off')spec.legalTargetIds=spec.balls.filter(b=>b.color==='red').map(b=>b.id);
+    }
+    else if(spec.preCushions){Object.assign(spec,constructEscape(spec));}
     else if(spec.spot)Object.assign(spec,constructHide(spec));
     else if(spec.id==='break-off') {
       const saved=breakoffFixture();
@@ -247,6 +383,10 @@ function generate() {
     for(const key of ['seeds','preCushions','colour','cut','speed','rotation','spot','constructionCueZone','polishedShot'])delete spec[key];
     spec.legalTargetIds=spec.legalTargetIds||[spec.targetId];
     const result=simulate(spec.balls,spec.referenceShot);
+    if(autoRadius){const end=result.balls.find(b=>b.id==='cue');spec.objective.cueZone={x:+end.x.toFixed(3),y:+end.y.toFixed(3),radius:autoRadius};}
+    // Interface metadata: the ball to label on the table, and short tags for the library cards.
+    const focus=spec.focus||{};spec.focus={id:focus.role==='colour'?focus.id:spec.targetId,label:focus.label||'Hit first',role:focus.role||'target'};
+    spec.tags=[...(Math.abs(spec.referenceShot.side)>.12||Math.abs(spec.referenceShot.top)>.25?['spin']:[]),...(spec.acceptance?.preContactCushions?[spec.acceptance.preContactCushions+(spec.acceptance.preContactCushions===1?' cushion':' cushions')]:[])];
     spec.proof=verify(spec,result);
     output.push(spec);
     const {frames,...record}=result;
@@ -261,4 +401,4 @@ function generate() {
   return {puzzles:output,references};
 }
 if(require.main===module)generate();
-module.exports={specs,generate,verify,makeProof,inZone,validLayout};
+module.exports={specs,generate,verify,makeProof,inZone,validLayout,constructEscape,constructHide,simulate,ball,shot,beforeContact,firstCueContact,noPots,clearOfTracks,minPocket};

@@ -8,11 +8,11 @@ Organise the experience into focused screens or clearly separated views for puzz
 
 Expand the puzzle library with meaningful variety and a clear progression in difficulty. Include short visual previews and specific learning objectives. New reference shots must be generated and verified by the shared physics engine. Improve the interaction with the engine where it affects usability—drawing, aiming, editing cushion points, controls, response time, simulation progress, scoring explanations, and replay. Any algorithm changes must preserve physical consistency, deterministic results, and fair recognition of alternative effective safety routes. A failed bounded search must not be presented as proof that a route is impossible.
 
-Use natural English throughout our communication and in the final website. The client does not read Chinese. All navigation, buttons, tooltips, lessons, coaching feedback, validation messages, accessibility labels, onboarding, and delivery documentation must be in English. Do not leave Chinese text in the delivered interface. The literal filesystem path below is an operational identifier and must remain unchanged.
+Use natural English throughout our communication and in the final website. The client does not read Chinese. All navigation, buttons, tooltips, lessons, coaching feedback, validation messages, accessibility labels, onboarding, and delivery documentation must be in English. Do not leave Chinese text in the delivered interface.
 
 Save all designs, assets, implementation changes, documentation, and final builds inside:
 
-`C:\Users\ZhuanZ\Desktop\WFLA排课系统\Snooker Safety Coach`
+`C:\Users\ZhuanZ\Desktop\WFLA Course Scheduling System\Snooker Safety Coach`
 
 Work within the existing project structure and preserve the offline, front-end-only architecture. Deliver the working source, a refreshed standalone HTML build, a concise English change log, and validation results. Document the changes you actually completed separately from future recommendations. Run the existing physics and scoring tests and check the main user journeys on desktop and mobile layouts.
 

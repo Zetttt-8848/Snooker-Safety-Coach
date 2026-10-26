@@ -18,8 +18,8 @@ const replay = puzzle => {
   return replays.get(puzzle.id);
 };
 
-test('question set contains 12 distinct, sourced English lessons covering required tactics', () => {
-  assert.equal(puzzles.length,12);assert.equal(new Set(puzzles.map(p=>p.id)).size,12);
+test('question set contains distinct, sourced English lessons covering every tactic', () => {
+  assert.ok(puzzles.length>=23);assert.equal(new Set(puzzles.map(p=>p.id)).size,puzzles.length);
   for(const p of puzzles){
     for(const field of ['title','task','goal','explanation','source','hint'])assert.ok(typeof p[field]==='string'&&p[field].length>3,p.id+' missing '+field);
     assert.ok(p.source.includes('Paper'));assert.ok(p.objective.cueZone);
@@ -30,6 +30,22 @@ test('question set contains 12 distinct, sourced English lessons covering requir
   }
   for(const id of ['rail-touch','thin-separation','hide-blue','hide-brown','hide-yellow','break-off','send-red-safe'])assert.ok(puzzles.some(p=>p.id===id));
   for(const count of [1,2,3])assert.ok(puzzles.some(p=>p.acceptance.preContactCushions===count));
+});
+
+test('the course climbs in five levels, each with several puzzles and a clear tactic, brief and learning objective', () => {
+  const levels=new Map();let previous=0;
+  for(const p of puzzles){
+    assert.ok(Number.isInteger(p.level)&&p.level>=1&&p.level<=5,p.id+' level');
+    assert.ok(p.level>=previous,p.id+' breaks the difficulty order');previous=p.level;
+    levels.set(p.level,(levels.get(p.level)||0)+1);
+    assert.ok(['control','hide','escape','object','break'].includes(p.tactic),p.id+' tactic');
+    for(const field of ['brief','learn'])assert.ok(p[field].length>10&&p[field].length<=90,p.id+' '+field+' should be a short sentence');
+    assert.ok(p.balls.some(b=>b.id===p.focus.id),p.id+' focus ball must be on the table');assert.ok(p.focus.label);
+    assert.equal(p.difficulty,['Beginner','Foundation','Intermediate','Advanced','Challenge'][p.level-1]);
+  }
+  assert.equal(levels.size,5);for(const [level,count] of levels)assert.ok(count>=3,'level '+level+' has only '+count);
+  for(const tactic of ['control','hide','escape','object','break'])assert.ok(puzzles.some(p=>p.tactic===tactic),tactic);
+  assert.ok(puzzles.some(p=>p.tags.includes('spin')),'at least one lesson teaches spin');
 });
 
 for(const puzzle of puzzles) {
@@ -53,7 +69,7 @@ for(const puzzle of puzzles) {
   });
 }
 
-test('all 12 physically replayed reference routes earn Excellent and exactly 100 in the actual scoring engine', () => {
+test('every physically replayed reference route earns Excellent and exactly 100 in the actual scoring engine', () => {
   for(const puzzle of puzzles){
     const result=replay(puzzle),report=S.evaluate({puzzle,studentPath:result.path,reference:result,realized:result});
     assert.equal(report.grade,'Excellent',puzzle.id);
@@ -113,4 +129,40 @@ test('offline classic-script question bundle is exactly the independently editab
   const context={};vm.createContext(context);
   vm.runInContext(fs.readFileSync(path.join(__dirname,'../data/puzzles.js'),'utf8'),context);
   assert.deepEqual(json(context.Coach.puzzles),puzzles);
+});
+
+test('hide lessons for green, pink and black keep each colour on its official spot and block the red', () => {
+  const spots={green:{x:.737,y:.597},pink:{x:2.67675,y:.889},black:{x:3.245,y:.889}};
+  for(const [colour,spot] of Object.entries(spots)){
+    const p=puzzles.find(q=>q.id==='hide-'+colour),r=replay(p),before=p.balls.find(b=>b.id===colour),after=r.balls.find(b=>b.id===colour);
+    near(before.x,spot.x);near(before.y,spot.y);near(after.x,before.x);near(after.y,before.y);
+    const c=r.balls.find(b=>b.id==='cue'),t=r.balls.find(b=>b.id===p.targetId),view=G.occlusion(c,t,[after]);
+    assert.ok(view.blockedFraction>=.95,colour);
+  }
+});
+
+test('new escape lessons start fully screened and take the advertised cushions in order before contact', () => {
+  const expected={'one-rail-left':['left'],'one-rail-right':['right'],'two-rail-bottom':['bottom','right'],'two-rail-spin':['right','bottom'],'three-rail-sweep':['top','left','bottom'],'return-to-baulk':['right']};
+  for(const [id,order] of Object.entries(expected)){
+    const p=puzzles.find(q=>q.id===id),r=replay(p);
+    const first=r.events.find(e=>e.type==='ball'&&e.ids.includes('cue'));
+    assert.equal(first.ids.find(x=>x!=='cue'),p.targetId,id);
+    assert.deepEqual(r.events.filter(e=>e.type==='cushion'&&e.id==='cue'&&e.t<first.t-1e-9).map(e=>e.wall),order,id);
+    if(id!=='return-to-baulk'){
+      const cue=p.balls.find(b=>b.id==='cue'),target=p.balls.find(b=>b.id===p.targetId),blockers=p.balls.filter(b=>b.id!=='cue'&&!p.legalTargetIds.includes(b.id));
+      near(G.occlusion(cue,target,blockers).blockedFraction,1);
+    }
+  }
+});
+
+test('the object-ball, screw-back and baulk-return lessons achieve their stated outcomes', () => {
+  const pk=b=>Math.min(...P.TABLE.pockets.map(k=>G.distance(b,k)));
+  const clear=puzzles.find(p=>p.id==='pull-red-clear'),rc=replay(clear),redStart=clear.balls.find(b=>b.id==='red1'),redEnd=rc.balls.find(b=>b.id==='red1');
+  assert.ok(pk(redStart)<.3);assert.ok(pk(redEnd)>=.65);
+  const screw=puzzles.find(p=>p.id==='screw-back'),rs=replay(screw);
+  assert.equal(rs.events.some(e=>e.type==='cushion'&&e.id==='cue'),false);
+  assert.ok(G.distance(rs.balls.find(b=>b.id==='cue'),rs.balls.find(b=>b.id==='red1'))>1);
+  const home=puzzles.find(p=>p.id==='return-to-baulk'),rh=replay(home);
+  assert.ok(rh.balls.find(b=>b.id==='cue').x<=P.TABLE.baulk);
+  assert.ok(G.distance(rh.balls.find(b=>b.id==='red1'),home.balls.find(b=>b.id==='red1'))<.2);
 });

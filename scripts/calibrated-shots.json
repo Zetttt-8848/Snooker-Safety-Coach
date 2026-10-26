@@ -1,0 +1,278 @@
+{
+  "pull-red-clear": {
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 2.45,
+        "y": 0.25
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 1.62,
+        "y": 0.2
+      }
+    ],
+    "referenceShot": {
+      "angle": 186.19040063023567,
+      "cueSpeed": 0.9523344257846476,
+      "top": 0.18458029064349832,
+      "side": -0.04452831884846091
+    },
+    "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
+    "evaluations": 1
+  },
+  "one-rail-short": {
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 2.7,
+        "y": 1.2
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 2.9929753789077402,
+        "y": 0.36823652324564865
+      },
+      {
+        "id": "pink",
+        "color": "pink",
+        "x": 2.831838920508483,
+        "y": 0.8257064354605419
+      }
+    ],
+    "referenceShot": {
+      "angle": -22.35797199966273,
+      "cueSpeed": 1.4500990280782025,
+      "top": -0.20780425889114712,
+      "side": -0.2058455900258357
+    },
+    "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
+    "evaluations": 1
+  },
+  "screw-back": {
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 1.3,
+        "y": 0.889
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 1.95,
+        "y": 0.889
+      }
+    ],
+    "referenceShot": {
+      "angle": -0.0598364924454457,
+      "cueSpeed": 3.251419710836524,
+      "top": -0.32035426150504964,
+      "side": -0.12112283056054839
+    },
+    "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
+    "evaluations": 1427
+  },
+  "return-to-baulk": {
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 1.2,
+        "y": 1.3
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 2.5,
+        "y": 0.45
+      }
+    ],
+    "referenceShot": {
+      "angle": -13.958620753294486,
+      "cueSpeed": 2.470577536948578,
+      "top": -0.1447126629462573,
+      "side": -0.07114248911340754
+    },
+    "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
+    "evaluations": 274
+  },
+  "three-rail-escape": {
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 1,
+        "y": 0.8
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 2.4805805353850525,
+        "y": 1.466730374228537
+      },
+      {
+        "id": "pink",
+        "color": "pink",
+        "x": 1.6662612409232738,
+        "y": 1.1000286684028415
+      }
+    ],
+    "referenceShot": {
+      "angle": -29.25601452410088,
+      "cueSpeed": 3.939448898095794,
+      "top": -0.32377176384352485,
+      "side": -0.17586184253710208
+    },
+    "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
+    "evaluations": 2215
+  },
+  "break-off": {
+    "balls": [
+      {
+        "id": "cue",
+        "color": "white",
+        "x": 0.6900000000000001,
+        "y": 1.13
+      },
+      {
+        "id": "yellow",
+        "color": "yellow",
+        "x": 0.737,
+        "y": 1.181
+      },
+      {
+        "id": "green",
+        "color": "green",
+        "x": 0.737,
+        "y": 0.597
+      },
+      {
+        "id": "brown",
+        "color": "brown",
+        "x": 0.737,
+        "y": 0.889
+      },
+      {
+        "id": "blue",
+        "color": "blue",
+        "x": 1.7845,
+        "y": 0.889
+      },
+      {
+        "id": "pink",
+        "color": "pink",
+        "x": 2.67675,
+        "y": 0.889
+      },
+      {
+        "id": "black",
+        "color": "black",
+        "x": 3.245,
+        "y": 0.889
+      },
+      {
+        "id": "red1",
+        "color": "red",
+        "x": 2.733,
+        "y": 0.889
+      },
+      {
+        "id": "red2",
+        "color": "red",
+        "x": 2.7789,
+        "y": 0.8625
+      },
+      {
+        "id": "red3",
+        "color": "red",
+        "x": 2.7789,
+        "y": 0.9155
+      },
+      {
+        "id": "red4",
+        "color": "red",
+        "x": 2.8248,
+        "y": 0.836
+      },
+      {
+        "id": "red5",
+        "color": "red",
+        "x": 2.8248,
+        "y": 0.889
+      },
+      {
+        "id": "red6",
+        "color": "red",
+        "x": 2.8248,
+        "y": 0.9420000000000001
+      },
+      {
+        "id": "red7",
+        "color": "red",
+        "x": 2.8707000000000003,
+        "y": 0.8095
+      },
+      {
+        "id": "red8",
+        "color": "red",
+        "x": 2.8707000000000003,
+        "y": 0.8625
+      },
+      {
+        "id": "red9",
+        "color": "red",
+        "x": 2.8707000000000003,
+        "y": 0.9155
+      },
+      {
+        "id": "red10",
+        "color": "red",
+        "x": 2.8707000000000003,
+        "y": 0.9685
+      },
+      {
+        "id": "red11",
+        "color": "red",
+        "x": 2.9166000000000003,
+        "y": 0.783
+      },
+      {
+        "id": "red12",
+        "color": "red",
+        "x": 2.9166000000000003,
+        "y": 0.836
+      },
+      {
+        "id": "red13",
+        "color": "red",
+        "x": 2.9166000000000003,
+        "y": 0.889
+      },
+      {
+        "id": "red14",
+        "color": "red",
+        "x": 2.9166000000000003,
+        "y": 0.9420000000000001
+      },
+      {
+        "id": "red15",
+        "color": "red",
+        "x": 2.9166000000000003,
+        "y": 0.995
+      }
+    ],
+    "referenceShot": {
+      "angle": -2.198216697061754,
+      "cueSpeed": 1.9460105485032853,
+      "top": -0.06552257265669771,
+      "side": -0.18748106966093667
+    },
+    "method": "bounded deterministic search; original zones and acceptance preserved; forward verified",
+    "evaluations": 604
+  }
+}

@@ -198,20 +198,60 @@
     return out;
   }
 
+  // The single most useful correction for this attempt, phrased as an instruction.
+  function coachAction(result) {
+    const { diagnostics: d, reference } = result, keyError = d.cushionErrors.find(e => e.differentWall || e.distance > .01);
+    const dx = d.scoredEndpoint.x - reference.end.x, dy = d.scoredEndpoint.y - reference.end.y;
+    const horizontal = Math.abs(dx) > .005 ? (dx > 0 ? 'left' : 'right') : '', vertical = Math.abs(dy) > .005 ? (dy > 0 ? 'up' : 'down') : '';
+    const direction = [horizontal,vertical].filter(Boolean).join(' and ');
+    if (!d.legality.valid) return d.legality.reason;
+    if (keyError?.differentWall) return `First, check turn ${keyError.index + 1}: the ball must reach a cushion before rebounding.`;
+    if (keyError) {
+      const opposite = { left: 'right', right: 'left', up: 'down', down: 'up' }[keyError.direction];
+      return `First, move cushion contact ${keyError.index + 1} about ${(keyError.distance * 100).toFixed(1)} cm ${opposite}, then try again.`;
+    }
+    if (d.endpointDistance > .01) return `First, move your predicted finish about ${(d.endpointDistance * 100).toFixed(1)} cm ${direction} and check the final segment.`;
+    return 'First, check where both balls finish after legal contact, then refine the red-ball safety zone.';
+  }
+
+  const COMPONENT_LABELS = { occlusion: 'hiding the red', separation: 'distance from the red', cueZone: 'finishing in the target area',
+    cueRail: 'staying close to the cushion', targetSafety: 'leaving the red safe' };
+  // One plain sentence per score dimension, for the results screen.
+  function explainScores(result) {
+    const { diagnostics: d, outcome, student, reference } = result;
+    const cm = v => (v * 100).toFixed(v < .1 ? 1 : 0);
+    const parts = Object.entries(outcome.components || {}).filter(([, c]) => c.weight > 0).sort((a, b) => a[1].value - b[1].value);
+    let O;
+    if (!d.legality.valid) O = d.legality.reason.replace(/^First, /, '').replace(/^./, c => c.toUpperCase());
+    else if (!parts.length) O = 'No safety measures were available for this layout.';
+    else if (parts[0][1].value >= .97) O = 'Every safety measure matches or beats the reference.';
+    else O = `Weakest part: ${COMPONENT_LABELS[parts[0][0]]} (${Math.round(parts[0][1].value * 100)}% of the reference).`;
+    const E = d.endpointDistance <= .0105 ? 'Your leave is within about 1 cm of the reference leave.'
+      : `Your cue ball finished ${cm(d.endpointDistance)} cm from the reference finish.`;
+    const P = d.pathDistance <= .02 ? 'Your line follows the reference line closely.'
+      : `At its widest, your line is ${cm(d.pathDistance)} cm from the reference line.`;
+    const a = student.cushions.length, b = reference.cushions.length;
+    const C = a === b && !d.cushionErrors.some(e => e.differentWall || e.distance > .01)
+      ? (a ? `All ${a} cushion contact${a > 1 ? 's' : ''} match the reference.` : 'Neither route touches a cushion.')
+      : `You planned ${a} cushion contact${a === 1 ? '' : 's'}; the reference has ${b}.`;
+    return { O, E, P, C };
+  }
+
+  // A one-line verdict. A grade never hides the next thing to try.
+  function headline(result) {
+    const { grade, diagnostics: d, outcome } = result;
+    if (!d.legality.valid) return coachAction(result);
+    if (result.alternative) return 'A different route that works: your leave is as safe as the reference.';
+    if (grade === 'Excellent') return 'Precise route, precise leave. Try the next puzzle.';
+    if (grade === 'Promising') return outcome.objectivelyBetter ? 'Your leave beats the reference. Keep that idea.' : coachAction(result);
+    return coachAction(result);
+  }
+
   function coachFeedback(result) {
     const { grade, diagnostics: d, outcome, student, reference } = result;
     const messages = [], keyError = d.cushionErrors.find(e => e.differentWall || e.distance > .01);
     const dx = d.scoredEndpoint.x - reference.end.x, dy = d.scoredEndpoint.y - reference.end.y;
-    const horizontal = Math.abs(dx) > .005 ? (dx > 0 ? 'left' : 'right') : '', vertical = Math.abs(dy) > .005 ? (dy > 0 ? 'up' : 'down') : '';
-    const direction = [horizontal,vertical].filter(Boolean).join(' and ');
-    let action;
-    if (!d.legality.valid) action = d.legality.reason;
-    else if (keyError?.differentWall) action = `First, check turn ${keyError.index + 1}: the ball must reach a cushion before rebounding.`;
-    else if (keyError) {
-      const opposite = { left: 'right', right: 'left', up: 'down', down: 'up' }[keyError.direction];
-      action = `First, move cushion contact ${keyError.index + 1} about ${(keyError.distance * 100).toFixed(1)} cm ${opposite}, then try again.`;
-    } else if (d.endpointDistance > .01) action = `First, move your predicted finish about ${(d.endpointDistance * 100).toFixed(1)} cm ${direction} and check the final segment.`;
-    else action = 'First, check where both balls finish after legal contact, then refine the red-ball safety zone.';
+    const action = coachAction(result);
     if (grade === 'Developing') messages.push(action);
     const count = student.cushions.length, sequence = student.cushions.map(c => WALL_NAMES[c.wall]).join(' → ');
     messages.push(`You chose ${count ? `a ${count}-cushion route (${sequence})` : 'a direct route without a cushion'}, finishing at your intended cue-ball leave.`);
@@ -267,7 +307,14 @@
       diagnostics: { endpointDistance, startDistance, pathDistance, normalizedPathDistance: pathDistance / DIAGONAL,
         cushionErrors: cushionErrors(student.cushions, ref.cushions), scoredEndpoint: scoredEndpoint || student.end,
         legality, inferredShot: realized?.shot || feasibility?.shot || null, endpointToleranceFor90: R * Math.sqrt(-Math.log(.9)) } };
+    // A verified, legal shot whose safety is at least as good as the reference but whose route
+    // differs is an alternative that works, not a near miss.
+    const differs = !sameSignature(student.cushions, ref.cushions) || safe(pathScore) < .85 || safe(E) < .9;
+    result.verification = realized ? (feasibility?.status === 'approximate' ? 'approximate' : 'verified') : 'estimate';
+    result.alternative = !!realized && legality.valid && outcome.equivalent && safe(O) >= .9 && differs;
     result.feedback = coachFeedback(result);
+    result.explain = explainScores(result);
+    result.headline = headline(result);
     return result;
   }
 
@@ -287,8 +334,13 @@
     if (normalized.points.length < 2 || normalized.length < .015) return { status: 'invalid', evaluations: 0, message: 'The route is too short. Draw from the cue ball to the intended finish.' };
     if (normalized.points.some(p => p.x < R - .005 || p.x > P.TABLE.width - R + .005 || p.y < R - .005 || p.y > P.TABLE.height - R + .005))
       return { status: 'invalid', evaluations: 0, message: 'The route crosses the ball-centre boundary. A ball can leave through a pocket, but cannot rebound outside the table.' };
-    const budget = Math.max(0, Math.min(600, Math.floor(maxEvaluations))), drawnSparse = sparse(normalized.points), cache = new Set(), candidates = [];
-    let evaluations = 0, best = null, success = null;
+    let budget = Math.max(0, Math.min(600, Math.floor(maxEvaluations)));
+    const drawnSparse = sparse(normalized.points), cache = new Set(), candidates = [];
+    // Loose acceptance for the "closest physical shot" tier: same cushion order, legal contact, and the
+    // simulated line stays within a few centimetres of the drawing. Used only when no strict match exists.
+    const APPROXIMATE = { endpoint: .06, path: .06 };
+    const clock = typeof performance !== 'undefined' ? () => performance.now() : () => Date.now();
+    let evaluations = 0, best = null, success = null, nearest = null, lastYield = clock();
     function measure(result, shot) {
       const simulated = G.normalizePath(result.path, { events: result.events }), cue = cueBall(result.balls);
       const endError = cue ? G.distance(cue, normalized.end) : 10;
@@ -311,19 +363,32 @@
         const maximumError = discreteFrechet(normalized.samples, candidate.simulated.samples);
         if (strictError <= .025 && maximumError <= .08) success = { ...candidate, pathError: strictError, maximumError };
       }
-      if (evaluations % 8 === 0) { onProgress?.({ evaluations, maxEvaluations: budget, bestError: best.pathError, phase: 'search' }); await new Promise(resolve => setTimeout(resolve, 0)); }
+      if (candidate.legal.valid && candidate.signatureMatches && candidate.endError <= APPROXIMATE.endpoint &&
+        candidate.pathError <= APPROXIMATE.path && (!nearest || candidate.value < nearest.value)) nearest = candidate;
+      // A near-exact candidate after a fair search is good enough: stop instead of polishing for another second.
+      if (nearest && nearest.endError <= .02 && nearest.pathError <= .035 && evaluations >= 40 && !success) budget = evaluations;
+      // Yield to the page by elapsed time, so heavy layouts such as the full rack never freeze the interface.
+      if (clock() - lastYield > 10 || evaluations % 4 === 0) {
+        onProgress?.({ evaluations, maxEvaluations: budget, bestError: best.pathError, phase: 'search' });
+        if (clock() - lastYield > 10) { await new Promise(resolve => setTimeout(resolve, 0)); lastYield = clock(); }
+      }
       return candidate;
     }
     // A forward-generated reference is one warm start, never the whole search.
     if (reference?.shot || puzzle.referenceShot) await trial(reference?.shot || puzzle.referenceShot);
     const directionPoint = G.resamplePath(normalized.points, Math.min(.12, normalized.length))[1] || normalized.end;
-    const angle = Math.atan2(directionPoint.y - normalized.start.y, directionPoint.x - normalized.start.x) * 180 / Math.PI;
+    const angleTo = p => Math.atan2(p.y - normalized.start.y, p.x - normalized.start.x) * 180 / Math.PI;
+    const angle = angleTo(directionPoint);
+    // The first vertex of a simplified route is usually the first cushion contact: aiming straight at
+    // it is more accurate than following the first 12 cm of a hand-drawn curve.
+    const vertexAngle = normalized.points.length > 2 && G.distance(normalized.points[1], normalized.start) > .05 ? angleTo(normalized.points[1]) : angle;
     const estimate = Math.sqrt(2 * params.muRoll * params.gravity * normalized.length) * 1.4 / 1.36 * 1.13 ** normalized.cushions.length;
     const speeds = [...new Set([estimate * .6, estimate * .85, estimate, estimate * 1.2, estimate * 1.6, .6, 1.2, 2.2, 3.6].map(v => clamp(v, .06, 6).toFixed(3)))].map(Number);
     const spins = [{ top: 0, side: 0 }, { top: .3, side: 0 }, { top: -.3, side: 0 }, { top: 0, side: .3 }, { top: 0, side: -.3 }];
     for (const spin of spins) {
       if (success || signal?.aborted) break;
       for (const speed of speeds) { await trial({ angle, cueSpeed: speed, ...spin }); if (success || evaluations >= budget) break; }
+      if (Math.abs(vertexAngle - angle) > .15) for (const speed of speeds) { await trial({ angle: vertexAngle, cueSpeed: speed, ...spin }); if (success || evaluations >= budget) break; }
     }
     for (const offset of [-3, 3, -1, 1]) {
       if (success || evaluations >= budget || signal?.aborted) break;
@@ -353,15 +418,21 @@
         errors: { endpoint: success.endError, path: success.pathError, maximum: success.maximumError, cushionSequenceMatches: true },
         message: `A matching shot was found: cue speed ${success.shot.cueSpeed.toFixed(2)} m/s, angle ${success.shot.angle.toFixed(2)}°. The endpoint score uses the simulated finish.` };
     }
+    if (nearest && !signal?.aborted) {
+      const result = P.simulate(puzzle.balls, nearest.shot, params);
+      return { status: 'approximate', evaluations, shot: nearest.shot, result,
+        errors: { endpoint: nearest.endError, path: nearest.pathError, cushionSequenceMatches: true },
+        message: `Your line was not exact, so the closest legal shot was played instead: cue speed ${nearest.shot.cueSpeed.toFixed(2)} m/s, angle ${nearest.shot.angle.toFixed(2)}°. Its finish is ${(nearest.endError * 100).toFixed(1)} cm from where you drew it, and the score uses what really happened.` };
+    }
     const nearLimit = best && (Math.hypot(best.shot.top, best.shot.side) > .47 || best.shot.cueSpeed > 5.8);
-    return { status: 'unresolved', evaluations, shot: best?.shot || null,
+    return { status: 'unresolved', evaluations, shot: best?.shot || null, closest: best ? { path: best.result.path, endpoint: best.endError } : null,
       errors: best ? { endpoint: best.endError, path: best.pathError, cushionSequenceMatches: best.signatureMatches } : null,
       message: signal?.aborted ? 'Search cancelled. Physical feasibility has not been established.' :
         `No legal shot matched both route and endpoint after ${evaluations} bounded simulations. ${nearLimit ? 'The closest candidate is near the 0.5R spin or 6 m/s speed limit. Try a gentler cushion angle. ' : 'Try moving the first cushion point or removing turns without a ball or cushion contact. '}This is not proof of impossibility; the scores below are geometric estimates only.` };
   }
 
   const api = { rank, evaluate, invert, discreteFrechet, dtwMean, cushionScore, outcomeMetrics, outcomeScore,
-    checkResult, firstPathContact, coachFeedback, WALL_NAMES };
+    checkResult, firstPathContact, coachFeedback, coachAction, explainScores, headline, WALL_NAMES };
   Coach.scoring = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(globalThis);

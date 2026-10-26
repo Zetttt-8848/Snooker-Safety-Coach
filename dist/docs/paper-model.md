@@ -13,6 +13,7 @@ The complete supplied 28-page paper, *Certifying Safe-Return Suppression in Snoo
 - Page 15, Eq. (34): first-entry distance along unit direction d is `ell_b=(b−p)·d−sqrt((2R)²−(|b−p|²−((b−p)·d)²))`, subject to discriminant and positive-root conditions. The nearest positive contact decides which ball is hit first.
 - Eqs. (35)–(36): ideal equal-mass normal velocity exchange and constant-deceleration endpoint mapping. The application extends these with spin and inelastic collisions.
 - Eq. (37): `E_geo(c,t)=1{[c,t] clear of inflated 2R blockers}*exp(−|c−t|/0.75m)`. This dimensionless exposure proxy is not expected score or win probability.
+- Eq. (38): the reduced benchmark uses `S_kappa=V_c ∩ {E_geo≤kappa}`, with `kappa=.30`. The region display uses the exposure condition; it does not assert the trajectory-validity event `V_c` for every displayed point.
 - Pages 20–22: reliable contact and residual opportunity must both be assessed. Real-table behaviour, execution uncertainty and continuation scoring require independent calibration.
 - Pages 23–28: rule responsibilities, reproducible algorithms, independent testing, real-table data fields and references. This game checks explicit events such as first contact and potting, not full foul-and-a-miss, free-ball, referee decisions or match progression.
 
@@ -39,3 +40,11 @@ The course extends to 0–3 cushions, thin safety, cushion control, hiding behin
 Compare outcome before process. Different routes that produce equivalent or better verified safety retain encouragement. Unresolved drawings receive explicitly provisional geometry scores and do not inherit the reference object-ball movement. A reference is a reproducible teaching example, not a unique or globally optimal solution.
 
 Sources distinguish paper page references from external coaching material. Presets represent published ranges rather than measured professional competition conditions.
+
+## Post-shot safe-leave map
+
+`src/safe-leaves.js` holds the selected replay's **final** object balls fixed. It samples candidate cue-ball centres on a 20 mm grid, excludes cushions, pockets and overlapping-ball cells, computes Eq. (37) for each remaining legal target, and colours cells for which the largest exposure is at most .30. Taking the worst target extends the paper's single-target example to a red-ball layout. Other legal targets do not count as non-on blockers.
+
+Mint means low geometric exposure. Purple means the approved angular extension also blocks at least 95% of **every** legal target's collision directions. A colour behind a target does not block it. The actual cue endpoint is evaluated separately at its exact position; the drawn mask is only a sample grid. Changing replay source recomputes the map from that source's final balls. An unresolved drawing displays only the explicitly labelled reference replay's map. A time-limited unfinished simulation produces no final-leave map.
+
+The map appears at the end of Results, or through **Final leave** / **Safe leaves**. On the Free Table, **Review safe leaves** analyses the completed shot against all remaining reds. It is never an answer overlay during puzzle drawing. These are candidate geometric leaves, not a reachable set, a reliable-return probability, a certified suppression score, or a complete measure of potting risk.

@@ -1,32 +1,61 @@
-# Verification record
+# Verification record · 1.3.0
+
+Audit date: 2026-10-26. The designer's seven-screen interface and 23-lesson course are preserved.
+
+## Current automated checks
+
+The incoming redesign passed 153 tests before changes. The final suite contains 167 passing tests, using Node's built-in runner without installed dependencies.
+
+- Sliding-to-rolling, stopping distance, swept contacts, momentum, deterministic replay and passive dense-pack behaviour.
+- Revised cushion: frictionless restitution, artificial-reversal regression, bounded grazing response, opposite-spin symmetry, topspin changes, extreme-parameter energy dissipation, and convergence from 512 to 4096 impulse subdivisions.
+- All 23 references regenerated and independently replayed: legal first target, no pots, stopped balls, exact cushion order, intended zones, hiding and separation. Every reference earns 100/Excellent.
+- The four required grading boundaries and equivalent alternative routes; cancelled/unresolved searches never claim impossibility.
+- Safe-leave geometry: paper distance law and .30 threshold, blocker depth, all legal reds, overlap/pocket exclusions, potted targets, final object positions and immutable input.
+- UI regressions: diagonal tip limit, immediate angle entry, potted-white restoration, old-settings migration, review source switching, map hidden during replay, undo invalidation, and labelled reference-only maps for unresolved drawings.
+- Existing geometry, authoring, storage, replay, course and English-interface tests remain.
+
+Commands: `node scripts/generate-puzzles.js`, `npm test`, `npm run build`.
+
+## Current browser checks
+
+The standalone HTML is tested over the local static preview server in the in-app browser, at desktop and phone sizes. Checks cover route assessment, final-leave overlays, replay source switching, Free Table spin/angle controls, a potted white restored through Arrange balls, post-shot map review, and physics settings. Screenshots: `docs/screens/safe-leaves-desktop.png` and `docs/screens/safe-leaves-mobile.png`.
+
+## Current limits
+
+- The browser's file:// policy prevents an automated direct-disk run here. The release is checked for inline scripts/styles and no external runtime dependencies; the same standalone HTML is tested over HTTP. No alternate browser is used to circumvent the policy.
+- The physics is literature-informed, without independent real-table calibration. Cushion deformation, swerve, jumps, nap, detailed jaws and ball-to-ball tangential throw remain omitted.
+- The map is sampled geometry with final object balls fixed. It is not a reachable set, a return-probability certificate, protection against every pot, or the paper's complete defensive value.
+- Real touch hardware, Safari, Firefox, screen readers and audio fidelity were not independently tested in this audit.
+
+# Previous designer verification record · 1.2.0
+
+The following is preserved from the incoming delivery. Its screenshots and file://, contrast and accessibility statements are historical, not a substitute for the current checks above.
 
 Date: 2026-10-25. The application is static and uses no backend.
 
 ## Automated checks
 
-`npm test` uses the Node built-in runner with no installed dependencies. The current English source passes 97 tests covering:
+`npm test` uses the Node built-in runner with no installed dependencies. 153 tests pass:
 
-- Sliding-to-rolling transition, stopping distances, normal/side-spin cushion response, momentum and energy, pocket capture, swept collisions, dense packs and determinism.
-- Route smoothing, retained endpoints, cushion signatures, arc-length sampling, angle wraparound, occlusion union and depth ordering.
-- All four required grading boundaries, alternative routes, objectively better outcomes, illegal first contact/potting, actual simulated endpoints and unresolved inverse search.
-- All 12 reference trajectories independently reproduced, with legal contact, no pots, rest, prescribed pre-contact cushions and target zones. Each reference scores 100/Excellent.
-- Editor validation, physical limits, default-parameter reruns, invalid task rejection and complete recording.
-- Edit invalidation, redraw, frozen controls during assessment, mode switching, replay/undo state and legacy progress migration.
-- English-only built-in interface and lesson content, English HTML language metadata and correspondence between generated lessons and course definitions.
+- **Physics (19):** sliding-to-rolling, stopping distance, cushion response, momentum and energy, pocket capture, swept collisions, dense packs, determinism.
+- **Geometry (19):** smoothing, simplification, cushion signatures (including a bounce near a corner counting once), occlusion, and the new aim preview (cut angle, object-ball line, stun deflection, cushion mirror).
+- **Scoring (30):** grading boundaries, alternative routes, legality protections, bounded route search, the closest-legal-shot tier, cancellation, progress reporting, and the plain-language explanations.
+- **Route editor (16) and replay (9):** freehand strokes, snapping rules, handle and segment hit-testing, insert and remove, undo and redo, keyboard nudges, live cushion and first-contact summary; interpolation, trails, contact markers, clock, seeking and speed.
+- **Course (34):** 23 lessons independently re-simulated; each reference earns 100/Excellent; levels never decrease in difficulty and each has at least three puzzles; every tactic and spin are present; hiding, escape, object-ball, screw-back and baulk-return outcomes are checked.
+- **Store, course helpers and puzzle builder (10):** progress migration from the earlier-language release, best scores and grades, clamped settings, blocked and corrupt storage, presets inside range, course ordering and recommendations, Free Table capture to puzzle.
+- **Editor (5) and English-only (2):** authoring validation and rejection of impossible puzzles; no non-English characters in the page, data or source, and generated lesson text matches its definitions.
+- **App smoke test (9):** the real scripts, in `index.html` order, against a stand-in browser: all screens register, the library lists all lessons by level, a puzzle opens empty, an unknown puzzle redirects, a drawn route is checked on the real engine and recorded, results without a check redirect, drafts survive navigation, a Free Table shot finishes and is captured, and no shipped file contains non-English characters.
 
 ## Browser checks
 
-The initial version was exercised in Chromium at desktop 1440×1000 and narrow 390×844 viewports. Actual actions covered shots, prediction, presets, drawing, point insertion/dragging, inversion, four-dimensional feedback, reference replay and editor save. The one-cushion route was physically reproduced and received Excellent. Screenshot assets in the current delivery are refreshed for the English build.
-
-The English build was subsequently checked at effective document widths of 1800 px and 469 px under the browser’s existing zoom. The narrow layout had equal document and content widths, with no horizontal page overflow. Actual drawing, cushion-point editing and submission again produced a verified Excellent result with English coaching feedback. Free Table, editor controls and import/export messages were inspected in English. No new browser errors were recorded. The preview image shows the English puzzle view.
-
-The standalone file embeds all nine scripts and its CSS. It requires no external font, image, CDN or application network request. Its JavaScript is syntax-checked and its release archive is checked for complete contents and ZIP integrity.
+- The built `dist/Snooker-Safety-Coach.html` was opened from disk (`file://`) in headless Edge by `scripts/capture-screens.js`, which walked Home, Puzzles, Practice (touch-style drawing, check), Results, Free table (shot), Create and Settings at 1440×900, then Home, Practice, Results and Free table at 390×844. It fails on any console error and reported none.
+- In the in-app browser (served over HTTP): drawing, adding and removing points, keyboard editing, undo, hints, coach notes, the guide, library filters, checking, cancelling mid-search, a verified result, an "estimate" result, the Free Table shot and summary, the Create error message and save, Settings, and phone layouts. An accessibility sweep found every interactive element named, one H1 per screen and no target under 36 px. Colour contrast was computed for every text and background pair; the lowest is 4.8:1.
 
 ## Limits
 
-- The in-app browser blocks file://. Direct double-click opening was not automated and no bypass was attempted. The same embedded standalone file is tested over local HTTP; source scripts are classic scripts, not server-dependent ES modules.
-- A narrow viewport check is not a claim that every mobile browser or physical touch device has been tested.
-- Published parameter ranges are a teaching baseline; professional real-table calibration has not been performed.
-- Bounded inversion is not an impossibility proof. Geometric outcomes are not the paper’s probability certification or a global-optimality certificate.
-- Pocket jaws, swerve, cloth nap and complex dense-pack/cushion dynamics remain simplified. Full referee and match rules are outside scope.
-- Custom user-authored content is user data. Built-in content and interface language are English; imported text is not machine-translated.
+- Real touch hardware and other browsers (Safari, Firefox) were not tested; Chromium-based Edge was. Touch was simulated with pointer events.
+- The in-app browser blocks `file://`; the file build was therefore checked in headless Edge instead.
+- The physics is a teaching baseline, not a calibration of a real table. A route search that finds no match is not proof of impossibility.
+- Screen-reader behaviour was reasoned from the markup (labels, roles, live regions), not tested with a screen reader.
+- Sound is synthesised in the browser and was not listened to in an automated run.
+- Custom puzzle text typed by a user is not translated.
